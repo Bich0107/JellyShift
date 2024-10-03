@@ -1,42 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GravityEffector : MonoBehaviour
 {
-    InputHandler inputHandler;
     [SerializeField] Transform targetTrans;
+    [SerializeField] Transform raycastPos;
+    [SerializeField] LayerMask groundLayer;
     [SerializeField] bool isEnabled;
     [SerializeField] float gravity;
-
-    void Start()
-    {
-        inputHandler = FindObjectOfType<InputHandler>();
-    }
+    [SerializeField] float groundCheckDistance;
+    RaycastHit hit;
 
     void Update()
     {
+        GroundCheck();
+
         if (isEnabled)
         {
             targetTrans.position -= Vector3.up * gravity * Time.deltaTime;
         }
     }
 
-    void OnTriggerStay(Collider other)
+    void GroundCheck()
     {
-        if (other.CompareTag(Tags.Ground))
-        {
-            isEnabled = false;
-            inputHandler.SetActive(true);
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag(Tags.Ground))
+        Physics.Raycast(raycastPos.position, Vector3.down, out hit, groundCheckDistance, groundLayer, QueryTriggerInteraction.Collide);
+        Debug.DrawRay(raycastPos.position, Vector3.down * groundCheckDistance, Color.yellow);
+        if (hit.collider == null)
         {
             isEnabled = true;
-            inputHandler.SetActive(false);
+        }
+        else
+        {
+            isEnabled = false;
         }
     }
 }

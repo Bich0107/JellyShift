@@ -9,6 +9,7 @@ public class CameraFollower : MonoBehaviour
     [Range(0.01f, 1f)]
     [SerializeField] float smoothFactor = 0.5f;
     Vector3 newPos;
+    bool isFollowing = true;
 
     void Start()
     {
@@ -17,7 +18,11 @@ public class CameraFollower : MonoBehaviour
 
     void LateUpdate()
     {
+        if (!isFollowing) return;
+
         newPos = target.position + offset;
-        transform.position = Vector3.Slerp(transform.position, target.position + offset, smoothFactor);
+        transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
     }
+
+    public void Stop() => isFollowing = true;
 }

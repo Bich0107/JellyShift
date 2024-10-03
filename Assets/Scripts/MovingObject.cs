@@ -1,10 +1,19 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class MovingObject : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float currentSpeed;
+    public float CurrentSpeed
+    {
+        set { currentSpeed = value; }
+        get { return currentSpeed; }
+    }
+
     [SerializeField] Vector3 direction;
+
     bool isMoving = false;
 
     void Start()
@@ -14,7 +23,23 @@ public class MovingObject : MonoBehaviour
 
     void Update()
     {
-        if (isMoving) transform.position += speed * direction * Time.deltaTime;
+        if (isMoving)
+        {
+            transform.position += currentSpeed * direction * Time.deltaTime;
+        }
+    }
+
+    public IEnumerator CR_ChangeSpeed(float _endValue, float _time)
+    {
+        float tick = 0f;
+        float startValue = currentSpeed;
+        while (!Mathf.Approximately(currentSpeed, _endValue))
+        {
+            tick += Time.deltaTime;
+            currentSpeed = Mathf.Lerp(startValue, _endValue, tick / _time);
+            yield return null;
+        }
+        currentSpeed = _endValue;
     }
 
     public void Move() => isMoving = true;

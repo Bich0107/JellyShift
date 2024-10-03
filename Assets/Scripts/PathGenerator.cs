@@ -11,53 +11,63 @@ public class PathGenerator : MonoBehaviour
     [SerializeField] GameObject[] cornerPrefabs;
     [SerializeField] GameObject startPos;
     [SerializeField] GameObject goal;
+    [SerializeField] bool turnRoad = true;
+    int leftChance = 50;
 
     void Start()
     {
         pathRotation = Quaternion.identity;
-        GeneratePath();
+        GeneratePaths();
     }
 
-    public void GeneratePath()
+    public void GeneratePaths()
     {
+        // spawn start zone
+        SetPath(startPos);
+
+        // spawn paths forward
+        GameObject pathPrefab = pathPrefabs[0];
         for (int i = 0; i < pathAmount; i++)
         {
-            GameObject g;
-            g = Instantiate(startPos, spawnPos, Quaternion.identity, transform);
-
-            GroundPath pathScript = g.GetComponent<GroundPath>();
-            g.transform.localRotation = pathRotation;
-            spawnPos += pathScript.EndPosOffset;
+            SetPath(pathPrefab);
         }
 
+        if (turnRoad)
+        {
+            int rand = Random.Range(0, 100);
+            if (rand < leftChance)
+            {
+                // select path to the left
+                pathPrefab = cornerPrefabs[0];
+            }
+            else
+            {
+                // select path to the right
+                pathPrefab = cornerPrefabs[1];
+            }
+            for (int i = 0; i < pathAmount; i++)
+            {
+                SetPath(pathPrefab);
+            }
+        }
+
+        // select & spawn path forward
+        pathPrefab = pathPrefabs[0];
         for (int i = 0; i < pathAmount; i++)
         {
-            GameObject g;
-            g = Instantiate(cornerPrefabs[0], spawnPos, Quaternion.identity, transform);
-
-            GroundPath pathScript = g.GetComponent<GroundPath>();
-            g.transform.localRotation = pathRotation;
-            spawnPos += pathScript.EndPosOffset;
+            SetPath(pathPrefab);
         }
 
-        for (int i = 0; i < pathAmount; i++)
-        {
-            GameObject g;
-            g = Instantiate(startPos, spawnPos, Quaternion.identity, transform);
+        // spawn start zone
+        SetPath(goal);
+    }
 
-            GroundPath pathScript = g.GetComponent<GroundPath>();
-            g.transform.localRotation = pathRotation;
-            spawnPos += pathScript.EndPosOffset;
-        }
+    void SetPath(GameObject _path)
+    {
+        GameObject g = Instantiate(_path, spawnPos, Quaternion.identity, transform);
 
-        for (int i = 0; i < pathAmount; i++)
-        {
-            GameObject g;
-            g = Instantiate(cornerPrefabs[1], spawnPos, Quaternion.identity, transform);
-
-            GroundPath pathScript = g.GetComponent<GroundPath>();
-            g.transform.localRotation = pathRotation;
-            spawnPos += pathScript.EndPosOffset;
-        }
+        GroundPath pathScript = g.GetComponent<GroundPath>();
+        //g.transform.localRotation = pathRotation;
+        spawnPos += pathScript.EndPosOffset;
     }
 }
