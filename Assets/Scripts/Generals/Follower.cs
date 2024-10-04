@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollower : MonoBehaviour
+public class Follower : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] Vector3 offset;

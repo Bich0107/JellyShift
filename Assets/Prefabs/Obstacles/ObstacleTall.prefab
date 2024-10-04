@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8331866871579314025}
   m_Layer: 0
   m_Name: ObstacleTall
-  m_TagString: Untagged
+  m_TagString: ObstacleTall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,8 +235,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.0018, y: 0.9}
-  m_SizeDelta: {x: 750.2601, y: 1500.0078}
+  m_AnchoredPosition: {x: 0, y: 0.9}
+  m_SizeDelta: {x: 750, y: 1500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6537864719147700432
 Canvas:

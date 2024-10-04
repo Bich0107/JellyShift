@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - ObstacleLow
+  - ObstacleMiddle
+  - ObstacleTall
+  - GroundForward
+  - GroundLeft
+  - GroundRight
+  - StartZone
+  - Goal
   layers:
   - Default
   - TransparentFX

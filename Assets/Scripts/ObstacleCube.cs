@@ -24,7 +24,7 @@ public class ObstacleCube : MonoBehaviour
     {
         if (isBroken) return;
 
-        ITriggerByObstacle hit = other.GetComponent<ITriggerByObstacle>();
+        ITriggerByObstacle hit = other.GetComponentInParent<ITriggerByObstacle>();
         if (hit != null)
         {
             forceDirection = (transform.position - other.transform.position).normalized;

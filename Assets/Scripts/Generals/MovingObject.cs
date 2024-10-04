@@ -12,8 +12,6 @@ public class MovingObject : MonoBehaviour
         get { return currentSpeed; }
     }
 
-    [SerializeField] Vector3 direction;
-
     bool isMoving = false;
 
     void Start()
@@ -25,7 +23,7 @@ public class MovingObject : MonoBehaviour
     {
         if (isMoving)
         {
-            transform.position += currentSpeed * direction * Time.deltaTime;
+            transform.position += currentSpeed * transform.forward * Time.deltaTime;
         }
     }
 
