@@ -13,6 +13,7 @@ public class MovingObject : MonoBehaviour
     }
 
     bool isMoving = false;
+    Coroutine coroutine;
 
     void Start()
     {
@@ -25,6 +26,14 @@ public class MovingObject : MonoBehaviour
         {
             transform.position += currentSpeed * transform.forward * Time.deltaTime;
         }
+    }
+
+    public IEnumerator ChangeSpeedOvertime(float _endValue, float _time)
+    {
+        if (coroutine != null) StopCoroutine(coroutine);
+
+        coroutine = StartCoroutine(CR_ChangeSpeed(_endValue, _time));
+        yield return coroutine;
     }
 
     public IEnumerator CR_ChangeSpeed(float _endValue, float _time)

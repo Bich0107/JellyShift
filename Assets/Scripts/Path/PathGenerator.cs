@@ -25,6 +25,9 @@ public class PathGenerator : MonoBehaviour
     [SerializeField] GameObject[] rightTurnPrefabs;
     [SerializeField] GameObject startPos;
     [SerializeField] GameObject goal;
+    [Header("Obstalce settings")]
+    [SerializeField] Spawner obstacleSpawner;
+    [SerializeField] bool spawnObstacle;
     GameObject firstTurnPath, secondTurnPath;
     Quaternion pathRotation;
     PathDirection lastDirection = PathDirection.Forward;
@@ -108,6 +111,7 @@ public class PathGenerator : MonoBehaviour
         g.transform.position = spawnPos;
         g.SetActive(true);
 
+        // find the rotation of the current path base on last path's direction
         BasePath pathScript = g.GetComponent<BasePath>();
         switch (lastDirection)
         {
@@ -123,6 +127,14 @@ public class PathGenerator : MonoBehaviour
         }
         lastDirection = pathScript.PathDirection;
 
+        // testing
+        // spawn obstacle on every possible position on the path
+        if (pathScript.ObstaclePosOffsets != null)
+        {
+            obstacleSpawner.SpawnMultiple(spawnPos, pathScript.ObstaclePosOffsets, pathRotation);
+        }
+
+        // set rotation and update spawn pos
         g.transform.localRotation = pathRotation;
         spawnPos += pathRotation * pathScript.EndPosOffset;
     }

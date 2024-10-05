@@ -9,8 +9,9 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     [Header("Push back settings")]
     [SerializeField] float pushBackSpeedRatio;
     [SerializeField] float restoreSpeedTime;
+    [SerializeField] float pushBackCD = 0.1f;
     [SerializeField] bool feverStatus = false;
-    bool beingPushback;
+    [SerializeField] bool beingPushback;
 
     void OnTriggerEnter(Collider other)
     {
@@ -30,6 +31,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
 
     public void TriggerByObstacle()
     {
+        Debug.Log("obstalce trigger");
         if (!feverStatus)
         {
             PushBack();
@@ -44,9 +46,16 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     void PushBack()
     {
         if (beingPushback) return;
-
-        beingPushback = true;
+        Debug.Log("push back");
+        StartCoroutine(CR_ResetPushbackStatus());
         StartCoroutine(CR_PushBack());
+    }
+
+    IEnumerator CR_ResetPushbackStatus()
+    {
+        beingPushback = true;
+        yield return new WaitForSeconds(pushBackCD);
+        beingPushback = false;
     }
 
     IEnumerator CR_PushBack()
@@ -58,7 +67,6 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         movingObject.CurrentSpeed *= pushBackSpeedRatio;
 
         // slowly restore object speed
-        yield return StartCoroutine(movingObject.CR_ChangeSpeed(currentSpeed, restoreSpeedTime));
-        beingPushback = false;
+        yield return movingObject.ChangeSpeedOvertime(currentSpeed, restoreSpeedTime);
     }
 }

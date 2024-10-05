@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPosOffset: {x: 2, y: 0, z: 0}
+  obstaclePosOffsets: []
   pathDirection: 2
   turnCorner: {fileID: 652303345511092717}
   cornerRotater: {fileID: 7199492881903430116}
