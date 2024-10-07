@@ -46,8 +46,13 @@ public class PredictionBox : MonoBehaviour
         predictionBoxTrans.localScale = scale;
     }
 
-    void SetActive(bool _status)
+    public void SetActive(bool _status)
     {
         predictionBoxTrans.gameObject.SetActive(_status);
+    }
+
+    void OnDisable()
+    {
+        SetActive(false);
     }
 }

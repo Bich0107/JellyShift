@@ -6,6 +6,7 @@ public class InputHandler : MonoBehaviour
 {
     Camera cam;
     [SerializeField] GravityEffector gravityEffector;
+    [SerializeField] CameraStateManager camStateManager;
     [SerializeField] AnimationHandler animationHandler;
     [SerializeField] MovingObject movingObject;
     [SerializeField] ObjectScaler objectScaler;
@@ -54,6 +55,7 @@ public class InputHandler : MonoBehaviour
                         movingObject.Move();
                         gameStart = true;
                         turnHandler.Turn(new Vector3(0f, 180f, 0f));
+                        camStateManager.ChangeState(CameraState.Follow);
                     }
 
                     touch = Input.GetTouch(0);
@@ -87,7 +89,7 @@ public class InputHandler : MonoBehaviour
     void TouchPosToWorldSpace(Vector2 _touchPos)
     {
         touchPosition = _touchPos;
-        touchPosition.z = Camera.main.nearClipPlane;
+        touchPosition.z = cam.nearClipPlane;
     }
 
     public void SetActive(bool _value) => isActive = _value;

@@ -3,7 +3,9 @@ using UnityEngine;
 public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacle, ITriggerByTurnPath
 {
     [Header("Components")]
+    [SerializeField] CameraStateManager camStateManager;
     [SerializeField] AnimationHandler animationHandler;
+    [SerializeField] PredictionBox predictionBox;
     [SerializeField] GravityEffector gravity;
     [SerializeField] InputHandler inputHandler;
     [SerializeField] MovingObject movingObject;
@@ -18,6 +20,11 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     void OnTriggerEnter(Collider other)
     {
         ITriggerByPlayer hit = other.GetComponent<ITriggerByPlayer>();
+        if (hit == null)
+        {
+            hit = other.GetComponentInParent<ITriggerByPlayer>();
+        }
+
         if (hit != null)
         {
             hit.TriggerByPlayer();
@@ -29,7 +36,9 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         movingObject.Stop();
         gravity.enabled = false;
         inputHandler.SetActive(false);
+        predictionBox.enabled = false;
         animationHandler.GoalReach();
+        camStateManager.ChangeState(CameraState.Rotate);
     }
 
     public void TriggerByObstacle()
@@ -63,11 +72,10 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     {
         // store player speed when collide
         float currentSpeed;
-        if (!feverStatus) currentSpeed = movingObject.Speed;
-        else currentSpeed = movingObject.FeverSpeed;
+        currentSpeed = movingObject.Speed;
 
-        // reverse object speed to make it move backward
-        movingObject.CurrentSpeed *= pushBackSpeedRatio;
+        // reverse object speed to make it move backward, make sure the speed after push back is negative
+        movingObject.CurrentSpeed = Mathf.Abs(movingObject.CurrentSpeed) * pushBackSpeedRatio;
 
         // slowly restore object speed
         yield return movingObject.ChangeSpeedOvertime(currentSpeed, restoreSpeedTime);

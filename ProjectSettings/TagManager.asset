@@ -13,6 +13,7 @@ TagManager:
   - GroundRight
   - StartZone
   - Goal
+  - Crystal
   layers:
   - Default
   - TransparentFX

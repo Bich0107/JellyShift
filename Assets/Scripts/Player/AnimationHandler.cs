@@ -18,7 +18,6 @@ public class AnimationHandler : MonoBehaviour
     [SerializeField] float idleScaleDuration;
     [SerializeField] float goalReachScaleDuration;
     Vector3 baseScale;
-    Vector3 goalReachScale;
     Coroutine coroutine;
 
     void Awake()
