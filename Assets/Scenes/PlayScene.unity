@@ -237,7 +237,7 @@ MonoBehaviour:
   preAllocations:
   - gameObject: {fileID: 7636051841716444278, guid: d4b8fd59abd61a14eb2083666818bb59,
       type: 3}
-    count: 30
+    count: 35
     expandable: 0
   - gameObject: {fileID: 8756048142793225851, guid: 7268be5f5d987cf4db0d3c7cc6593c77,
       type: 3}
@@ -249,15 +249,15 @@ MonoBehaviour:
     expandable: 0
   - gameObject: {fileID: 1547534552253833923, guid: 2aefcbc0b5129784e9f03ba06d7fdfdf,
       type: 3}
-    count: 10
+    count: 20
     expandable: 1
   - gameObject: {fileID: 6473157078919166993, guid: 172bc4be441c2a54ea68f2765be277e6,
       type: 3}
-    count: 10
+    count: 20
     expandable: 1
   - gameObject: {fileID: 1547534552253833923, guid: 6729c4489876faa4c9704504d1c68aac,
       type: 3}
-    count: 10
+    count: 20
     expandable: 1
   - gameObject: {fileID: 7636051841716444278, guid: b1f287a21e172a74fb950d1019bd83b0,
       type: 3}
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731a76a7c7530a44b9adb97e319a4f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathAmount: 6
+  pathAmount: 3
   maxTurnTime: 2
   randomTurnTime: 0
   turnLeftFirstChance: 50
@@ -454,7 +454,7 @@ MonoBehaviour:
     type: 3}
   goal: {fileID: 7636051841716444278, guid: 1442dffe3657e934295e17207b16b60f, type: 3}
   obstacleSpawner: {fileID: 2104950975}
-  spawnObstacle: 1
+  spawnObstacle: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +737,7 @@ PrefabInstance:
     - target: {fileID: 521140776105546551, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 521140776105546551, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
@@ -747,7 +747,7 @@ PrefabInstance:
     - target: {fileID: 521140776105546551, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 521140776105546551, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
@@ -774,21 +774,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 978881553528808867, guid: 007e76edf82c3754a9260c1e3ff50a0f,
-        type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4015574818423692370, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: camRotater
       value: 
       objectReference: {fileID: 1833845442}
-    - target: {fileID: 5262735333069193177, guid: 007e76edf82c3754a9260c1e3ff50a0f,
-        type: 3}
-      propertyPath: pushBackCD
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

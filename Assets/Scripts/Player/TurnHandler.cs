@@ -17,6 +17,13 @@ public class TurnHandler : MonoBehaviour
         turnWait = new WaitForSeconds(duration);
     }
 
+    public void Turn(Vector3 _angle, bool _moveAfterTurn = true)
+    {
+        StartCoroutine(CR_PlayerMovemenControlSequence(_moveAfterTurn));
+        Quaternion rotation = Quaternion.Euler(_angle);
+        playerRotater.Rotate(rotation, duration);
+    }
+
     public void Turn(PathDirection _direction, Rotater _rotater, Transform _pivot)
     {
         Quaternion rotation;
@@ -45,11 +52,12 @@ public class TurnHandler : MonoBehaviour
         _rotater.Rotate(rotation, duration);
     }
 
-    IEnumerator CR_PlayerMovemenControlSequence()
+    IEnumerator CR_PlayerMovemenControlSequence(bool _moveAgain = true)
     {
         movingObject.Stop();
         yield return turnWait;
         playerTrans.parent = null;
-        movingObject.Move();
+
+        if (_moveAgain) movingObject.Move();
     }
 }

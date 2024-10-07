@@ -5,14 +5,18 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
     Camera cam;
+    [SerializeField] GravityEffector gravityEffector;
+    [SerializeField] AnimationHandler animationHandler;
     [SerializeField] MovingObject movingObject;
     [SerializeField] ObjectScaler objectScaler;
+    [SerializeField] TurnHandler turnHandler;
     [SerializeField] float getTouchInterval = 0.1f;
     [SerializeField] bool isActive = true;
     WaitForSeconds getTouchWait;
     Vector3 touchPosition;
     float touchHeight;
     float distanceFromTouchHeight;
+    bool gameStart = false;
 
     void Start()
     {
@@ -23,6 +27,15 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
+        if (!gravityEffector.OnGround)
+        {
+            isActive = false;
+        }
+        else
+        {
+            isActive = true;
+        }
+
         if (isActive) HandleTouch();
     }
 
@@ -35,7 +48,14 @@ public class InputHandler : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    movingObject.Move();
+                    if (!gameStart)
+                    {
+                        animationHandler.TurnOff();
+                        movingObject.Move();
+                        gameStart = true;
+                        turnHandler.Turn(new Vector3(0f, 180f, 0f));
+                    }
+
                     touch = Input.GetTouch(0);
                     TouchPosToWorldSpace(touch.position);
                     touchHeight = cam.ScreenToWorldPoint(touchPosition).y;

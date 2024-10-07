@@ -3,6 +3,8 @@ using UnityEngine;
 public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacle, ITriggerByTurnPath
 {
     [Header("Components")]
+    [SerializeField] AnimationHandler animationHandler;
+    [SerializeField] GravityEffector gravity;
     [SerializeField] InputHandler inputHandler;
     [SerializeField] MovingObject movingObject;
     [SerializeField] TurnHandler turnHandler;
@@ -11,7 +13,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     [SerializeField] float restoreSpeedTime;
     [SerializeField] float pushBackCD = 0.1f;
     [SerializeField] bool feverStatus = false;
-    [SerializeField] bool beingPushback;
+    bool beingPushback;
 
     void OnTriggerEnter(Collider other)
     {
@@ -24,14 +26,14 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
 
     public void TriggerByGoal()
     {
-        Debug.Log("player reach goal");
         movingObject.Stop();
+        gravity.enabled = false;
         inputHandler.SetActive(false);
+        animationHandler.GoalReach();
     }
 
     public void TriggerByObstacle()
     {
-        Debug.Log("obstalce trigger");
         if (!feverStatus)
         {
             PushBack();
@@ -46,7 +48,6 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     void PushBack()
     {
         if (beingPushback) return;
-        Debug.Log("push back");
         StartCoroutine(CR_ResetPushbackStatus());
         StartCoroutine(CR_PushBack());
     }
@@ -61,7 +62,9 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     IEnumerator CR_PushBack()
     {
         // store player speed when collide
-        float currentSpeed = movingObject.CurrentSpeed;
+        float currentSpeed;
+        if (!feverStatus) currentSpeed = movingObject.Speed;
+        else currentSpeed = movingObject.FeverSpeed;
 
         // reverse object speed to make it move backward
         movingObject.CurrentSpeed *= pushBackSpeedRatio;

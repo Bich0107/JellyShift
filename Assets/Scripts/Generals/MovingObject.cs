@@ -5,6 +5,9 @@ using UnityEngine;
 public class MovingObject : MonoBehaviour
 {
     [SerializeField] float speed;
+    public float Speed => speed;
+    [SerializeField] float feverSpeed;
+    public float FeverSpeed => feverSpeed;
     [SerializeField] float currentSpeed;
     public float CurrentSpeed
     {

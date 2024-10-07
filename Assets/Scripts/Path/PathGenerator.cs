@@ -129,7 +129,7 @@ public class PathGenerator : MonoBehaviour
 
         // testing
         // spawn obstacle on every possible position on the path
-        if (pathScript.ObstaclePosOffsets != null)
+        if (spawnObstacle && pathScript.ObstaclePosOffsets != null)
         {
             obstacleSpawner.SpawnMultiple(spawnPos, pathScript.ObstaclePosOffsets, pathRotation);
         }

@@ -8,6 +8,7 @@ public class GravityEffector : MonoBehaviour
     [SerializeField] bool isEnabled;
     [SerializeField] float gravity;
     [SerializeField] float groundCheckDistance;
+    bool onGround = true;
     RaycastHit hit;
 
     void Update()
@@ -23,14 +24,17 @@ public class GravityEffector : MonoBehaviour
     void GroundCheck()
     {
         Physics.Raycast(raycastPos.position, Vector3.down, out hit, groundCheckDistance, groundLayer, QueryTriggerInteraction.Collide);
-        Debug.DrawRay(raycastPos.position, Vector3.down * groundCheckDistance, Color.yellow);
         if (hit.collider == null)
         {
             isEnabled = true;
+            onGround = false;
         }
         else
         {
+            onGround = true;
             isEnabled = false;
         }
     }
+
+    public bool OnGround => onGround;
 }
