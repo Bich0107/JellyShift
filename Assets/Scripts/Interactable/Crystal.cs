@@ -6,7 +6,6 @@ public class Crystal : MonoBehaviour, ITriggerByPlayer
 {
     public void TriggerByPlayer()
     {
-        Debug.Log("Trigger crystal");
         gameObject.SetActive(false);
     }
 }

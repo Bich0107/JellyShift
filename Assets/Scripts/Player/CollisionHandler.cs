@@ -10,11 +10,11 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     [SerializeField] InputHandler inputHandler;
     [SerializeField] MovingObject movingObject;
     [SerializeField] TurnHandler turnHandler;
+    [SerializeField] FeverSystem fever;
     [Header("Push back settings")]
     [SerializeField] float pushBackSpeedRatio;
     [SerializeField] float restoreSpeedTime;
     [SerializeField] float pushBackCD = 0.1f;
-    [SerializeField] bool feverStatus = false;
     bool beingPushback;
 
     void OnTriggerEnter(Collider other)
@@ -37,13 +37,15 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         gravity.enabled = false;
         inputHandler.SetActive(false);
         predictionBox.enabled = false;
+        fever.TurnOff();
+
         animationHandler.GoalReach();
         camStateManager.ChangeState(CameraState.Rotate);
     }
 
     public void TriggerByObstacle()
     {
-        if (!feverStatus)
+        if (!fever.IsActive)
         {
             PushBack();
         }
