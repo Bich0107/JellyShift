@@ -6,17 +6,22 @@ using UnityEngine.UI;
 public class FeverSystem : MonoBehaviour
 {
     [Header("Components")]
+    [SerializeField] CameraHelper cameraHelper;
     [SerializeField] MovingObject movingObject;
     [SerializeField] GameObject fever;
     [SerializeField] Slider feverBar;
     [SerializeField] Image barFilling;
+    [Header("Camera settings")]
+    [SerializeField] float feverFOV;
+    [SerializeField] float normalFOV;
+    [SerializeField] float fovChangeTime;
     [Header("Color settings")]
     [SerializeField] Color normalColor;
     [SerializeField] Color activeColor;
     [Header("Value settings")]
     [SerializeField] float maxFever = 1f;
     [SerializeField] float feverValue = 0f;
-    [SerializeField] float feverIncreasePerObstacle = 0.2f;
+    [SerializeField] float feverPerObstacle = 0.2f;
     [SerializeField] float feverDuration = 2f;
     [Header("Speed settings")]
     [SerializeField] float inFeverSpeed = 6f;
@@ -28,6 +33,7 @@ public class FeverSystem : MonoBehaviour
 
     void Start()
     {
+        normalFOV = Camera.main.fieldOfView;
         fever.SetActive(false);
         feverBar.maxValue = maxFever;
         barFilling.color = normalColor;
@@ -42,8 +48,15 @@ public class FeverSystem : MonoBehaviour
     {
         if (isActive) return;
 
-        feverValue = Mathf.Min(feverValue + feverIncreasePerObstacle, maxFever);
+        feverValue = Mathf.Min(feverValue + feverPerObstacle, maxFever);
         if (feverValue >= maxFever) ActivateFever();
+    }
+
+    public void ReduceFever()
+    {
+        if (isActive) return;
+
+        feverValue = Mathf.Max(feverValue - feverPerObstacle, 0f);
     }
 
     void ActivateFever()
@@ -53,6 +66,8 @@ public class FeverSystem : MonoBehaviour
         movingObject.CurrentSpeed = inFeverSpeed;
         barFilling.color = activeColor;
 
+        cameraHelper.ChangeFOVOverTime(feverFOV, fovChangeTime);
+
         StartCoroutine(CR_ReduceFeverWhenActive());
     }
 
@@ -61,7 +76,8 @@ public class FeverSystem : MonoBehaviour
         isActive = false;
         barFilling.color = normalColor;
         movingObject.CurrentSpeed = endFeverSpeed;
-        StartCoroutine(movingObject.ChangeSpeedOvertime(normalSpeed, speedRestoreTime));
+        movingObject.ChangeSpeedOvertime(normalSpeed, speedRestoreTime);
+        cameraHelper.ChangeFOVOverTime(normalFOV, fovChangeTime);
     }
 
     IEnumerator CR_ReduceFeverWhenActive()
@@ -80,12 +96,15 @@ public class FeverSystem : MonoBehaviour
 
     void UpdateUI()
     {
-        if (feverValue > 0f)
+        if (feverValue < Mathf.Epsilon)
+        {
+            fever.SetActive(false);
+        }
+        else
         {
             fever.SetActive(true);
             feverBar.value = feverValue;
         }
-        else fever.SetActive(false);
     }
 
     public void TurnOff()

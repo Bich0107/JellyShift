@@ -29,12 +29,11 @@ public class MovingObject : MonoBehaviour
         }
     }
 
-    public IEnumerator ChangeSpeedOvertime(float _endValue, float _time)
+    public void ChangeSpeedOvertime(float _endValue, float _time)
     {
         if (coroutine != null) StopCoroutine(coroutine);
 
         coroutine = StartCoroutine(CR_ChangeSpeed(_endValue, _time));
-        yield return coroutine;
     }
 
     IEnumerator CR_ChangeSpeed(float _endValue, float _time)

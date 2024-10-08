@@ -49,7 +49,8 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     {
         if (!fever.IsActive)
         {
-            PushBack();
+            fever.ReduceFever();
+            OnObstacleHit();
         }
     }
 
@@ -58,11 +59,11 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         turnHandler.Turn(_direction, _rotater, _pivot);
     }
 
-    void PushBack()
+    void OnObstacleHit()
     {
         if (beingPushback) return;
         StartCoroutine(CR_ResetPushbackStatus());
-        StartCoroutine(CR_PushBack());
+        PushBack();
     }
 
     IEnumerator CR_ResetPushbackStatus()
@@ -72,7 +73,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         beingPushback = false;
     }
 
-    IEnumerator CR_PushBack()
+    void PushBack()
     {
         // store player speed when collide
         float currentSpeed;
@@ -82,6 +83,6 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         movingObject.CurrentSpeed = Mathf.Abs(movingObject.CurrentSpeed) * pushBackSpeedRatio;
 
         // slowly restore object speed
-        yield return movingObject.ChangeSpeedOvertime(currentSpeed, restoreSpeedTime);
+        movingObject.ChangeSpeedOvertime(currentSpeed, restoreSpeedTime);
     }
 }
