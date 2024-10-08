@@ -9,7 +9,8 @@ public enum PathDirection
 
 public class PathGenerator : MonoBehaviour
 {
-    [Header("Path length and number of turn settings")]
+    [Header("Spawn amount and number of turn settings")]
+    [SerializeField] DistanceBar playerDistanceBar;
     [SerializeField] int pathAmount = 10;
     int pathPerSegment;
     [Range(0, 2)]
@@ -26,6 +27,8 @@ public class PathGenerator : MonoBehaviour
     [SerializeField] GameObject startPos;
     [SerializeField] GameObject goal;
     [SerializeField] Spawner spawner;
+    float length;
+    public float Length => length;
     GameObject firstTurnPath, secondTurnPath;
     Quaternion pathRotation;
     PathDirection lastDirection = PathDirection.Forward;
@@ -95,6 +98,9 @@ public class PathGenerator : MonoBehaviour
 
         // spawn goal
         SetPath(goal);
+
+        // set final distance for the progress bar
+        playerDistanceBar.SetMaxDistance(length);
     }
 
     GameObject GetRandomGOFromArray(GameObject[] _array)
@@ -124,6 +130,9 @@ public class PathGenerator : MonoBehaviour
                 break;
         }
         lastDirection = pathScript.PathDirection;
+
+        // calculte the total length of the path
+        length += pathScript.Length;
 
         // spawn obstacle and/or crystal on every possible position on the path
         if (pathScript.SpawnPosOffsets.Length > 0)

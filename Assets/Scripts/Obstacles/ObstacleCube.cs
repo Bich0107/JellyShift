@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObstacleCube : MonoBehaviour
 {
     [SerializeField] PlayerPassingHandler passingHandler;
-    [SerializeField] GravityEffector gravityEffector;
     [SerializeField] float breakForce;
     [SerializeField] Vector3 forceDirection;
     [SerializeField] float deactiveDelay;
@@ -37,16 +36,14 @@ public class ObstacleCube : MonoBehaviour
     {
         if (isBroken) return;
 
-        // shoot the cube away base on player collide position
-        forceDirection = (transform.position - passingHandler.PlayerTrans.position).normalized;
+        // turn on physics and shoot the cube away base on player position
         rb.isKinematic = false;
         rb.useGravity = true;
+
+        forceDirection = (transform.position - passingHandler.PlayerTrans.position).normalized;
         rb.AddForce(forceDirection * breakForce, ForceMode.Impulse);
 
-        // turn on gravity
-        // gravityEffector.enabled = true;
         isBroken = true;
-
         StartCoroutine(CR_Deactive());
     }
 

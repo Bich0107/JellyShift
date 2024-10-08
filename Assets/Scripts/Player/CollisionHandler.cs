@@ -49,7 +49,6 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     {
         if (!fever.IsActive)
         {
-            fever.ReduceFever();
             OnObstacleHit();
         }
     }
@@ -62,6 +61,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     void OnObstacleHit()
     {
         if (beingPushback) return;
+        fever.ReduceFever();
         StartCoroutine(CR_ResetPushbackStatus());
         PushBack();
     }

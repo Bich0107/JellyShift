@@ -9,6 +9,7 @@ public class TurnHandler : MonoBehaviour
     [SerializeField] Rotater camRotater;
     [SerializeField] Rotater playerRotater;
     [SerializeField] float duration;
+    [SerializeField] float turnSpeed;
     WaitForSeconds turnWait;
 
     void Awake()
@@ -54,10 +55,21 @@ public class TurnHandler : MonoBehaviour
 
     IEnumerator CR_PlayerMovemenControlSequence(bool _moveAgain = true)
     {
+        // store player speed when turn then stop player
+        float currentSpeed = movingObject.CurrentSpeed;
         movingObject.Stop();
+
+        // make sure all object have the same speed (turnSpeed) when turn to update distance bar correctly
+        movingObject.CurrentSpeed = turnSpeed;
+
+        // wait until finish turning, then remove turn pivot parent
         yield return turnWait;
         playerTrans.parent = null;
 
-        if (_moveAgain) movingObject.Move();
+        if (_moveAgain)
+        {
+            movingObject.CurrentSpeed = currentSpeed;
+            movingObject.Move();
+        }
     }
 }
