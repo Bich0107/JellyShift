@@ -37,7 +37,9 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         gravity.enabled = false;
         inputHandler.SetActive(false);
         predictionBox.enabled = false;
+
         fever.TurnOff();
+        fever.enabled = false;
 
         animationHandler.GoalReach();
         camStateManager.ChangeState(CameraState.Rotate);

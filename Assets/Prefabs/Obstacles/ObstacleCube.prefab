@@ -147,8 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbc44637d85a734fba01d5cfd9679bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passingHandler: {fileID: 0}
   gravityEffector: {fileID: 1373321738412374470}
-  breakForce: 2
+  breakForce: 4
   forceDirection: {x: 0, y: 0, z: 0}
   deactiveDelay: 2
 --- !u!114 &1373321738412374470

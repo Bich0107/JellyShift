@@ -6,8 +6,6 @@ public class MovingObject : MonoBehaviour
 {
     [SerializeField] float speed;
     public float Speed => speed;
-    [SerializeField] float feverSpeed;
-    public float FeverSpeed => feverSpeed;
     [SerializeField] float currentSpeed;
     public float CurrentSpeed
     {
@@ -39,7 +37,7 @@ public class MovingObject : MonoBehaviour
         yield return coroutine;
     }
 
-    public IEnumerator CR_ChangeSpeed(float _endValue, float _time)
+    IEnumerator CR_ChangeSpeed(float _endValue, float _time)
     {
         float tick = 0f;
         float startValue = currentSpeed;

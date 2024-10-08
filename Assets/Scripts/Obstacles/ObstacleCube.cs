@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstacleCube : MonoBehaviour
 {
+    [SerializeField] PlayerPassingHandler passingHandler;
     [SerializeField] GravityEffector gravityEffector;
     [SerializeField] float breakForce;
     [SerializeField] Vector3 forceDirection;
@@ -27,7 +28,6 @@ public class ObstacleCube : MonoBehaviour
         ITriggerByObstacle hit = other.GetComponentInParent<ITriggerByObstacle>();
         if (hit != null)
         {
-            forceDirection = (transform.position - other.transform.position).normalized;
             hit.TriggerByObstacle();
             Break();
         }
@@ -38,11 +38,13 @@ public class ObstacleCube : MonoBehaviour
         if (isBroken) return;
 
         // shoot the cube away base on player collide position
+        forceDirection = (transform.position - passingHandler.PlayerTrans.position).normalized;
         rb.isKinematic = false;
+        rb.useGravity = true;
         rb.AddForce(forceDirection * breakForce, ForceMode.Impulse);
 
         // turn on gravity
-        gravityEffector.enabled = true;
+        // gravityEffector.enabled = true;
         isBroken = true;
 
         StartCoroutine(CR_Deactive());

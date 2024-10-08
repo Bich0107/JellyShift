@@ -961,13 +961,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6420692705eec46a0d9d57f550856c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingObject: {fileID: 3033933883021963927}
   fever: {fileID: 1740510298}
   feverBar: {fileID: 460341404}
+  barFilling: {fileID: 880825607}
+  normalColor: {r: 1, g: 0, b: 0.80784315, a: 1}
+  activeColor: {r: 1, g: 0, b: 0, a: 1}
   maxFever: 1
   feverValue: 0
-  feverIncreasePerObstacle: 0.25
-  feverReduceRate: 0.05
-  feverDuration: 2
+  feverIncreasePerObstacle: 0.2
+  feverDuration: 3
+  inFeverSpeed: 6
+  endFeverSpeed: 1
+  speedRestoreTime: 2
 --- !u!1 &1415822888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,6 +1550,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3735868129830671012}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3033933883021963927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 978881553528808867, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3735868129830671012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4496dec234cc4343a5804895266032e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3735868129830671012
 PrefabInstance:
   m_ObjectHideFlags: 0

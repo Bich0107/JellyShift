@@ -5,13 +5,24 @@ using UnityEngine.UI;
 
 public class FeverSystem : MonoBehaviour
 {
+    [Header("Components")]
+    [SerializeField] MovingObject movingObject;
     [SerializeField] GameObject fever;
     [SerializeField] Slider feverBar;
+    [SerializeField] Image barFilling;
+    [Header("Color settings")]
+    [SerializeField] Color normalColor;
+    [SerializeField] Color activeColor;
+    [Header("Value settings")]
     [SerializeField] float maxFever = 1f;
     [SerializeField] float feverValue = 0f;
-    [SerializeField] float feverIncreasePerObstacle = 0.25f;
-    [SerializeField] float feverReduceRate = 0.05f;
+    [SerializeField] float feverIncreasePerObstacle = 0.2f;
     [SerializeField] float feverDuration = 2f;
+    [Header("Speed settings")]
+    [SerializeField] float inFeverSpeed = 6f;
+    [SerializeField] float endFeverSpeed = 1.5f;
+    [SerializeField] float speedRestoreTime = 1.5f;
+    float normalSpeed;
     bool isActive = false;
     public bool IsActive => isActive;
 
@@ -19,11 +30,11 @@ public class FeverSystem : MonoBehaviour
     {
         fever.SetActive(false);
         feverBar.maxValue = maxFever;
+        barFilling.color = normalColor;
     }
 
     void Update()
     {
-        if (!isActive) ReduceFever();
         UpdateUI();
     }
 
@@ -38,13 +49,19 @@ public class FeverSystem : MonoBehaviour
     void ActivateFever()
     {
         isActive = true;
+        normalSpeed = movingObject.CurrentSpeed;
+        movingObject.CurrentSpeed = inFeverSpeed;
+        barFilling.color = activeColor;
 
         StartCoroutine(CR_ReduceFeverWhenActive());
     }
 
-    void ReduceFever()
+    void DeactiveFever()
     {
-        feverValue = Mathf.Max(0f, feverValue - feverReduceRate * Time.deltaTime);
+        isActive = false;
+        barFilling.color = normalColor;
+        movingObject.CurrentSpeed = endFeverSpeed;
+        StartCoroutine(movingObject.ChangeSpeedOvertime(normalSpeed, speedRestoreTime));
     }
 
     IEnumerator CR_ReduceFeverWhenActive()
@@ -57,7 +74,8 @@ public class FeverSystem : MonoBehaviour
             feverValue = Mathf.Lerp(startValue, 0f, tick / feverDuration);
             yield return null;
         }
-        isActive = false;
+
+        DeactiveFever();
     }
 
     void UpdateUI()
@@ -72,8 +90,9 @@ public class FeverSystem : MonoBehaviour
 
     public void TurnOff()
     {
+        DeactiveFever();
+
         feverValue = 0f;
-        isActive = false;
         fever.SetActive(false);
     }
 }
