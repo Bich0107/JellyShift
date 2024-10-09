@@ -1233,7 +1233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDistanceBar: {fileID: 1790445662}
-  pathAmount: 3
+  pathAmount: 30
   maxTurnTime: 2
   randomTurnTime: 1
   turnLeftFirstChance: 50

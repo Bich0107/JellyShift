@@ -18,6 +18,10 @@ public class InputHandler : MonoBehaviour
     {
         cam = Camera.main;
         getTouchWait = new WaitForSeconds(getTouchInterval);
+    }
+
+    public void GameStart()
+    {
         StartCoroutine(CR_GetTouchPos());
     }
 

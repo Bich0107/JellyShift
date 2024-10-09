@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7202686811542768403}
   - component: {fileID: 231197604499510845}
   - component: {fileID: 4529605831263460142}
+  - component: {fileID: 5662085000312938348}
   m_Layer: 9
   m_Name: ObstacleCube
   m_TagString: Untagged
@@ -147,7 +148,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   passingHandler: {fileID: 0}
-  gravityEffector: {fileID: 0}
   breakForce: 4
   forceDirection: {x: 0, y: 0, z: 0}
   deactiveDelay: 2
+--- !u!114 &5662085000312938348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6358240058426028114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782ef576cb3153b47bedabff62d5a700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,12 +12,11 @@ public class ObstacleCube : MonoBehaviour
     Rigidbody rb;
     bool isBroken;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
-
         deactiveWait = new WaitForSeconds(deactiveDelay);
+        isBroken = false;
     }
 
     void OnTriggerEnter(Collider other)
@@ -51,5 +50,12 @@ public class ObstacleCube : MonoBehaviour
     {
         yield return deactiveWait;
         gameObject.SetActive(false);
+    }
+
+    void OnDisable()
+    {
+        rb.isKinematic = true;
+        rb.useGravity = false;
+        isBroken = false;
     }
 }

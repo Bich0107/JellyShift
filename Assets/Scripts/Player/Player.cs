@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
 
     public void GameStart()
     {
+        inputHandler.GameStart();
+
         animationHandler.Reset();
         movingObject.Move();
         turnHandler.Turn(new Vector3(0f, 180f, 0f));

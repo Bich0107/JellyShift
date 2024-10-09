@@ -125,11 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityEffector: {fileID: 7208685476007703056}
-  camStateManager: {fileID: 0}
-  animationHandler: {fileID: 744545375377864707}
-  movingObject: {fileID: 978881553528808867}
   objectScaler: {fileID: 3770759996587308075}
-  turnHandler: {fileID: 4015574818423692370}
   getTouchInterval: 0.1
   isActive: 1
 --- !u!114 &978881553528808867
@@ -178,7 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3885db3660dc94b85c26ce5c46c9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTrans: {fileID: 0}
   movingObject: {fileID: 978881553528808867}
   camRotater: {fileID: 0}
   playerRotater: {fileID: 4339757148492061201}
@@ -209,7 +204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02b359a2a2772543aaec175598482de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camStateManager: {fileID: 0}
   animationHandler: {fileID: 744545375377864707}
   predictionBox: {fileID: 4051273176114502241}
   gravity: {fileID: 7208685476007703056}
@@ -253,6 +247,7 @@ MonoBehaviour:
   scaleTrans: {fileID: 6469604720327371372}
   idleScaleDuration: 0.45
   goalReachScaleDuration: 1
+  animationState_GoalReach: Player_Goal
 --- !u!114 &8617724499997735277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +260,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710efe9afb6b3904d844179f110806c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravityEffector: {fileID: 7208685476007703056}
+  movingObject: {fileID: 978881553528808867}
+  animationHandler: {fileID: 744545375377864707}
+  turnHandler: {fileID: 4015574818423692370}
+  inputHandler: {fileID: 6891075261507772281}
+  collisionHandler: {fileID: 5262735333069193177}
+  objectScaler: {fileID: 3770759996587308075}
+  predictionBox: {fileID: 4051273176114502241}
+  skin: {fileID: 11400000, guid: 2dcfafafd4655cd40a9526558e8d459b, type: 2}
 --- !u!1 &1592545955060822175
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,8 +873,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2509804}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 0, b: 0, a: 0.76862746}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

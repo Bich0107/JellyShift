@@ -4,9 +4,6 @@ using UnityEngine.UI;
 
 public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
 {
-    Player player;
-    Transform playerTrans;
-    FeverSystem feverSystem;
     [Header("Components")]
     [SerializeField] Transform obstacleCoverTrans;
     [SerializeField] ObstacleCube[] bodyCubes;
@@ -14,14 +11,28 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
     [Header("Player passing settings")]
     [SerializeField] float expandTime;
     [SerializeField] Vector3 endScale;
+    Vector3 baseScale;
+    Player player;
+    Transform playerTrans;
     public Transform PlayerTrans => playerTrans;
     bool isTrigger = false;
+    FeverSystem feverSystem;
 
     void Start()
     {
+        baseScale = obstacleCoverTrans.localScale;
+
         player = FindObjectOfType<Player>();
         playerTrans = player.gameObject.transform;
         feverSystem = FindObjectOfType<FeverSystem>();
+    }
+
+    void OnEnable()
+    {
+        for (int i = 0; i < bodyCubes.Length; i++)
+        {
+            bodyCubes[i].gameObject.SetActive(true);
+        }
     }
 
     public void TriggerByPlayer()
@@ -52,7 +63,6 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
     IEnumerator CR_ExpandCover()
     {
         float tick = 0f;
-        Vector3 baseScale = obstacleCoverTrans.localScale;
         while (tick < expandTime)
         {
             tick += Time.deltaTime;
@@ -61,5 +71,11 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
         }
 
         obstacleCoverTrans.gameObject.SetActive(false);
+    }
+
+    void OnDisable()
+    {
+        obstacleCoverTrans.localScale = baseScale;
+        isTrigger = false;
     }
 }

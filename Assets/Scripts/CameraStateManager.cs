@@ -51,7 +51,7 @@ public class CameraStateManager : MonoBehaviour
     public void Reset()
     {
         StopAllCoroutines();
-        rotateObject.Reset();
         ChangeState(defautState);
+        rotateObject.Reset();
     }
 }

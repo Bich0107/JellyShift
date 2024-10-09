@@ -45,6 +45,8 @@ public class PathGenerator : MonoBehaviour
 
     public void GeneratePaths()
     {
+        length = 0;
+
         // calculate the amount of path per segment
         pathPerSegment = pathAmount / (turnTime + 1);
 

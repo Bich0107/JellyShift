@@ -77,5 +77,6 @@ public class TurnHandler : MonoBehaviour
     {
         StopAllCoroutines();
         playerRotater.Reset();
+        camRotater.Reset();
     }
 }
