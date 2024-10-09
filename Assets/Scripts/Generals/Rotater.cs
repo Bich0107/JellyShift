@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class Rotater : MonoBehaviour
 {
+    Quaternion baseRotation;
     [SerializeField] Transform targetTrans;
     bool rotating;
+
+    void Awake()
+    {
+        baseRotation = targetTrans.localRotation;
+    }
 
     public void Rotate(Quaternion _rotation, float _duration)
     {
@@ -29,5 +35,12 @@ public class Rotater : MonoBehaviour
         }
 
         rotating = false;
+    }
+
+    public void Reset()
+    {
+        StopAllCoroutines();
+        rotating = false;
+        targetTrans.localRotation = baseRotation;
     }
 }

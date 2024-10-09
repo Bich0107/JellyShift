@@ -17,8 +17,8 @@ public class AnimationHandler : MonoBehaviour
     [SerializeField] Transform scaleTrans;
     [SerializeField] float idleScaleDuration;
     [SerializeField] float goalReachScaleDuration;
+    [SerializeField] string animationState_GoalReach = "Player_Goal";
     Vector3 baseScale;
-    Coroutine coroutine;
 
     void Awake()
     {
@@ -30,19 +30,13 @@ public class AnimationHandler : MonoBehaviour
 
     void Start()
     {
-        coroutine = StartCoroutine(CR_IdleSequence());
-    }
-
-    public void TurnOff()
-    {
-        animator.enabled = false;
-        scaleTrans.localScale = baseScale;
-        StopCoroutine(coroutine);
+        StartCoroutine(CR_IdleSequence());
     }
 
     public void GoalReach()
     {
         animator.enabled = true;
+        animator.Play(animationState_GoalReach, 0, 0f);
         GoalReachAnimation();
     }
 
@@ -94,4 +88,11 @@ public class AnimationHandler : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        animator.enabled = false;
+
+        scaleTrans.localScale = baseScale;
+        StopAllCoroutines();
+    }
 }

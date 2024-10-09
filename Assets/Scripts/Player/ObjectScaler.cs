@@ -14,7 +14,6 @@ public class ObjectScaler : MonoBehaviour
     [SerializeField] float scaleSpeed;
     Vector3 scale = new Vector3();
 
-
     void Awake()
     {
         baseScale = targetTrans.localScale;
@@ -50,6 +49,6 @@ public class ObjectScaler : MonoBehaviour
 
     public void Reset()
     {
-        transform.localScale = baseScale;
+        targetTrans.localScale = baseScale;
     }
 }

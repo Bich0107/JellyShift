@@ -391,8 +391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ad45a6f7c5624438c53fea419b28e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTrans: {fileID: 0}
-  feverSystem: {fileID: 0}
   obstacleCoverTrans: {fileID: 4528023792315489006}
   bodyCubes:
   - {fileID: 7519566868181021450}
@@ -414,6 +412,7 @@ MonoBehaviour:
   - {fileID: 694044633001398989}
   - {fileID: 1408590893106411361}
   - {fileID: 2177895132388813524}
+  coverImage: {fileID: 4036666367317678772}
   expandTime: 0.5
   endScale: {x: 1.5, y: 1.5, z: 1}
 --- !u!1001 &114230333708069163

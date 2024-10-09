@@ -19,4 +19,9 @@ public class TurnPath : BasePath
             hit.TriggerByTurnPath(PathDirection, cornerRotater, turnCorner);
         }
     }
+
+    void OnDisable()
+    {
+        isTriggered = false;
+    }
 }

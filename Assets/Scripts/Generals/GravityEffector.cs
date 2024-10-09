@@ -37,4 +37,10 @@ public class GravityEffector : MonoBehaviour
     }
 
     public bool OnGround => onGround;
+
+    public void Reset()
+    {
+        isEnabled = false;
+        onGround = true;
+    }
 }

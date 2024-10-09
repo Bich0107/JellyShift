@@ -57,7 +57,6 @@ public class Spawner : MonoBehaviour
         }
         else restCounter--;
 
-
         if (spawnCrystal)
         {
             // get crystal spawn amount (random or all)

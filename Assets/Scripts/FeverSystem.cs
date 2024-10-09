@@ -27,7 +27,7 @@ public class FeverSystem : MonoBehaviour
     [SerializeField] float inFeverSpeed = 6f;
     [SerializeField] float endFeverSpeed = 1.5f;
     [SerializeField] float speedRestoreTime = 1.5f;
-    float normalSpeed;
+    float speedBeforeBoost;
     bool isActive = false;
     public bool IsActive => isActive;
 
@@ -61,8 +61,10 @@ public class FeverSystem : MonoBehaviour
 
     void ActivateFever()
     {
+        if (isActive) return;
+
         isActive = true;
-        normalSpeed = movingObject.CurrentSpeed;
+        speedBeforeBoost = movingObject.CurrentSpeed;
         movingObject.CurrentSpeed = inFeverSpeed;
         barFilling.color = activeColor;
 
@@ -73,10 +75,12 @@ public class FeverSystem : MonoBehaviour
 
     void DeactiveFever()
     {
+        if (!isActive) return;
+
         isActive = false;
         barFilling.color = normalColor;
         movingObject.CurrentSpeed = endFeverSpeed;
-        movingObject.ChangeSpeedOvertime(normalSpeed, speedRestoreTime);
+        movingObject.ChangeSpeedOvertime(speedBeforeBoost, speedRestoreTime);
         cameraHelper.ChangeFOVOverTime(normalFOV, fovChangeTime);
     }
 
@@ -107,7 +111,7 @@ public class FeverSystem : MonoBehaviour
         }
     }
 
-    public void TurnOff()
+    public void Reset()
     {
         DeactiveFever();
 

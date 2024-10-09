@@ -51,6 +51,11 @@ public class PredictionBox : MonoBehaviour
         predictionBoxTrans.gameObject.SetActive(_status);
     }
 
+    public void Reset()
+    {
+        SetActive(false);
+    }
+
     void OnDisable()
     {
         SetActive(false);

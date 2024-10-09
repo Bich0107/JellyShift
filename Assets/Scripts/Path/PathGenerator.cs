@@ -20,6 +20,7 @@ public class PathGenerator : MonoBehaviour
     [SerializeField] int turnLeftFirstChance = 50;
     int turnTime;
     [Header("Spawn path settings")]
+    [SerializeField] Vector3 defaultSpawnPos;
     [SerializeField] Vector3 spawnPos;
     [SerializeField] GameObject[] pathPrefabs;
     [SerializeField] GameObject[] leftTurnPrefabs;
@@ -35,10 +36,7 @@ public class PathGenerator : MonoBehaviour
 
     void Start()
     {
-        pathRotation = Quaternion.identity;
-
-        if (randomTurnTime) GetRandomTurnTime();
-        else turnTime = maxTurnTime;
+        Reset();
 
         GeneratePaths();
     }
@@ -143,5 +141,14 @@ public class PathGenerator : MonoBehaviour
         // set rotation and update spawn pos
         g.transform.localRotation = pathRotation;
         spawnPos += pathRotation * pathScript.EndPosOffset;
+    }
+
+    public void Reset()
+    {
+        spawnPos = defaultSpawnPos;
+        pathRotation = Quaternion.identity;
+
+        if (randomTurnTime) GetRandomTurnTime();
+        else turnTime = maxTurnTime;
     }
 }

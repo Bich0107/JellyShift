@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class RotateObject : MonoBehaviour
 {
+    Quaternion baseRotation;
     [SerializeField] Vector3 rotateSpeed;
     [SerializeField] bool playOnEnable;
     bool isRotating = false;
+
+    void Awake()
+    {
+        baseRotation = transform.localRotation;
+    }
 
     void OnEnable()
     {
@@ -23,4 +29,8 @@ public class RotateObject : MonoBehaviour
 
     public void Rotate() => isRotating = true;
     public void Stop() => isRotating = false;
+    public void Reset()
+    {
+        transform.localRotation = baseRotation;
+    }
 }

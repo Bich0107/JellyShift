@@ -13,6 +13,7 @@ public class CameraStateManager : MonoBehaviour
     [SerializeField] Vector3[] camPositions;
     [SerializeField] Quaternion[] camRotation;
     [SerializeField] float transitionTime;
+    CameraState defautState = CameraState.Idle;
 
     public void ChangeState(CameraState _state)
     {
@@ -21,6 +22,7 @@ public class CameraStateManager : MonoBehaviour
         {
             case 0:
             case 1:
+                rotateObject.Stop();
                 StartCoroutine(CR_ChangeState(index));
                 break;
             case 2:
@@ -44,5 +46,12 @@ public class CameraStateManager : MonoBehaviour
             camTrans.localRotation = Quaternion.Lerp(startRotation, endRotation, tick / transitionTime);
             yield return null;
         }
+    }
+
+    public void Reset()
+    {
+        StopAllCoroutines();
+        rotateObject.Reset();
+        ChangeState(defautState);
     }
 }

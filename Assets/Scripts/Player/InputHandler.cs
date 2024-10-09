@@ -6,18 +6,13 @@ public class InputHandler : MonoBehaviour
 {
     Camera cam;
     [SerializeField] GravityEffector gravityEffector;
-    [SerializeField] CameraStateManager camStateManager;
-    [SerializeField] AnimationHandler animationHandler;
-    [SerializeField] MovingObject movingObject;
     [SerializeField] ObjectScaler objectScaler;
-    [SerializeField] TurnHandler turnHandler;
     [SerializeField] float getTouchInterval = 0.1f;
     [SerializeField] bool isActive = true;
     WaitForSeconds getTouchWait;
     Vector3 touchPosition;
     float touchHeight;
     float distanceFromTouchHeight;
-    bool gameStart = false;
 
     void Start()
     {
@@ -49,13 +44,9 @@ public class InputHandler : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    if (!gameStart)
+                    if (!GameManager.Instance.gameStarted)
                     {
-                        animationHandler.TurnOff();
-                        movingObject.Move();
-                        gameStart = true;
-                        turnHandler.Turn(new Vector3(0f, 180f, 0f));
-                        camStateManager.ChangeState(CameraState.Follow);
+                        GameManager.Instance.GameStart();
                     }
 
                     touch = Input.GetTouch(0);
@@ -90,6 +81,12 @@ public class InputHandler : MonoBehaviour
     {
         touchPosition = _touchPos;
         touchPosition.z = cam.nearClipPlane;
+    }
+
+    public void Reset()
+    {
+        StopAllCoroutines();
+        SetActive(true);
     }
 
     public void SetActive(bool _value) => isActive = _value;

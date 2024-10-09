@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ad45a6f7c5624438c53fea419b28e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   playerTrans: {fileID: 0}
   feverSystem: {fileID: 0}
   obstacleCoverTrans: {fileID: 998325145265015208}
@@ -324,6 +325,7 @@ MonoBehaviour:
   - {fileID: 6155789991532336448}
   - {fileID: 3103252027316982785}
   - {fileID: 1764869957696371211}
+  coverImage: {fileID: 531608401275125148}
   expandTime: 0.5
   endScale: {x: 1.5, y: 2, z: 1}
 --- !u!1 &4801975534153927467

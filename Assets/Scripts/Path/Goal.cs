@@ -22,4 +22,9 @@ public class Goal : MonoBehaviour, ITriggerByPlayer
             hit.TriggerByGoal();
         }
     }
+
+    void OnDisable()
+    {
+        isTriggered = false;
+    }
 }

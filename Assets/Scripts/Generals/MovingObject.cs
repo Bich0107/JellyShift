@@ -55,7 +55,8 @@ public class MovingObject : MonoBehaviour
 
     public void Reset()
     {
-        currentSpeed = speed;
+        if (coroutine != null) StopCoroutine(coroutine);
         Stop();
+        currentSpeed = speed;
     }
 }

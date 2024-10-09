@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4339757148492061201}
   - component: {fileID: 5262735333069193177}
   - component: {fileID: 744545375377864707}
+  - component: {fileID: 8617724499997735277}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -124,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityEffector: {fileID: 7208685476007703056}
+  camStateManager: {fileID: 0}
   animationHandler: {fileID: 744545375377864707}
   movingObject: {fileID: 978881553528808867}
   objectScaler: {fileID: 3770759996587308075}
@@ -143,7 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  feverSpeed: 5
   currentSpeed: 0
 --- !u!114 &7208685476007703056
 MonoBehaviour:
@@ -182,6 +183,7 @@ MonoBehaviour:
   camRotater: {fileID: 0}
   playerRotater: {fileID: 4339757148492061201}
   duration: 0.5
+  turnSpeed: 3
 --- !u!114 &4339757148492061201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,15 +209,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02b359a2a2772543aaec175598482de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camStateManager: {fileID: 0}
   animationHandler: {fileID: 744545375377864707}
+  predictionBox: {fileID: 4051273176114502241}
   gravity: {fileID: 7208685476007703056}
   inputHandler: {fileID: 6891075261507772281}
   movingObject: {fileID: 978881553528808867}
   turnHandler: {fileID: 4015574818423692370}
+  fever: {fileID: 0}
   pushBackSpeedRatio: -1
   restoreSpeedTime: 1
   pushBackCD: 0.1
-  feverStatus: 0
 --- !u!114 &744545375377864707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +253,18 @@ MonoBehaviour:
   scaleTrans: {fileID: 6469604720327371372}
   idleScaleDuration: 0.45
   goalReachScaleDuration: 1
+--- !u!114 &8617724499997735277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880999046126314025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710efe9afb6b3904d844179f110806c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1592545955060822175
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,7 +869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.28490567, b: 0.28490567, a: 0.2509804}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

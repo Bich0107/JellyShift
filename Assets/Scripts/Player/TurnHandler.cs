@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurnHandler : MonoBehaviour
 {
-    [SerializeField] Transform playerTrans;
+    Transform playerTrans;
     [SerializeField] MovingObject movingObject;
     [SerializeField] Rotater camRotater;
     [SerializeField] Rotater playerRotater;
@@ -14,7 +14,7 @@ public class TurnHandler : MonoBehaviour
 
     void Awake()
     {
-        playerTrans = GameObject.FindGameObjectWithTag(Tags.Player).transform;
+        playerTrans = FindObjectOfType<Player>().transform;
         turnWait = new WaitForSeconds(duration);
     }
 
@@ -71,5 +71,11 @@ public class TurnHandler : MonoBehaviour
             movingObject.CurrentSpeed = currentSpeed;
             movingObject.Move();
         }
+    }
+
+    public void Reset()
+    {
+        StopAllCoroutines();
+        playerRotater.Reset();
     }
 }

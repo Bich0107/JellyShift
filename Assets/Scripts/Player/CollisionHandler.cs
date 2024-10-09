@@ -3,7 +3,6 @@ using UnityEngine;
 public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacle, ITriggerByTurnPath
 {
     [Header("Components")]
-    [SerializeField] CameraStateManager camStateManager;
     [SerializeField] AnimationHandler animationHandler;
     [SerializeField] PredictionBox predictionBox;
     [SerializeField] GravityEffector gravity;
@@ -38,11 +37,12 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         inputHandler.SetActive(false);
         predictionBox.enabled = false;
 
-        fever.TurnOff();
+        fever.Reset();
         fever.enabled = false;
 
         animationHandler.GoalReach();
-        camStateManager.ChangeState(CameraState.Rotate);
+
+        GameManager.Instance.GameEnd();
     }
 
     public void TriggerByObstacle()
@@ -84,5 +84,10 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
 
         // slowly restore object speed
         movingObject.ChangeSpeedOvertime(currentSpeed, restoreSpeedTime);
+    }
+
+    public void Reset()
+    {
+        StopAllCoroutines();
     }
 }

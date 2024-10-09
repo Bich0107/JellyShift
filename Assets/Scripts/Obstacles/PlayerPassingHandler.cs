@@ -1,12 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
 {
-    [SerializeField] Transform playerTrans;
-    [SerializeField] FeverSystem feverSystem;
+    Player player;
+    Transform playerTrans;
+    FeverSystem feverSystem;
+    [Header("Components")]
     [SerializeField] Transform obstacleCoverTrans;
     [SerializeField] ObstacleCube[] bodyCubes;
+    [SerializeField] Image coverImage;
+    [Header("Player passing settings")]
     [SerializeField] float expandTime;
     [SerializeField] Vector3 endScale;
     public Transform PlayerTrans => playerTrans;
@@ -14,7 +19,8 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
 
     void Start()
     {
-        playerTrans = FindObjectOfType<InputHandler>().transform;
+        player = FindObjectOfType<Player>();
+        playerTrans = player.gameObject.transform;
         feverSystem = FindObjectOfType<FeverSystem>();
     }
 
@@ -30,6 +36,7 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
             BodyExplode();
         }
 
+        coverImage.color = player.Skin.PassingObstacleCoverColor;
         obstacleCoverTrans.gameObject.SetActive(true);
         StartCoroutine(CR_ExpandCover());
     }
