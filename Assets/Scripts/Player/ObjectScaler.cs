@@ -9,15 +9,19 @@ public class ObjectScaler : MonoBehaviour
     [SerializeField] float maxX;
     [SerializeField] float minY;
     [SerializeField] float maxY;
-    [SerializeField] float xTValue;
-    [SerializeField] float yTValue;
+    [SerializeField] float baseXTValue;
+    [SerializeField] float baseYTValue;
     [SerializeField] float scaleSpeed;
+    float xTValue;
+    float yTValue;
     Vector3 scale = new Vector3();
 
     void Awake()
     {
         baseScale = targetTrans.localScale;
         scale = baseScale;
+        xTValue = baseXTValue;
+        yTValue = baseYTValue;
     }
 
     public void Scale(float _distance)
@@ -50,5 +54,7 @@ public class ObjectScaler : MonoBehaviour
     public void Reset()
     {
         targetTrans.localScale = baseScale;
+        xTValue = baseXTValue;
+        yTValue = baseYTValue;
     }
 }

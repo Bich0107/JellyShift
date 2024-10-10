@@ -12,7 +12,7 @@ public class InputHandler : MonoBehaviour
     WaitForSeconds getTouchWait;
     Vector3 touchPosition;
     float touchHeight;
-    float distanceFromTouchHeight;
+    float yDistanceFromTouchHeight;
 
     void Start()
     {
@@ -53,14 +53,13 @@ public class InputHandler : MonoBehaviour
                         GameManager.Instance.GameStart();
                     }
 
-                    touch = Input.GetTouch(0);
                     TouchPosToWorldSpace(touch.position);
                     touchHeight = cam.ScreenToWorldPoint(touchPosition).y;
                     break;
                 case TouchPhase.Moved:
                     TouchPosToWorldSpace(touch.position);
-                    distanceFromTouchHeight = cam.ScreenToWorldPoint(touchPosition).y - touchHeight;
-                    objectScaler.Scale(distanceFromTouchHeight);
+                    yDistanceFromTouchHeight = cam.ScreenToWorldPoint(touchPosition).y - touchHeight;
+                    objectScaler.Scale(yDistanceFromTouchHeight);
                     break;
             }
         }
@@ -90,7 +89,7 @@ public class InputHandler : MonoBehaviour
     public void Reset()
     {
         StopAllCoroutines();
-        SetActive(true);
+        isActive = true;
     }
 
     public void SetActive(bool _value) => isActive = _value;

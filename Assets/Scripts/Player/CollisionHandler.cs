@@ -89,5 +89,6 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     public void Reset()
     {
         StopAllCoroutines();
+        predictionBox.enabled = true;
     }
 }

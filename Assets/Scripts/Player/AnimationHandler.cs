@@ -14,18 +14,20 @@ public class AnimationHandler : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] AnimationKey[] goalReachKeys;
     [SerializeField] AnimationKey[] idleKeys;
-    [SerializeField] Transform scaleTrans;
+    [SerializeField] Transform targetTrans;
     [SerializeField] float idleScaleDuration;
     [SerializeField] float goalReachScaleDuration;
     [SerializeField] string animationState_GoalReach = "Player_Goal";
     Vector3 baseScale;
+    Quaternion baseRotation;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
 
         animator.enabled = false;
-        baseScale = scaleTrans.localScale;
+        baseScale = targetTrans.localScale;
+        baseRotation = targetTrans.localRotation;
     }
 
     void Start()
@@ -56,7 +58,7 @@ public class AnimationHandler : MonoBehaviour
 
     IEnumerator CR_GoalReachSequence()
     {
-        StartCoroutine(CR_ScaleAnimation(scaleTrans.localScale, baseScale, goalReachScaleDuration));
+        StartCoroutine(CR_ScaleAnimation(targetTrans.localScale, baseScale, goalReachScaleDuration));
         for (int i = 0; i < goalReachKeys.Length; i++)
         {
             yield return StartCoroutine(CR_MoveAnimation(goalReachKeys[i]));
@@ -83,7 +85,7 @@ public class AnimationHandler : MonoBehaviour
         while (tick < _duration)
         {
             tick += Time.deltaTime;
-            scaleTrans.localScale = Vector3.Lerp(_startValue, _endValue, tick / _duration);
+            targetTrans.localScale = Vector3.Lerp(_startValue, _endValue, tick / _duration);
             yield return null;
         }
     }
@@ -92,7 +94,8 @@ public class AnimationHandler : MonoBehaviour
     {
         animator.enabled = false;
 
-        scaleTrans.localScale = baseScale;
+        targetTrans.localScale = baseScale;
+        targetTrans.localRotation = baseRotation;
         StopAllCoroutines();
     }
 }
