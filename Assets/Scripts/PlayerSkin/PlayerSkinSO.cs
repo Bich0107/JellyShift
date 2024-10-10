@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerSkinSO : ScriptableObject
 {
     [SerializeField] int index;
-    [SerializeField] Mesh skinMesh;
     [SerializeField] Material skinMaterial;
     [SerializeField] Material predictionBoxMaterial;
     [SerializeField] Color predictionImageColor;
@@ -15,7 +14,6 @@ public class PlayerSkinSO : ScriptableObject
     [SerializeField] bool choosen;
 
     public int Index => index;
-    public Mesh SkinMesh => skinMesh;
     public Material SkinMaterial => skinMaterial;
     public Material PredictionBoxMaterial => predictionBoxMaterial;
     public Color PredictionImageColor => predictionImageColor;

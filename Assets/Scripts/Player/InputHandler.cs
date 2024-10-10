@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputHandler : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class InputHandler : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
+            if (IsTouchOnUI(touch)) return;
 
             switch (touch.phase)
             {
@@ -65,6 +67,17 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    bool IsTouchOnUI(Touch touch)
+    {
+        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+        {
+            // The touch is on a UI element
+            return true;
+        }
+
+        return false;
+    }
+
     IEnumerator CR_GetTouchPos()
     {
         Touch touch;
@@ -73,8 +86,12 @@ public class InputHandler : MonoBehaviour
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);
-                TouchPosToWorldSpace(touch.position);
-                touchHeight = cam.ScreenToWorldPoint(touchPosition).y;
+
+                if (!IsTouchOnUI(touch))
+                {
+                    TouchPosToWorldSpace(touch.position);
+                    touchHeight = cam.ScreenToWorldPoint(touchPosition).y;
+                }
             }
             yield return getTouchWait;
         } while (true);

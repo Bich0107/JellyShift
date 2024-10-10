@@ -46,10 +46,12 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
         {
             BodyExplode();
         }
-
-        coverImage.color = player.Skin.PassingObstacleCoverColor;
-        obstacleCoverTrans.gameObject.SetActive(true);
-        StartCoroutine(CR_ExpandCover());
+        else
+        {
+            coverImage.color = player.Skin.PassingObstacleCoverColor;
+            obstacleCoverTrans.gameObject.SetActive(true);
+            StartCoroutine(CR_ExpandCover());
+        }
     }
 
     void BodyExplode()
@@ -75,6 +77,8 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
 
     void OnDisable()
     {
+        if (obstacleCoverTrans == null) return;
+
         obstacleCoverTrans.localScale = baseScale;
         isTrigger = false;
     }

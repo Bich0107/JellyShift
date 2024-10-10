@@ -414,7 +414,7 @@ MonoBehaviour:
   - {fileID: 2177895132388813524}
   coverImage: {fileID: 4036666367317678772}
   expandTime: 0.5
-  endScale: {x: 1.5, y: 1.5, z: 1}
+  endScale: {x: 1.3, y: 1.3, z: 1}
 --- !u!1001 &114230333708069163
 PrefabInstance:
   m_ObjectHideFlags: 0

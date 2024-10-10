@@ -13,8 +13,8 @@ public class FeverSystem : MonoBehaviour
     [SerializeField] Image barFilling;
     [Header("Camera settings")]
     [SerializeField] float feverFOV;
-    [SerializeField] float normalFOV;
     [SerializeField] float fovChangeTime;
+    float normalFOV;
     [Header("Color settings")]
     [SerializeField] Color normalColor;
     [SerializeField] Color activeColor;

@@ -305,9 +305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ad45a6f7c5624438c53fea419b28e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerTrans: {fileID: 0}
-  feverSystem: {fileID: 0}
   obstacleCoverTrans: {fileID: 998325145265015208}
   bodyCubes:
   - {fileID: 3682996912139490073}
@@ -327,7 +324,7 @@ MonoBehaviour:
   - {fileID: 1764869957696371211}
   coverImage: {fileID: 531608401275125148}
   expandTime: 0.5
-  endScale: {x: 1.5, y: 2, z: 1}
+  endScale: {x: 1.2, y: 1.5, z: 1}
 --- !u!1 &4801975534153927467
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +397,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4447456628721632747}
   m_Father: {fileID: 1453205183730193026}

@@ -53,6 +53,8 @@ public class ObjectScaler : MonoBehaviour
 
     public void Reset()
     {
+        if (targetTrans == null) return;
+
         targetTrans.localScale = baseScale;
         xTValue = baseXTValue;
         yTValue = baseYTValue;

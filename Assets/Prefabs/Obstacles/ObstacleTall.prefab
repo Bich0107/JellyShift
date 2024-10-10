@@ -26,7 +26,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7919904007164829939}
   m_Father: {fileID: 7704270667825078025}
@@ -422,7 +422,7 @@ MonoBehaviour:
   - {fileID: 1764869957696371211}
   coverImage: {fileID: 8236380292435538366}
   expandTime: 0.5
-  endScale: {x: 3, y: 2.4, z: 1}
+  endScale: {x: 1.5, y: 1.2, z: 1}
 --- !u!1001 &889059074839844065
 PrefabInstance:
   m_ObjectHideFlags: 0
