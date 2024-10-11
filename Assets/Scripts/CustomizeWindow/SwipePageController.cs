@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 {
     [SerializeField] ScrollRect scrollRect;
+    [SerializeField] Pagination pagination;
     [SerializeField] GameObject contentHolder;
     [SerializeField] float transitionTime;
     [SerializeField] float minDragDistance = 0.1f;
@@ -27,6 +28,8 @@ public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHan
         {
             pagePositions[i] = i * (1f / (pageAmount - 1));
         }
+
+        pagination.Setup(pageAmount);
     }
 
     public void OnBeginDrag(PointerEventData data)
@@ -52,13 +55,14 @@ public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHan
                 newPageIndex = Mathf.Min(pageIndex + 1, pageAmount - 1);
             }
         }
+        else
+        {
+            newPageIndex = pageIndex;
+        }
 
         // check index and start transition
-        if (newPageIndex != pageIndex)
-        {
-            StartCoroutine(CR_ChangePage(newPageIndex));
-            pageIndex = newPageIndex;
-        }
+        StartCoroutine(CR_ChangePage(newPageIndex));
+
     }
 
     IEnumerator CR_ChangePage(int _newIndex)
@@ -74,6 +78,9 @@ public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHan
             scrollRect.horizontalNormalizedPosition = Mathf.Lerp(startValue, endValue, tick / transitionTime);
             yield return null;
         }
+
+        pageIndex = newPageIndex;
+        pagination.ChangePage(pageIndex);
 
         isChangingPage = false;
     }

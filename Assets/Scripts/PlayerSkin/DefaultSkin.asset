@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: DefaultSkin
   m_EditorClassIdentifier: 
   index: 0
-  skinMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   skinMaterial: {fileID: 2100000, guid: 586b9d01ac4b501469fe065e8ad4bbc6, type: 2}
   predictionBoxMaterial: {fileID: 2100000, guid: 973d62bac3331e64496a5e095b7abb85,
     type: 2}
