@@ -12,8 +12,6 @@ public class PlayerSkinChanger : MonoBehaviour
 
     public void ChangeSkin(PlayerSkinSO _skin)
     {
-        if (player.Skin.Index == _skin.Index) return;
-
         player.Skin.IsChoosen = false;
         player.Skin = _skin;
         _skin.IsChoosen = true;
