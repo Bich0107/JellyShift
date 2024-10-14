@@ -207,4 +207,4 @@ MonoBehaviour:
   endPosOffset: {x: 0, y: 0, z: 2}
   spawnPosOffsets: []
   pathDirection: 0
-  length: 0.92
+  length: 0
