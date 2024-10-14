@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 73c00744bc226f74c8d248993a5c21c3, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -468,6 +468,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pagePointPrefab: {fileID: 5145130483475570273, guid: f9fb4c865ad45824f974feec4a499606,
     type: 3}
+--- !u!1 &208536985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208536986}
+  - component: {fileID: 208536987}
+  m_Layer: 0
+  m_Name: SkinDisplayerParent
+  m_TagString: SkinDisplayerParent
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208536986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208536985}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208536987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208536985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96fd2d3b393214e43bf3a65d6c73720f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToLastPos: {x: 1.5, y: 0, z: 0}
 --- !u!1 &239120297
 GameObject:
   m_ObjectHideFlags: 0
@@ -3531,7 +3576,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3886,6 +3931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d404703ae00b10c44a232949466ccbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionSorter: {fileID: 208536987}
   skins:
   - {fileID: 11400000, guid: 2dcfafafd4655cd40a9526558e8d459b, type: 2}
   - {fileID: 11400000, guid: f127225c26585044ab116d802251328e, type: 2}
@@ -3940,7 +3986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.15256356}
   m_AnchorMax: {x: 1, y: 0.69965786}
-  m_AnchoredPosition: {x: 0, y: -11.999939}
+  m_AnchoredPosition: {x: 0, y: -12}
   m_SizeDelta: {x: 0, y: -24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1933296588
@@ -4638,3 +4684,4 @@ SceneRoots:
   - {fileID: 1848181442}
   - {fileID: 633827976}
   - {fileID: 70182404}
+  - {fileID: 208536986}

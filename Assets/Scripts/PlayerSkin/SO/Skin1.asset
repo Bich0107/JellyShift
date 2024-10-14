@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6493b6e5148d7e74fbfd12ab7abce770, type: 3}
   m_Name: Skin1
   m_EditorClassIdentifier: 
-  index: 11
-  skinMaterial: {fileID: 2100000, guid: 8a7b7e1fa0b0cb54099c735efe445826, type: 2}
-  predictionBoxMaterial: {fileID: 2100000, guid: efefc4e4f1ebed548811c360aa9cd10e,
+  index: 1
+  skinMaterial: {fileID: 2100000, guid: 416d15cd169c5a0468b8346abad16527, type: 2}
+  predictionBoxMaterial: {fileID: 2100000, guid: 973d62bac3331e64496a5e095b7abb85,
     type: 2}
-  predictionImageColor: {r: 0, g: 0, b: 0, a: 0.8}
-  passingObstacleCoverColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
-  activated: 0
+  predictionImageColor: {r: 0, g: 0.20935965, b: 1, a: 0.8}
+  passingObstacleCoverColor: {r: 0.39999998, g: 0.7930204, b: 1, a: 1}
+  reviewRenderTexture: {fileID: 8400000, guid: 929b907fa9da6804eb2c126869d49654, type: 2}
+  activated: 1
   choosen: 0

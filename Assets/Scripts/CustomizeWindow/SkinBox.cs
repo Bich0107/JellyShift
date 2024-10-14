@@ -1,17 +1,23 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkinBox : MonoBehaviour
 {
     PlayerSkinChanger skinChanger;
+    SkinDisplayer skinDisplayer;
+    Transform skinDisplayerParent;
+    [SerializeField] GameObject skinReviewPrefab;
     [SerializeField] PlayerSkinSO skinSO;
     [SerializeField] GameObject borderDefault;
     [SerializeField] GameObject borderChoosen;
     [SerializeField] GameObject skinActiveImage;
     [SerializeField] GameObject skinDefaultImage;
+    [SerializeField] RawImage activeImage;
     static SkinBox s_choosenSkin;
 
     void Awake()
     {
+        skinDisplayerParent = GameObject.FindGameObjectWithTag(Tags.SkinDisplayerParent).transform;
         skinChanger = FindObjectOfType<PlayerSkinChanger>();
     }
 
@@ -19,6 +25,7 @@ public class SkinBox : MonoBehaviour
     {
         skinSO = _skin;
 
+        // find the current choosen skin and store it as a static variable, make sure there can only be one
         if (skinSO.IsChoosen)
         {
             if (s_choosenSkin == null)
@@ -31,7 +38,18 @@ public class SkinBox : MonoBehaviour
             }
         }
 
+        activeImage.texture = skinSO.ReviewRenderTexture;
+
+        SetupSkinDisplayer();
+
         SetSkinboxUI(skinSO.IsActive, skinSO.IsChoosen);
+    }
+
+    void SetupSkinDisplayer()
+    {
+        GameObject g = Instantiate(skinReviewPrefab, skinDisplayerParent);
+        skinDisplayer = g.GetComponent<SkinDisplayer>();
+        skinDisplayer.SetSkin(skinSO.SkinMaterial, skinSO.ReviewRenderTexture);
     }
 
     public void OnSelect()
@@ -54,9 +72,14 @@ public class SkinBox : MonoBehaviour
         if (!skinSO.IsChoosen)
         {
             skinChanger.ChangeSkin(skinSO);
+
+            // update ui of previous choosen skin
             s_choosenSkin.SetSkinboxUI(true, false);
+
             SetSkinboxUI(true, true);
             s_choosenSkin = this;
+
+            skinDisplayer.SelectSkin();
         }
     }
 
@@ -64,8 +87,10 @@ public class SkinBox : MonoBehaviour
     {
         skinActiveImage.SetActive(_isActive);
         skinDefaultImage.SetActive(!_isActive);
+        skinSO.IsActive = _isActive;
 
         borderChoosen.SetActive(_isChoosen);
         borderDefault.SetActive(!_isChoosen);
+        skinSO.IsChoosen = _isChoosen;
     }
 }

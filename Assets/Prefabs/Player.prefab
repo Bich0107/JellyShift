@@ -109,8 +109,8 @@ MonoBehaviour:
   maxX: 1.2
   minY: 0.2
   maxY: 1.2
-  xTValue: 0.6
-  yTValue: 0.4
+  baseXTValue: 0
+  baseYTValue: 0
   scaleSpeed: 2
 --- !u!114 &6891075261507772281
 MonoBehaviour:
@@ -244,7 +244,7 @@ MonoBehaviour:
   - offset: {x: 0, y: 0, z: 0}
     localScale: {x: 0.8, y: 0.6, z: 0.3}
     duration: 0
-  scaleTrans: {fileID: 6469604720327371372}
+  targetTrans: {fileID: 0}
   idleScaleDuration: 0.45
   goalReachScaleDuration: 1
   animationState_GoalReach: Player_Goal
@@ -604,7 +604,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 586b9d01ac4b501469fe065e8ad4bbc6, type: 2}
+  - {fileID: 2100000, guid: d6e4b99a74234c647aecaf9717d11c1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

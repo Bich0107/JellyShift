@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6493b6e5148d7e74fbfd12ab7abce770, type: 3}
-  m_Name: DefaultSkin 8
+  m_Name: Skin5
   m_EditorClassIdentifier: 
-  index: 8
-  skinMaterial: {fileID: 2100000, guid: 586b9d01ac4b501469fe065e8ad4bbc6, type: 2}
+  index: 5
+  skinMaterial: {fileID: 2100000, guid: 1f3530bb86258a24eb67ed886f93dbed, type: 2}
   predictionBoxMaterial: {fileID: 2100000, guid: 973d62bac3331e64496a5e095b7abb85,
     type: 2}
-  predictionImageColor: {r: 1, g: 0, b: 0, a: 0.8}
-  passingObstacleCoverColor: {r: 1, g: 0.39811313, b: 0.39811313, a: 1}
-  activated: 0
+  predictionImageColor: {r: 0.847415, g: 0, b: 1, a: 0.8}
+  passingObstacleCoverColor: {r: 0.85384464, g: 0.39999998, b: 1, a: 1}
+  reviewRenderTexture: {fileID: 8400000, guid: 91551d3eafac74544896f81b4c99f72c, type: 2}
+  activated: 1
   choosen: 0

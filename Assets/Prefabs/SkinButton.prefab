@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5090303057193543757}
   - component: {fileID: 1182384900810254962}
-  - component: {fileID: 7334156946707791190}
+  - component: {fileID: 3446083354307591487}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 210}
+  m_AnchoredPosition: {x: -0.633, y: 0.3163}
+  m_SizeDelta: {x: 232.2788, y: 192.9117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1182384900810254962
 CanvasRenderer:
@@ -120,7 +120,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2990770797366917338}
   m_CullTransparentMesh: 1
---- !u!114 &7334156946707791190
+--- !u!114 &3446083354307591487
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2990770797366917338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -140,16 +140,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 214535a1d2ac60d418ba7d526bcb665f, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 8400000, guid: 8ca26957784ceb349be32d7bafdf023b, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &3916099470652252124
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,11 +297,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f94640db16cfd47839bfac84ab4e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skinReviewPrefab: {fileID: 7453771984651292426, guid: a30b7758b63569849aa38e11f504b8f1,
+    type: 3}
   skinSO: {fileID: 11400000, guid: 2dcfafafd4655cd40a9526558e8d459b, type: 2}
   borderDefault: {fileID: 8375026244514031048}
   borderChoosen: {fileID: 1459977419046171378}
   skinActiveImage: {fileID: 3916099470652252124}
   skinDefaultImage: {fileID: 8255623423594403083}
+  activeImage: {fileID: 3446083354307591487}
 --- !u!1 &7965791466911560042
 GameObject:
   m_ObjectHideFlags: 0
