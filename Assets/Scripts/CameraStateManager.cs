@@ -9,6 +9,7 @@ public enum CameraState
 public class CameraStateManager : MonoBehaviour
 {
     [SerializeField] Transform camTrans;
+    [SerializeField] Follower camFollower;
     [SerializeField] RotateObject rotateObject;
     [SerializeField] Vector3[] camPositions;
     [SerializeField] Quaternion[] camRotation;
@@ -51,6 +52,7 @@ public class CameraStateManager : MonoBehaviour
     public void Reset()
     {
         StopAllCoroutines();
+        camFollower.Reset();
         ChangeState(defautState);
         rotateObject.Reset();
     }

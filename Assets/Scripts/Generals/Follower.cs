@@ -10,7 +10,6 @@ public class Follower : MonoBehaviour
     [SerializeField] float smoothFactor = 0.5f;
     Vector3 newPos;
     bool isFollowing = true;
-    bool isFreezeHeight = false;
 
     void Start()
     {
@@ -26,4 +25,9 @@ public class Follower : MonoBehaviour
     }
 
     public void Stop() => isFollowing = false;
+
+    public void Reset()
+    {
+        isFollowing = true;
+    }
 }

@@ -38,6 +38,7 @@ public class GravityEffector : MonoBehaviour
         {
             isEnabled = true;
             camFollower.Stop();
+            GameManager.Instance.GameOver();
         }
     }
 

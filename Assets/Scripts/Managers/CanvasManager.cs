@@ -7,6 +7,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] GameObject startCanvas;
     [SerializeField] GameObject playCanvas;
     [SerializeField] GameObject endGameCanvas;
+    [SerializeField] GameObject gameOverCanvas;
 
     public void Start()
     {
@@ -18,6 +19,7 @@ public class CanvasManager : MonoBehaviour
         startCanvas.SetActive(false);
         playCanvas.SetActive(true);
         endGameCanvas.SetActive(false);
+        gameOverCanvas.SetActive(false);
     }
 
     public void GameEnd()
@@ -27,10 +29,19 @@ public class CanvasManager : MonoBehaviour
         endGameCanvas.SetActive(true);
     }
 
+    public void GameOver()
+    {
+        startCanvas.SetActive(false);
+        playCanvas.SetActive(false);
+        endGameCanvas.SetActive(false);
+        gameOverCanvas.SetActive(true);
+    }
+
     public void GameWait()
     {
         startCanvas.SetActive(true);
         playCanvas.SetActive(false);
         endGameCanvas.SetActive(false);
+        gameOverCanvas.SetActive(false);
     }
 }
