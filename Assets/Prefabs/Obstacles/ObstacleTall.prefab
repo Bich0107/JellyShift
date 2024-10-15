@@ -421,8 +421,6 @@ MonoBehaviour:
   - {fileID: 3103252027316982785}
   - {fileID: 1764869957696371211}
   coverImage: {fileID: 8236380292435538366}
-  feverPassingVFX: {fileID: 1590583897010104115, guid: 6f5cd5475be5cf0479f583264b912992,
-    type: 3}
   expandTime: 0.5
   endScale: {x: 1.5, y: 1.2, z: 1}
 --- !u!1001 &889059074839844065

@@ -7,7 +7,6 @@ public class Bank : MonoSingleton<Bank>
 {
     [SerializeField] int crystalAmount = 0;
     [SerializeField] TextMeshProUGUI amountText;
-    [SerializeField] TextMeshProUGUI amountText_2;
 
     protected override void Awake()
     {
@@ -18,20 +17,14 @@ public class Bank : MonoSingleton<Bank>
     {
         crystalAmount += _amount;
         amountText.text = crystalAmount.ToString();
-        amountText_2.text = crystalAmount.ToString();
     }
 
-    public void TakeCrystal(int _amount)
+    public bool TakeCrystal(int _amount)
     {
-        if (crystalAmount < _amount) return;
+        if (crystalAmount < _amount) return false;
 
         crystalAmount -= _amount;
         amountText.text = crystalAmount.ToString();
-        amountText_2.text = crystalAmount.ToString();
-    }
-
-    public bool CheckAmount(int _amount)
-    {
-        return crystalAmount >= _amount;
+        return true;
     }
 }
