@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class BuyRandomSkinButton : MonoBehaviour
 {
-    [SerializeField] SkinBox[] currentPageSkinBoxes;
+    SkinBox[] currentPageSkinBoxes;
+    [SerializeField] Bank bank;
+    [SerializeField] int pricePerSkin;
     [SerializeField] int minSelectTime;
     [SerializeField] int maxSelectTime;
     [SerializeField] float changeDelay;
@@ -19,31 +21,6 @@ public class BuyRandomSkinButton : MonoBehaviour
         return Random.Range(minSelectTime, maxSelectTime + 1);
     }
 
-    public void OnClick()
-    {
-        if (isSelecting) return;
-
-        // check currency here
-        // ==========================================================
-
-        int counter = CountInactiveSkin();
-
-        if (counter == 0) return;
-        if (counter == 1)
-        {
-            for (int i = 0; i < currentPageSkinBoxes.Length; i++)
-            {
-                if (!currentPageSkinBoxes[i].SkinSO.IsActive)
-                {
-                    currentPageSkinBoxes[i].ActiveSkin();
-                    return;
-                }
-            }
-        }
-
-        StartCoroutine(CR_SelectRandomSkin());
-    }
-
     int CountInactiveSkin()
     {
         int result = 0;
@@ -53,6 +30,41 @@ public class BuyRandomSkinButton : MonoBehaviour
         }
 
         return result;
+    }
+
+    public void OnClick()
+    {
+        if (isSelecting) return;
+
+        if (!bank.CheckAmount(pricePerSkin))
+        {
+            Debug.Log("not enough crystal");
+            // make some effect to notice player here
+            return;
+        }
+
+        int counter = CountInactiveSkin();
+
+        if (counter == 0)
+        {
+            Debug.Log("all skin is bought");
+            return;
+        }
+
+        if (counter == 1)
+        {
+            for (int i = 0; i < currentPageSkinBoxes.Length; i++)
+            {
+                if (!currentPageSkinBoxes[i].SkinSO.IsActive)
+                {
+                    currentPageSkinBoxes[i].ActiveSkin();
+                    bank.TakeCrystal(pricePerSkin);
+                    return;
+                }
+            }
+        }
+
+        StartCoroutine(CR_SelectRandomSkin());
     }
 
     IEnumerator CR_SelectRandomSkin()
@@ -85,6 +97,8 @@ public class BuyRandomSkinButton : MonoBehaviour
             }
             // loop for select time
         } while (counter < selectTime);
+
+        bank.TakeCrystal(pricePerSkin);
 
         isSelecting = false;
     }
