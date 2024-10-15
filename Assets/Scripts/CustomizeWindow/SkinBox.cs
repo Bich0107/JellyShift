@@ -11,11 +11,9 @@ public class SkinBox : MonoBehaviour
     [SerializeField] GameObject borderDefault;
     [SerializeField] GameObject borderChoosen;
     [SerializeField] GameObject skinActiveImage;
-    [SerializeField] GameObject skinGachaImage;
     [SerializeField] GameObject skinDefaultImage;
     [SerializeField] RawImage activeImage;
     static SkinBox s_choosenSkin;
-    public PlayerSkinSO SkinSO => skinSO;
 
     void Awake()
     {
@@ -56,6 +54,7 @@ public class SkinBox : MonoBehaviour
 
     public void OnSelect()
     {
+        ActiveSkin();
         SelectSkin();
     }
 
@@ -63,23 +62,25 @@ public class SkinBox : MonoBehaviour
     {
         if (!skinSO.IsActive)
         {
+            skinSO.IsActive = true;
             SetSkinboxUI(true, false);
         }
     }
 
     void SelectSkin()
     {
-        if (!skinSO.IsActive || skinSO.IsChoosen) return;
+        if (!skinSO.IsChoosen)
+        {
+            skinChanger.ChangeSkin(skinSO);
 
-        skinChanger.ChangeSkin(skinSO);
+            // update ui of previous choosen skin
+            s_choosenSkin.SetSkinboxUI(true, false);
 
-        // update ui of previous choosen skin
-        s_choosenSkin.SetSkinboxUI(true, false);
+            SetSkinboxUI(true, true);
+            s_choosenSkin = this;
 
-        SetSkinboxUI(true, true);
-        s_choosenSkin = this;
-
-        skinDisplayer.SelectSkin();
+            skinDisplayer.SelectSkin();
+        }
     }
 
     public void SetSkinboxUI(bool _isActive, bool _isChoosen)
@@ -91,11 +92,5 @@ public class SkinBox : MonoBehaviour
         borderChoosen.SetActive(_isChoosen);
         borderDefault.SetActive(!_isChoosen);
         skinSO.IsChoosen = _isChoosen;
-    }
-
-    public void SetGachaImage(bool _status)
-    {
-        skinGachaImage.SetActive(_status);
-        skinDefaultImage.SetActive(!_status);
     }
 }

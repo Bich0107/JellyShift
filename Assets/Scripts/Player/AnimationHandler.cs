@@ -35,8 +35,6 @@ public class AnimationHandler : MonoBehaviour
         StartCoroutine(CR_IdleSequence());
     }
 
-    public void StartIdleSequence() => StartCoroutine(CR_IdleSequence());
-
     public void GoalReach()
     {
         animator.enabled = true;

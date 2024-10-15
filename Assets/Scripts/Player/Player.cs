@@ -56,6 +56,5 @@ public class Player : MonoBehaviour
         fever.Reset();
 
         transform.position = basePosition;
-        animationHandler.StartIdleSequence();
     }
 }

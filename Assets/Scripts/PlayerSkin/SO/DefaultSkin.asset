@@ -20,4 +20,4 @@ MonoBehaviour:
   passingObstacleCoverColor: {r: 1, g: 0.39811313, b: 0.39811313, a: 1}
   reviewRenderTexture: {fileID: 8400000, guid: 8ca26957784ceb349be32d7bafdf023b, type: 2}
   activated: 1
-  choosen: 1
+  choosen: 0

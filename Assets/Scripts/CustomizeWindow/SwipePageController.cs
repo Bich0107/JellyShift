@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 {
-    [SerializeField] SkinPagesSetter skinPagesSetter;
-    [SerializeField] BuyRandomSkinButton buyRandomSkinButton;
     [SerializeField] ScrollRect scrollRect;
     [SerializeField] Pagination pagination;
     [SerializeField] GameObject contentHolder;
@@ -45,7 +43,6 @@ public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
         float dragDistance = scrollRect.horizontalNormalizedPosition - dragStartPos;
 
-        // check player drag distance
         if (Mathf.Abs(dragDistance) > minDragDistance)
         {
             // check drag direction to change page
@@ -65,6 +62,7 @@ public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
         // check index and start transition
         StartCoroutine(CR_ChangePage(newPageIndex));
+
     }
 
     IEnumerator CR_ChangePage(int _newIndex)
@@ -72,7 +70,6 @@ public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHan
         isChangingPage = true;
         float tick = 0f;
 
-        // slowly change page
         float startValue = scrollRect.horizontalNormalizedPosition;
         float endValue = pagePositions[_newIndex];
         while (tick < transitionTime)
@@ -82,13 +79,8 @@ public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHan
             yield return null;
         }
 
-        // update page index and pagination
         pageIndex = newPageIndex;
         pagination.ChangePage(pageIndex);
-
-        // when changing page, update skinboxes array of buy button
-        SkinBox[] skinBoxes = skinPagesSetter.GetSkinOnPage(pageIndex);
-        buyRandomSkinButton.Setup(skinBoxes);
 
         isChangingPage = false;
     }

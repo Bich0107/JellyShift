@@ -19,5 +19,5 @@ MonoBehaviour:
   predictionImageColor: {r: 0, g: 0, b: 0, a: 0.8}
   passingObstacleCoverColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   reviewRenderTexture: {fileID: 8400000, guid: 72995d3d4022e9f4e9c9c515dc08f7aa, type: 2}
-  activated: 0
+  activated: 1
   choosen: 0
