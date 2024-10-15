@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AdManager : MonoSingleton<AdManager>
 {
-    static readonly string APP_KEY = "148fe71dcc65bf2cb051395e3ed521fb6cfec5ea5a5d3b046d46894e771ea84d";
+    static readonly string APP_KEY = "1fd85807d";
     [SerializeField] bool testMode;
     bool available;
 
@@ -12,15 +12,18 @@ public class AdManager : MonoSingleton<AdManager>
     {
         base.Awake();
 
-        IronSource.Agent.setAdaptersDebug(testMode);
+        IronSourceAdQuality.Initialize(APP_KEY);
 
         IronSource.Agent.init(APP_KEY, IronSourceAdUnits.REWARDED_VIDEO);
-        IronSource.Agent.shouldTrackNetworkState(true);
+        IronSource.Agent.validateIntegration();
+
+        ISAdQualityConfig adQualityConfig = new ISAdQualityConfig();
+        adQualityConfig.TestMode = testMode;
+        //IronSource.Agent.shouldTrackNetworkState(true);
     }
 
     void Start()
     {
-        IronSource.Agent.validateIntegration();
 
         //Add AdInfo Rewarded Video Events
         IronSourceRewardedVideoEvents.onAdOpenedEvent += RewardedVideoOnAdOpenedEvent;
@@ -80,6 +83,7 @@ public class AdManager : MonoSingleton<AdManager>
     public void ShowAd()
     {
         available = IronSource.Agent.isRewardedVideoAvailable();
+
         if (available)
         {
             IronSource.Agent.showRewardedVideo();
