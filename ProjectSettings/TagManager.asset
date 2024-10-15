@@ -16,6 +16,7 @@ TagManager:
   - Crystal
   - SkinDisplayerParent
   - FeverPassVFX
+  - SpecialPathForward
   layers:
   - Default
   - TransparentFX

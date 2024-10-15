@@ -1414,7 +1414,7 @@ MonoBehaviour:
   - gameObject: {fileID: 7636051841716444278, guid: d4b8fd59abd61a14eb2083666818bb59,
       type: 3}
     count: 35
-    expandable: 0
+    expandable: 1
   - gameObject: {fileID: 8756048142793225851, guid: 7268be5f5d987cf4db0d3c7cc6593c77,
       type: 3}
     count: 5
@@ -1451,6 +1451,10 @@ MonoBehaviour:
       type: 3}
     count: 20
     expandable: 0
+  - gameObject: {fileID: 8144844683697648540, guid: 9ace0085f19f3ff42bc039693e2b62e4,
+      type: 3}
+    count: 35
+    expandable: 1
   pooledGobjects: []
 --- !u!1 &551232429
 GameObject:
@@ -2761,6 +2765,9 @@ MonoBehaviour:
   startPos: {fileID: 7636051841716444278, guid: b1f287a21e172a74fb950d1019bd83b0,
     type: 3}
   goal: {fileID: 7636051841716444278, guid: 1442dffe3657e934295e17207b16b60f, type: 3}
+  specialPathPrefab: {fileID: 8144844683697648540, guid: 9ace0085f19f3ff42bc039693e2b62e4,
+    type: 3}
+  specialPathChance: 10
   spawner: {fileID: 2104950975}
 --- !u!1 &982508481
 GameObject:
@@ -4038,7 +4045,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.14723387, g: 0.38924974, b: 0.4264151, a: 0}
+  m_BackGroundColor: {r: 0.31231752, g: 0.546513, b: 0.5849056, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5489,6 +5496,16 @@ PrefabInstance:
       propertyPath: fever
       value: 
       objectReference: {fileID: 1407095568}
+    - target: {fileID: 7208685476007703056, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: gravity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208685476007703056, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: camFollower
+      value: 
+      objectReference: {fileID: 1833845443}
     - target: {fileID: 7208685476007703056, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: groundCheckBoxHeight

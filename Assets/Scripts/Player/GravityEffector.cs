@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GravityEffector : MonoBehaviour
 {
+    [SerializeField] Follower camFollower;
     [SerializeField] Transform targetTrans;
     [SerializeField] Transform groundCheckPos;
     [SerializeField] Transform boxTransform;
@@ -36,9 +37,11 @@ public class GravityEffector : MonoBehaviour
         else
         {
             isEnabled = true;
+            camFollower.Stop();
         }
     }
 
+    // for debug
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

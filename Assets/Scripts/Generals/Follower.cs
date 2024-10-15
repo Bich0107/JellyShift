@@ -10,6 +10,7 @@ public class Follower : MonoBehaviour
     [SerializeField] float smoothFactor = 0.5f;
     Vector3 newPos;
     bool isFollowing = true;
+    bool isFreezeHeight = false;
 
     void Start()
     {
@@ -24,5 +25,5 @@ public class Follower : MonoBehaviour
         transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
     }
 
-    public void Stop() => isFollowing = true;
+    public void Stop() => isFollowing = false;
 }

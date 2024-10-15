@@ -27,6 +27,8 @@ public class PathGenerator : MonoBehaviour
     [SerializeField] GameObject[] rightTurnPrefabs;
     [SerializeField] GameObject startPos;
     [SerializeField] GameObject goal;
+    [SerializeField] GameObject specialPathPrefab;
+    [SerializeField] float specialPathChance = 10f;
     [SerializeField] Spawner spawner;
     float length;
     public float Length => length;
@@ -54,8 +56,20 @@ public class PathGenerator : MonoBehaviour
         SetPath(startPos);
 
         // spawn paths forward
-        GameObject pathPrefab = pathPrefabs[0];
-        for (int i = 0; i < pathPerSegment; i++) SetPath(pathPrefab);
+        GameObject pathPrefab;
+        for (int i = 0; i < pathPerSegment; i++)
+        {
+            if (Random.Range(0, 100) < specialPathChance)
+            {
+                pathPrefab = specialPathPrefab;
+            }
+            else
+            {
+                pathPrefab = pathPrefabs[0];
+            }
+
+            SetPath(pathPrefab);
+        }
 
         // check turn time value and choose randomly to turn left-right or right-left
         if (turnTime > 0)
