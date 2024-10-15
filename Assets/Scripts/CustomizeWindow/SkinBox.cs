@@ -12,8 +12,10 @@ public class SkinBox : MonoBehaviour
     [SerializeField] GameObject borderChoosen;
     [SerializeField] GameObject skinActiveImage;
     [SerializeField] GameObject skinDefaultImage;
+    [SerializeField] GameObject skinGachaImage;
     [SerializeField] RawImage activeImage;
     static SkinBox s_choosenSkin;
+    public PlayerSkinSO SkinSO => skinSO;
 
     void Awake()
     {
@@ -43,6 +45,13 @@ public class SkinBox : MonoBehaviour
         SetupSkinDisplayer();
 
         SetSkinboxUI(skinSO.IsActive, skinSO.IsChoosen);
+    }
+
+    // set status for skin box when using buy random skin button
+    public void SetGachaImage(bool _status)
+    {
+        skinDefaultImage.SetActive(!_status);
+        skinGachaImage.SetActive(_status);
     }
 
     void SetupSkinDisplayer()

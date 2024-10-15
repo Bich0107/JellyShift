@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 {
+    [SerializeField] BuyRandomSkinButton buyRandomSkinButton;
+    [SerializeField] SkinPagesSetter skinPagesSetter;
     [SerializeField] ScrollRect scrollRect;
     [SerializeField] Pagination pagination;
     [SerializeField] GameObject contentHolder;
@@ -81,6 +83,9 @@ public class SwipePageController : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
         pageIndex = newPageIndex;
         pagination.ChangePage(pageIndex);
+
+        // update current display skins for buy button
+        buyRandomSkinButton.SetSkinBoxes(skinPagesSetter.GetSkinsOnPage(pageIndex));
 
         isChangingPage = false;
     }
