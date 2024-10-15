@@ -156,9 +156,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTrans: {fileID: 521140776105546551}
   raycastPos: {fileID: 5074661524303062871}
+  groundCheckPos: {fileID: 5309281223333983847}
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  boxTransform: {fileID: 6469604720327371372}
   isEnabled: 0
   gravity: 1.5
   groundCheckDistance: 1
@@ -644,6 +646,59 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &6046907831461566195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5309281223333983847}
+  - component: {fileID: 3024226004701566804}
+  m_Layer: 12
+  m_Name: GroundChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5309281223333983847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046907831461566195}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6469604720327371372}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3024226004701566804
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046907831461566195}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.16652253, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7083313581786119227
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +762,7 @@ Transform:
   - {fileID: 2630422462152237948}
   - {fileID: 7123534373873927857}
   - {fileID: 7961068551370421985}
+  - {fileID: 5309281223333983847}
   m_Father: {fileID: 521140776105546551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7413536412039721838

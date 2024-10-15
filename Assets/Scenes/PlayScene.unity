@@ -5489,6 +5489,11 @@ PrefabInstance:
       propertyPath: fever
       value: 
       objectReference: {fileID: 1407095568}
+    - target: {fileID: 7208685476007703056, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: groundCheckBoxHeight
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 8839220151739283896, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: m_Camera

@@ -3,13 +3,15 @@ using UnityEngine;
 public class GravityEffector : MonoBehaviour
 {
     [SerializeField] Transform targetTrans;
-    [SerializeField] Transform raycastPos;
+    [SerializeField] Transform groundCheckPos;
+    [SerializeField] Transform boxTransform;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] bool isEnabled;
+    [SerializeField] float groundCheckBoxHeight = 0.2f;
     [SerializeField] float gravity;
-    [SerializeField] float groundCheckDistance;
+    [Space]
+    [SerializeField] bool isEnabled;
+    Vector3 boxHalfScale;
     bool onGround = true;
-    RaycastHit hit;
 
     void Update()
     {
@@ -23,17 +25,35 @@ public class GravityEffector : MonoBehaviour
 
     void GroundCheck()
     {
-        Physics.Raycast(raycastPos.position, Vector3.down, out hit, groundCheckDistance, groundLayer, QueryTriggerInteraction.Collide);
-        if (hit.collider == null)
+        boxHalfScale = boxTransform.localScale / 2f;
+        boxHalfScale.y = groundCheckBoxHeight;
+
+        onGround = Physics.CheckBox(groundCheckPos.position, boxHalfScale, targetTrans.localRotation, groundLayer, QueryTriggerInteraction.Collide);
+        if (onGround)
         {
-            isEnabled = true;
-            onGround = false;
+            isEnabled = false;
         }
         else
         {
-            onGround = true;
-            isEnabled = false;
+            isEnabled = true;
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        // Save the current Gizmos matrix
+        Matrix4x4 oldMatrix = Gizmos.matrix;
+
+        // Apply the object's position and rotation to Gizmos matrix
+        Gizmos.matrix = Matrix4x4.TRS(groundCheckPos.position, targetTrans.localRotation, Vector3.one);
+
+        // Draw the wireframe cube with the box extents
+        Gizmos.DrawWireCube(Vector3.zero, boxHalfScale * 2);
+
+        // Restore the original Gizmos matrix
+        Gizmos.matrix = oldMatrix;
     }
 
     public bool OnGround => onGround;
