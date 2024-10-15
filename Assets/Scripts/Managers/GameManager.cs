@@ -32,6 +32,11 @@ public class GameManager : MonoSingleton<GameManager>
         camStateManager.ChangeState(CameraState.Rotate);
     }
 
+    void OnApplicationPause(bool isPaused)
+    {
+        IronSource.Agent.onApplicationPause(isPaused);
+    }
+
     public void Replay()
     {
         gameStarted = false;
