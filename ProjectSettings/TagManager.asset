@@ -15,6 +15,7 @@ TagManager:
   - Goal
   - Crystal
   - SkinDisplayerParent
+  - FeverPassVFX
   layers:
   - Default
   - TransparentFX

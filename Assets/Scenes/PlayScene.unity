@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &115727367
 RectTransform:
   m_ObjectHideFlags: 0
@@ -551,10 +551,10 @@ RectTransform:
   - {fileID: 2113450538}
   m_Father: {fileID: 699717841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 785, y: -112.557556}
+  m_SizeDelta: {x: 390, y: 185.11511}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &221576303
 MonoBehaviour:
@@ -1446,6 +1446,10 @@ MonoBehaviour:
   - gameObject: {fileID: 8678558193627059379, guid: 1e5da8cd0a7935e44bfdd565ee498d07,
       type: 3}
     count: 100
+    expandable: 0
+  - gameObject: {fileID: 3170931027050223098, guid: 3f7a00d6b4d3c2546b74a4ff40cf3067,
+      type: 3}
+    count: 20
     expandable: 0
   pooledGobjects: []
 --- !u!1 &551232429
@@ -4473,10 +4477,10 @@ RectTransform:
   - {fileID: 1645585508}
   m_Father: {fileID: 699717841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 295, y: -112.557556}
+  m_SizeDelta: {x: 390, y: 185.11511}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1901135948
 MonoBehaviour:
@@ -5459,6 +5463,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770759996587308075, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: scaleSpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3770759996587308075, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}

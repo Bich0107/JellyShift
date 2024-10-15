@@ -9,6 +9,7 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
     [SerializeField] ObstacleCube[] bodyCubes;
     [SerializeField] Image coverImage;
     [Header("Player passing settings")]
+    [SerializeField] GameObject feverPassingVFX;
     [SerializeField] float expandTime;
     [SerializeField] Vector3 endScale;
     Vector3 baseScale;
@@ -45,6 +46,7 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
         if (feverSystem.IsActive)
         {
             BodyExplode();
+            SpawnVFX();
         }
         else
         {
@@ -60,6 +62,14 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
         {
             bodyCubes[i].Break();
         }
+    }
+
+    void SpawnVFX()
+    {
+        GameObject vfx = ObjectPool.Instance.Spawn(feverPassingVFX.tag);
+        vfx.transform.position = transform.position;
+        vfx.transform.rotation = transform.rotation;
+        vfx.SetActive(true);
     }
 
     IEnumerator CR_ExpandCover()
