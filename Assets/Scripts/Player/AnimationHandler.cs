@@ -32,6 +32,11 @@ public class AnimationHandler : MonoBehaviour
 
     void Start()
     {
+        PlayIdleAnimation();
+    }
+
+    public void PlayIdleAnimation()
+    {
         StartCoroutine(CR_IdleSequence());
     }
 

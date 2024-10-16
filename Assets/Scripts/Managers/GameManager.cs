@@ -11,6 +11,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] DistanceBar distanceBar;
     [SerializeField] Player player;
     bool gameOver = false;
+    bool levelFinished = false;
 
     protected override void Awake()
     {
@@ -19,6 +20,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void GameStart()
     {
+        levelFinished = false;
         gameStarted = true;
 
         canvasManager.GameStart();
@@ -31,6 +33,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (gameOver) return;
 
+        levelFinished = true;
         gameOver = true;
         canvasManager.GameEnd();
         camStateManager.ChangeState(CameraState.Rotate);
@@ -51,6 +54,8 @@ public class GameManager : MonoSingleton<GameManager>
         gameOver = false;
 
         canvasManager.GameWait();
+
+        if (levelFinished) LevelManager.Instance.IncreaseLevel();
 
         distanceBar.Reset();
         ObjectPool.Instance.Reset();

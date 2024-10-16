@@ -11,14 +11,14 @@ public class PathGenerator : MonoBehaviour
 {
     [Header("Spawn amount and number of turn settings")]
     [SerializeField] DistanceBar playerDistanceBar;
-    [SerializeField] int pathAmount = 10;
-    int pathPerSegment;
     [Range(0, 2)]
     [SerializeField] int maxTurnTime;
     [SerializeField] bool randomTurnTime;
     [Tooltip("If the number of turn is >= 1, this is the chance for the first turn to be left")]
     [SerializeField] int turnLeftFirstChance = 50;
     int turnTime;
+    int pathAmount = 30;
+    int pathPerSegment;
     [Header("Spawn path settings")]
     [SerializeField] Vector3 defaultSpawnPos;
     [SerializeField] Vector3 spawnPos;
@@ -44,6 +44,8 @@ public class PathGenerator : MonoBehaviour
     }
 
     void GetRandomTurnTime() => turnTime = Random.Range(0, maxTurnTime + 1);
+
+    public void SetPathAmount(int _value) => pathAmount = _value;
 
     public void GeneratePaths()
     {
