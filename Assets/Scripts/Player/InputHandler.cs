@@ -28,6 +28,13 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SaveManager.Instance.Reset();
+        }
+#endif
+
         if (!gravityEffector.OnGround)
         {
             isActive = false;

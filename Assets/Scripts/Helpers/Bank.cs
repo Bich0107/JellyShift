@@ -14,11 +14,15 @@ public class Bank : MonoSingleton<Bank>
         base.Awake();
     }
 
+    public void SetCrystalAmount(int _amount) => crystalAmount = _amount;
+
     public void AddCrystal(int _amount = 1)
     {
         crystalAmount += _amount;
         amountText.text = crystalAmount.ToString();
         amountText_2.text = crystalAmount.ToString();
+
+        SaveManager.Instance.currentSaveFile.Crystal = crystalAmount;
     }
 
     public void TakeCrystal(int _amount)
@@ -26,6 +30,8 @@ public class Bank : MonoSingleton<Bank>
         crystalAmount -= _amount;
         amountText.text = crystalAmount.ToString();
         amountText_2.text = crystalAmount.ToString();
+
+        SaveManager.Instance.currentSaveFile.Crystal = crystalAmount;
     }
 
     public bool CheckAmount(int _amount)

@@ -1562,15 +1562,15 @@ MonoBehaviour:
   - gameObject: {fileID: 1547534552253833923, guid: 2aefcbc0b5129784e9f03ba06d7fdfdf,
       type: 3}
     count: 100
-    expandable: 0
+    expandable: 1
   - gameObject: {fileID: 6473157078919166993, guid: 172bc4be441c2a54ea68f2765be277e6,
       type: 3}
     count: 100
-    expandable: 0
+    expandable: 1
   - gameObject: {fileID: 1547534552253833923, guid: 6729c4489876faa4c9704504d1c68aac,
       type: 3}
     count: 100
-    expandable: 0
+    expandable: 1
   - gameObject: {fileID: 7636051841716444278, guid: b1f287a21e172a74fb950d1019bd83b0,
       type: 3}
     count: 1
@@ -1582,7 +1582,7 @@ MonoBehaviour:
   - gameObject: {fileID: 8678558193627059379, guid: 1e5da8cd0a7935e44bfdd565ee498d07,
       type: 3}
     count: 100
-    expandable: 0
+    expandable: 1
   - gameObject: {fileID: 3170931027050223098, guid: 3f7a00d6b4d3c2546b74a4ff40cf3067,
       type: 3}
     count: 20
@@ -2689,6 +2689,7 @@ Transform:
   - {fileID: 995523054}
   - {fileID: 581032141}
   - {fileID: 895759062}
+  - {fileID: 1117102518}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858693703
@@ -3155,7 +3156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDistanceBar: {fileID: 1790445662}
-  pathAmount: 30
   maxTurnTime: 2
   randomTurnTime: 1
   turnLeftFirstChance: 50
@@ -3531,6 +3531,50 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1117102517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117102518}
+  - component: {fileID: 1117102519}
+  m_Layer: 0
+  m_Name: SaveFileExtractor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1117102518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117102517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 840987680}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1117102519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117102517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fb8f1fe6a86cc4fb527b8d2cb27c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1281658035 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1531451700479166516, guid: 007e76edf82c3754a9260c1e3ff50a0f,
@@ -3918,6 +3962,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464669497}
   m_CullTransparentMesh: 1
+--- !u!1 &1467257574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467257575}
+  - component: {fileID: 1467257576}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1467257575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467257574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1848181442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1467257576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467257574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55718a1fed614d14b8b60614ff522b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSaveFile: {fileID: 0}
 --- !u!1 &1620831115
 GameObject:
   m_ObjectHideFlags: 0
@@ -4969,6 +5058,7 @@ Transform:
   m_Children:
   - {fileID: 765210001}
   - {fileID: 1676962776}
+  - {fileID: 1467257575}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1848683571

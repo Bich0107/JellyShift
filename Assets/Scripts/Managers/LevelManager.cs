@@ -13,14 +13,19 @@ public class LevelManager : MonoSingleton<LevelManager>
     protected override void Awake()
     {
         base.Awake();
-        pathGenerator.SetPathAmount(minPathAmount);
+
+        pathGenerator.SetPathAmount(GetPathAmount());
     }
+
+    public void SetLevel(int _value) => currentLevel = _value;
 
     public void IncreaseLevel()
     {
         currentLevel++;
         pathGenerator.SetPathAmount(GetPathAmount());
         levelText.text = "LEVEL " + currentLevel;
+
+        SaveManager.Instance.currentSaveFile.Level = currentLevel;
     }
 
     int GetPathAmount()
