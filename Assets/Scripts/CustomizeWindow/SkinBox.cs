@@ -63,7 +63,6 @@ public class SkinBox : MonoBehaviour
 
     public void OnSelect()
     {
-        ActiveSkin();
         SelectSkin();
     }
 
@@ -78,6 +77,8 @@ public class SkinBox : MonoBehaviour
 
     void SelectSkin()
     {
+        if (!skinSO.IsActive) return;
+
         if (!skinSO.IsChoosen)
         {
             skinChanger.ChangeSkin(skinSO);

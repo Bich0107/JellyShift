@@ -9,8 +9,9 @@ public class SaveManager : MonoSingleton<SaveManager>
     protected override void Awake()
     {
         base.Awake();
-        CreateNewSaveFile();
+
         currentSaveFile = LoadSave();
+        if (currentSaveFile == null) CreateNewSaveFile();
     }
 
     SaveFile LoadSave()

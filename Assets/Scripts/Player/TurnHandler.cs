@@ -55,8 +55,13 @@ public class TurnHandler : MonoBehaviour
 
     IEnumerator CR_PlayerMovemenControlSequence(bool _moveAgain = true)
     {
-        // store player speed when turn then stop player
-        float currentSpeed = movingObject.CurrentSpeed;
+        // store speed before turning if current speed is bigger than base speed (in fever)
+        // else store the base speed
+        float speedBeforeTurn;
+        if (movingObject.CurrentSpeed > movingObject.Speed)
+            speedBeforeTurn = movingObject.CurrentSpeed;
+        else
+            speedBeforeTurn = movingObject.Speed;
         movingObject.Stop();
 
         // make sure all object have the same speed (turnSpeed) when turn to update distance bar correctly
@@ -68,7 +73,7 @@ public class TurnHandler : MonoBehaviour
 
         if (_moveAgain)
         {
-            movingObject.CurrentSpeed = currentSpeed;
+            movingObject.CurrentSpeed = speedBeforeTurn;
             movingObject.Move();
         }
     }

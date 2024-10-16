@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] int maxSpawnRestTime;
     [SerializeField] bool spawnObstacle = true;
     [SerializeField] bool spawnCrystal = true;
+    [SerializeField] float crystalSpawnChance = 20;
     [SerializeField] bool randomSpawnRestTime = true;
     [SerializeField] bool randomObstacleAmount = true;
     [SerializeField] bool randomCrystalAmount = false;
@@ -59,6 +60,8 @@ public class Spawner : MonoBehaviour
 
         if (spawnCrystal)
         {
+            if (Random.Range(0, 100) > crystalSpawnChance) return;
+
             // get crystal spawn amount (random or all)
             if (randomCrystalAmount) spawnTime = GetRandomNum(_offsets.Length);
             else spawnTime = _offsets.Length;

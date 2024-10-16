@@ -27,7 +27,6 @@ public class FeverSystem : MonoBehaviour
     [SerializeField] float inFeverSpeed = 6f;
     [SerializeField] float endFeverSpeed = 1.5f;
     [SerializeField] float speedRestoreTime = 1.5f;
-    float speedBeforeBoost;
     bool isActive = false;
     public bool IsActive => isActive;
 
@@ -64,10 +63,10 @@ public class FeverSystem : MonoBehaviour
         if (isActive) return;
 
         isActive = true;
-        speedBeforeBoost = movingObject.CurrentSpeed;
+
+        // increase player speed, update ui and change camera fov
         movingObject.CurrentSpeed = inFeverSpeed;
         barFilling.color = activeColor;
-
         cameraHelper.ChangeFOVOverTime(feverFOV, fovChangeTime);
 
         StartCoroutine(CR_ReduceFeverWhenActive());
@@ -79,8 +78,12 @@ public class FeverSystem : MonoBehaviour
 
         isActive = false;
         barFilling.color = normalColor;
+
+        // reduce player speed then slowly restore it base speed
         movingObject.CurrentSpeed = endFeverSpeed;
-        movingObject.ChangeSpeedOvertime(speedBeforeBoost, speedRestoreTime);
+        movingObject.ChangeSpeedOvertime(movingObject.Speed, speedRestoreTime);
+
+        // slowly restore the fov
         cameraHelper.ChangeFOVOverTime(normalFOV, fovChangeTime);
     }
 
