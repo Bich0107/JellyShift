@@ -466,7 +466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &115727367
 RectTransform:
   m_ObjectHideFlags: 0
@@ -687,10 +687,10 @@ RectTransform:
   - {fileID: 2113450538}
   m_Father: {fileID: 699717841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 785, y: -112.557556}
-  m_SizeDelta: {x: 390, y: 185.11511}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &221576303
 MonoBehaviour:
@@ -955,6 +955,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277725447}
   m_CullTransparentMesh: 1
+--- !u!1 &310682859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 310682860}
+  - component: {fileID: 310682861}
+  m_Layer: 0
+  m_Name: GoogleAdManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &310682860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310682859}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1848181442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &310682861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310682859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6648c1d79aea6468a3a2e726a3dc99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  app_id: ca-app-pub-2136479507730706~2612843247
 --- !u!1 &346315820
 GameObject:
   m_ObjectHideFlags: 0
@@ -5059,6 +5104,7 @@ Transform:
   - {fileID: 765210001}
   - {fileID: 1676962776}
   - {fileID: 1467257575}
+  - {fileID: 310682860}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1848683571
@@ -5419,6 +5465,7 @@ GameObject:
   - component: {fileID: 1901135950}
   - component: {fileID: 1901135949}
   - component: {fileID: 1901135948}
+  - component: {fileID: 1901135951}
   m_Layer: 0
   m_Name: WatchAdButton
   m_TagString: Untagged
@@ -5441,10 +5488,10 @@ RectTransform:
   - {fileID: 1645585508}
   m_Father: {fileID: 699717841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 295, y: -112.557556}
-  m_SizeDelta: {x: 390, y: 185.11511}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1901135948
 MonoBehaviour:
@@ -5489,7 +5536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1901135949}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1901135951}
+        m_TargetAssemblyTypeName: WatchAdButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1901135949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5528,6 +5587,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901135946}
   m_CullTransparentMesh: 1
+--- !u!114 &1901135951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901135946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd6f8a56a612ac4392c794e7d56d52c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crysterPerWatch: 150
 --- !u!1 &1933296586
 GameObject:
   m_ObjectHideFlags: 0
@@ -5908,6 +5980,7 @@ MonoBehaviour:
   maxSpawnRestTime: 2
   spawnObstacle: 1
   spawnCrystal: 1
+  crystalSpawnChance: 20
   randomSpawnRestTime: 1
   randomObstacleAmount: 1
   randomCrystalAmount: 0

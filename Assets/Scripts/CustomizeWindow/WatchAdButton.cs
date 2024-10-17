@@ -6,6 +6,6 @@ public class WatchAdButton : MonoBehaviour
 
     public void OnClick()
     {
-        AdManager.Instance.ShowAd();
+        AdManager.Instance.LoadRewardAd();
     }
 }
