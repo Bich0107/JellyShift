@@ -8,27 +8,22 @@ public class InterstitialAdDisplayer : MonoBehaviour
     [SerializeField] int levelPerAd;
     int counter;
 
-    public void UpdateCounter()
+    public void UpdateCounter() => counter++;
+
+    public void ShowInterstitialAd()
     {
-        counter++;
         if (counter >= levelPerAd)
         {
-            ShowInterstitialAd();
-            counter = 0;
+            if (InternetHelper.s_InternetAvailable)
+            {
+                AdManager.Instance.LoadInterstitialAd();
+                AdManager.Instance.ShowInterstitialAd();
+                counter = 0;
+            }
+            else
+            {
+                Debug.LogWarning("Error: can't connect to the internet (interstital ad)");
+            }
         }
-    }
-
-    void ShowInterstitialAd()
-    {
-        if (InternetHelper.s_InternetAvailable)
-        {
-            AdManager.Instance.LoadInterstitialAd();
-            AdManager.Instance.ShowInterstitialAd();
-        }
-        else
-        {
-            Debug.LogWarning("Error: can't connect to the internet (interstital ad)");
-        }
-
     }
 }

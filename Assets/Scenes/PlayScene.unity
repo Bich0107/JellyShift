@@ -2745,7 +2745,7 @@ MonoBehaviour:
   camStateManager: {fileID: 1415822890}
   distanceBar: {fileID: 1790445662}
   player: {fileID: 3033933883021963937}
-  adDisplayer: {fileID: 0}
+  adDisplayer: {fileID: 33485708}
 --- !u!1 &840987679
 GameObject:
   m_ObjectHideFlags: 0

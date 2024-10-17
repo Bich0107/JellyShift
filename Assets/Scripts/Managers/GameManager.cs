@@ -70,5 +70,7 @@ public class GameManager : MonoSingleton<GameManager>
         camStateManager.Reset();
 
         player.Reset();
+
+        adDisplayer.ShowInterstitialAd();
     }
 }
