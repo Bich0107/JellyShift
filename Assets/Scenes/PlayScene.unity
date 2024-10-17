@@ -5599,6 +5599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd6f8a56a612ac4392c794e7d56d52c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 1901135948}
   crysterPerWatch: 150
 --- !u!1 &1933296586
 GameObject:

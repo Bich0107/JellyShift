@@ -2,6 +2,13 @@ using System;
 using GoogleMobileAds.Api;
 using UnityEngine;
 
+public enum AdEvent
+{
+    AdOpened,
+    AdClosed,
+    AdClicked,
+}
+
 public class AdManager : MonoSingleton<AdManager>
 {
     public string app_id = "ca-app-pub-2136479507730706~2612843247";
@@ -35,8 +42,6 @@ public class AdManager : MonoSingleton<AdManager>
             rewardedAd = null;
         }
 
-        Debug.Log("Loading the rewarded ad.");
-
         // create our request used to load the ad.
         var adRequest = new AdRequest();
 
@@ -52,57 +57,32 @@ public class AdManager : MonoSingleton<AdManager>
                     return;
                 }
 
-                Debug.Log("Rewarded ad loaded with response : "
-                          + ad.GetResponseInfo());
-
                 rewardedAd = ad;
-                RegisterEventHandlers(ad);
             });
+    }
 
-        if (rewardedAd != null && rewardedAd.CanShowAd())
+    public void AddRewardAdEvent(AdEvent _eventType, Action _action)
+    {
+        switch (_eventType)
         {
-            rewardedAd.Show((Reward reward) =>
-            {
-                Debug.Log($"Reward show: {reward.Amount} of type {reward.Type}");
-            });
+            case AdEvent.AdOpened:
+                rewardedAd.OnAdFullScreenContentOpened += _action;
+                break;
+            case AdEvent.AdClosed:
+                rewardedAd.OnAdFullScreenContentClosed += _action;
+                break;
+            case AdEvent.AdClicked:
+                rewardedAd.OnAdClicked += _action;
+                break;
         }
     }
 
-    void RegisterEventHandlers(RewardedAd ad)
+    public void ShowRewardAd()
     {
-        // Raised when the ad is estimated to have earned money.
-        ad.OnAdPaid += (AdValue adValue) =>
+        if (rewardedAd != null && rewardedAd.CanShowAd())
         {
-            Debug.Log(String.Format("Rewarded ad paid {0} {1}.",
-                adValue.Value,
-                adValue.CurrencyCode));
-        };
-        // Raised when an impression is recorded for an ad.
-        ad.OnAdImpressionRecorded += () =>
-        {
-            Debug.Log("Rewarded ad recorded an impression.");
-        };
-        // Raised when a click is recorded for an ad.
-        ad.OnAdClicked += () =>
-        {
-            Debug.Log("Rewarded ad was clicked.");
-        };
-        // Raised when an ad opened full screen content.
-        ad.OnAdFullScreenContentOpened += () =>
-        {
-            Debug.Log("Rewarded ad full screen content opened.");
-        };
-        // Raised when the ad closed full screen content.
-        ad.OnAdFullScreenContentClosed += () =>
-        {
-            Debug.Log("Rewarded ad full screen content closed.");
-        };
-        // Raised when the ad failed to open full screen content.
-        ad.OnAdFullScreenContentFailed += (AdError error) =>
-        {
-            Debug.LogError("Rewarded ad failed to open full screen content " +
-                           "with error : " + error);
-        };
+            rewardedAd.Show((Reward reward) => { });
+        }
     }
 
     public void DestroyRewardAd()
