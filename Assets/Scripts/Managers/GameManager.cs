@@ -10,6 +10,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] CameraStateManager camStateManager;
     [SerializeField] DistanceBar distanceBar;
     [SerializeField] Player player;
+    [SerializeField] InterstitialAdDisplayer adDisplayer;
     bool gameOver = false;
     bool levelFinished = false;
 
@@ -29,20 +30,24 @@ public class GameManager : MonoSingleton<GameManager>
         camStateManager.ChangeState(CameraState.Follow);
     }
 
+    // when player finished a level
     public void GameEnd()
     {
         if (gameOver) return;
 
+        adDisplayer.UpdateCounter();
         levelFinished = true;
         gameOver = true;
         canvasManager.GameEnd();
         camStateManager.ChangeState(CameraState.Rotate);
     }
 
+    // when player fail to finished a level
     public void GameOver()
     {
         if (gameOver) return;
 
+        adDisplayer.UpdateCounter();
         gameOver = true;
         canvasManager.GameOver();
         camStateManager.ChangeState(CameraState.Idle);

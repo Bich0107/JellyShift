@@ -6,7 +6,6 @@ public enum AdEvent
 {
     AdOpened,
     AdClosed,
-    AdClicked,
 }
 
 public class AdManager : MonoSingleton<AdManager>
@@ -71,9 +70,6 @@ public class AdManager : MonoSingleton<AdManager>
             case AdEvent.AdClosed:
                 rewardedAd.OnAdFullScreenContentClosed += _action;
                 break;
-            case AdEvent.AdClicked:
-                rewardedAd.OnAdClicked += _action;
-                break;
         }
     }
 
@@ -128,8 +124,7 @@ public class AdManager : MonoSingleton<AdManager>
                 interstitialAd = ad;
             });
 
-        RegisterEventHandlers(interstitialAd);
-        ShowInterstitialAd();
+        //RegisterEventHandlers(interstitialAd);
     }
 
     public void ShowInterstitialAd()
