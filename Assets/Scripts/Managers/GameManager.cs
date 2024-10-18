@@ -18,6 +18,7 @@ public class GameManager : MonoSingleton<GameManager>
         base.Awake();
         DOTween.Init();
         DOTween.defaultAutoPlay = AutoPlay.None;
+        DOTween.defaultTimeScaleIndependent = true;
     }
 
     public void GameStart()
