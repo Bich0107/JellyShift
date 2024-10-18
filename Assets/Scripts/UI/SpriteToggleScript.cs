@@ -8,9 +8,10 @@ public class SpriteToggleScript : MonoBehaviour
     [SerializeField] Sprite buttonOnSprite;
     bool isOn = true;
 
-    void Start()
+    public void SetStatus(bool _status)
     {
-        targetImage.sprite = buttonOnSprite;
+        isOn = _status;
+        targetImage.sprite = _status ? buttonOnSprite : buttonOffSprite;
     }
 
     public void OnClick()

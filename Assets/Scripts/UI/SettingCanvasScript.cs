@@ -8,5 +8,4 @@ public class SettingCanvasScript : MonoBehaviour
     {
         canvasBody.SetActive(!canvasBody.activeSelf);
     }
-
 }

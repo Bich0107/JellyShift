@@ -42,6 +42,8 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
 
         isTrigger = true;
 
+        VibrateManager.Instance.Vibrate();
+
         feverSystem.IncreaseFever();
         if (feverSystem.IsActive)
         {

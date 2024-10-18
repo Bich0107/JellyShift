@@ -12,5 +12,7 @@ public class SaveFileExtractor : MonoBehaviour
         SaveFile saveFile = SaveManager.Instance.currentSaveFile;
         Bank.Instance.SetCrystalAmount(saveFile.Crystal);
         LevelManager.Instance.SetLevel(saveFile.Level);
+        SoundManager.Instance.SetStatus(saveFile.SoundOn);
+        VibrateManager.Instance.SetStatus(saveFile.HapticOn);
     }
 }

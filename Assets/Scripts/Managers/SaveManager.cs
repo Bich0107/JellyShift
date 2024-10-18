@@ -10,7 +10,7 @@ public class SaveManager : MonoSingleton<SaveManager>
     {
         base.Awake();
 
-        currentSaveFile = LoadSave();
+        if (currentSaveFile == null) currentSaveFile = LoadSave();
         if (currentSaveFile == null) CreateNewSaveFile();
     }
 
