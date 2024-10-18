@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -17,6 +16,8 @@ public class GameManager : MonoSingleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
+        DOTween.Init();
+        DOTween.defaultAutoPlay = AutoPlay.None;
     }
 
     public void GameStart()

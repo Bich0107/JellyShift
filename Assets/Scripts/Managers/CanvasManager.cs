@@ -7,7 +7,6 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] GameObject startCanvas;
     [SerializeField] GameObject playCanvas;
     [SerializeField] GameObject pauseCanvas;
-    [SerializeField] GameObject audioCanvas;
     [SerializeField] GameObject endGameCanvas;
     [SerializeField] GameObject gameOverCanvas;
 
