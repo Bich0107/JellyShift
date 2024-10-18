@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Bank : MonoSingleton<Bank>
 {
-    [SerializeField] int crystalAmount = 0;
+    // amount controlled by save file value
+    int crystalAmount = 0;
     [SerializeField] TextMeshProUGUI amountText;
     [SerializeField] TextMeshProUGUI amountText_2;
 
@@ -14,13 +15,22 @@ public class Bank : MonoSingleton<Bank>
         base.Awake();
     }
 
-    public void SetCrystalAmount(int _amount) => crystalAmount = _amount;
+    void UpdateUI()
+    {
+        amountText.text = crystalAmount.ToString();
+        amountText_2.text = crystalAmount.ToString();
+    }
+
+    public void SetCrystalAmount(int _amount)
+    {
+        crystalAmount = _amount;
+        UpdateUI();
+    }
 
     public void AddCrystal(int _amount = 1)
     {
         crystalAmount += _amount;
-        amountText.text = crystalAmount.ToString();
-        amountText_2.text = crystalAmount.ToString();
+        UpdateUI();
 
         SaveManager.Instance.currentSaveFile.Crystal = crystalAmount;
     }
@@ -28,8 +38,7 @@ public class Bank : MonoSingleton<Bank>
     public void TakeCrystal(int _amount)
     {
         crystalAmount -= _amount;
-        amountText.text = crystalAmount.ToString();
-        amountText_2.text = crystalAmount.ToString();
+        UpdateUI();
 
         SaveManager.Instance.currentSaveFile.Crystal = crystalAmount;
     }

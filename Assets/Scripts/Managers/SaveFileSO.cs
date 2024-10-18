@@ -9,6 +9,6 @@ public class SaveFile : ScriptableObject
     public void Reset()
     {
         Level = 1;
-        Crystal = 0;
+        Crystal = 1000; // for testing
     }
 }
