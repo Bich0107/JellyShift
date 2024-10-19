@@ -11,7 +11,12 @@ public class SaveFile : ScriptableObject
     public void Reset()
     {
         Level = 1;
+#if UNITY_EDITOR
         Crystal = 1000; // for testing
+#else
+        Crystal = 0;
+#endif
+
         HapticOn = true;
         SoundOn = true;
     }
