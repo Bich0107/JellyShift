@@ -64,6 +64,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
 
         fever.ReduceFever();
 
+        LifeHandler.Instance.DecreaseLife();
         PlayerScoreHandler.Instance.ReduceScore(LevelManager.Instance.CurrentSetting.DamagePerObstacle);
         StartCoroutine(CR_ResetPushbackStatus());
         PushBack();

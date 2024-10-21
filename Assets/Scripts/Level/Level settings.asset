@@ -17,5 +17,5 @@ MonoBehaviour:
   baseSpeed: 3
   feverSpeed: 6
   scorePerObstacle: 100
-  damagePerObstacle: 20
+  damagePerObstacle: 150
   pathAmount: 30
