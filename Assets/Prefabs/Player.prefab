@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5262735333069193177}
   - component: {fileID: 744545375377864707}
   - component: {fileID: 8617724499997735277}
+  - component: {fileID: 2141066841041770780}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -109,9 +110,9 @@ MonoBehaviour:
   maxX: 1.2
   minY: 0.2
   maxY: 1.2
-  baseXTValue: 0
-  baseYTValue: 0
-  scaleSpeed: 2
+  baseXTValue: 0.6
+  baseYTValue: 0.4
+  scaleSpeed: 6
 --- !u!114 &6891075261507772281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,16 +155,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7d6fc1b26f9c241832358b6cae0755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camFollower: {fileID: 0}
   targetTrans: {fileID: 521140776105546551}
-  raycastPos: {fileID: 5074661524303062871}
   groundCheckPos: {fileID: 5309281223333983847}
+  boxTransform: {fileID: 6469604720327371372}
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  boxTransform: {fileID: 6469604720327371372}
+  groundCheckBoxHeight: 0.05
+  gravity: 5
   isEnabled: 0
-  gravity: 1.5
-  groundCheckDistance: 1
 --- !u!114 &4015574818423692370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +247,7 @@ MonoBehaviour:
   - offset: {x: 0, y: 0, z: 0}
     localScale: {x: 0.8, y: 0.6, z: 0.3}
     duration: 0
-  targetTrans: {fileID: 0}
+  targetTrans: {fileID: 6469604720327371372}
   idleScaleDuration: 0.45
   goalReachScaleDuration: 1
   animationState_GoalReach: Player_Goal
@@ -271,6 +272,19 @@ MonoBehaviour:
   objectScaler: {fileID: 3770759996587308075}
   predictionBox: {fileID: 4051273176114502241}
   skin: {fileID: 11400000, guid: 2dcfafafd4655cd40a9526558e8d459b, type: 2}
+--- !u!114 &2141066841041770780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880999046126314025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c10cd4a6a4f284fbc4bafd077db974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
 --- !u!1 &1592545955060822175
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ScoreDisplayer : MonoBehaviour
+public class PassingScoreDisplayer : MonoBehaviour
 {
     [SerializeField] Transform targetTrans;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] Vector3 moveOffset;
     [SerializeField] Vector3 endScale;
     [SerializeField] float duration;
+    float score;
 
     void OnEnable()
     {
-        Display();
+        score = LevelManager.Instance.CurrentSetting.ScorePerObstacle;
     }
 
     public void Display()
     {
-        scoreText.text = LevelManager.Instance.CurrentSetting.ScorePerObstacle.ToString();
+        scoreText.text = score.ToString();
+        PlayerScoreDisplayer.Instance.IncreaseScore(score);
         StartCoroutine(CR_DisplayAnimation());
     }
 
@@ -36,6 +38,7 @@ public class ScoreDisplayer : MonoBehaviour
             yield return null;
         }
         targetTrans.gameObject.SetActive(false);
+
     }
 
     void OnDisable()

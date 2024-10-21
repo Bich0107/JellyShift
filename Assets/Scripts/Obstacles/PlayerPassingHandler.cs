@@ -10,9 +10,10 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
     [SerializeField] Image coverImage;
     [Header("Player passing settings")]
     [SerializeField] GameObject feverPassingVFX;
-    [SerializeField] GameObject scoreDisplayer;
+    [SerializeField] GameObject scoreDisplayerGO;
     [SerializeField] float expandTime;
     [SerializeField] Vector3 endScale;
+    PassingScoreDisplayer scoreDisplayer;
     Vector3 baseScale;
     Player player;
     Transform playerTrans;
@@ -27,6 +28,7 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
         player = FindObjectOfType<Player>();
         playerTrans = player.gameObject.transform;
         feverSystem = FindObjectOfType<FeverSystem>();
+        scoreDisplayer = scoreDisplayerGO.GetComponent<PassingScoreDisplayer>();
     }
 
     void OnEnable()
@@ -45,7 +47,9 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
 
         VibrateManager.Instance.Vibrate();
 
-        scoreDisplayer.SetActive(true);
+        scoreDisplayerGO.SetActive(true);
+        scoreDisplayer.Display();
+
         feverSystem.IncreaseFever();
         if (feverSystem.IsActive)
         {

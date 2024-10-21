@@ -581,7 +581,7 @@ MonoBehaviour:
   coverImage: {fileID: 4036666367317678772}
   feverPassingVFX: {fileID: 3170931027050223098, guid: 3f7a00d6b4d3c2546b74a4ff40cf3067,
     type: 3}
-  scoreDisplayer: {fileID: 5229142392205300853}
+  scoreDisplayerGO: {fileID: 5229142392205300853}
   expandTime: 0.5
   endScale: {x: 1.3, y: 1.3, z: 1}
 --- !u!1001 &114230333708069163
