@@ -14,6 +14,6 @@ public class SaveFileExtractor : MonoBehaviour
         LevelManager.Instance.SetLevel(saveFile.Level);
         SoundManager.Instance.SetStatus(saveFile.SoundOn);
         VibrateManager.Instance.SetStatus(saveFile.HapticOn);
-        PlayerScoreDisplayer.Instance.SetScore(saveFile.Score);
+        PlayerScoreHandler.Instance.SetScore(saveFile.Score);
     }
 }

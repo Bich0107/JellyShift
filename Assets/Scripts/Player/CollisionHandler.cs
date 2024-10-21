@@ -61,7 +61,10 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     void OnObstacleHit()
     {
         if (beingPushback) return;
+
         fever.ReduceFever();
+
+        PlayerScoreHandler.Instance.ReduceScore(LevelManager.Instance.CurrentSetting.DamagePerObstacle);
         StartCoroutine(CR_ResetPushbackStatus());
         PushBack();
     }

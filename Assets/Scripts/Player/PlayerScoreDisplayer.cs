@@ -1,21 +1,30 @@
 using TMPro;
 using UnityEngine;
 
-public class PlayerScoreDisplayer : MonoSingleton<PlayerScoreDisplayer>
+public class PlayerScoreHandler : MonoSingleton<PlayerScoreHandler>
 {
     [SerializeField] TextMeshProUGUI scoreText;
-    float score;
+    int score;
 
     void Start()
     {
         scoreText.text = score.ToString();
     }
 
-    public void SetScore(float _value) => score = _value;
+    public void SetScore(int _value) => score = _value;
 
-    public void IncreaseScore(float _value)
+    public void IncreaseScore(int _value)
     {
         score += _value;
         scoreText.text = score.ToString();
+        SaveManager.Instance.currentSaveFile.Score = score;
+    }
+
+    public void ReduceScore(int _value)
+    {
+        score -= _value;
+        if (score < 0) score = 0;
+        scoreText.text = score.ToString();
+        SaveManager.Instance.currentSaveFile.Score = score;
     }
 }

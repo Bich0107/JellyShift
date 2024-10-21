@@ -10,7 +10,7 @@ public class PassingScoreDisplayer : MonoBehaviour
     [SerializeField] Vector3 moveOffset;
     [SerializeField] Vector3 endScale;
     [SerializeField] float duration;
-    float score;
+    int score;
 
     void OnEnable()
     {
@@ -20,7 +20,7 @@ public class PassingScoreDisplayer : MonoBehaviour
     public void Display()
     {
         scoreText.text = score.ToString();
-        PlayerScoreDisplayer.Instance.IncreaseScore(score);
+        PlayerScoreHandler.Instance.IncreaseScore(score);
         StartCoroutine(CR_DisplayAnimation());
     }
 

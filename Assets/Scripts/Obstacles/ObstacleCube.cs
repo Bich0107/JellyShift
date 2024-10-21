@@ -10,31 +10,24 @@ public class ObstacleCube : MonoBehaviour
     [SerializeField] float deactiveDelay;
     WaitForSeconds deactiveWait;
     Rigidbody rb;
-    bool isBroken;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         deactiveWait = new WaitForSeconds(deactiveDelay);
-        isBroken = false;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (isBroken) return;
-
         ITriggerByObstacle hit = other.GetComponentInParent<ITriggerByObstacle>();
         if (hit != null)
         {
             hit.TriggerByObstacle();
-            Break();
         }
     }
 
     public void Break()
     {
-        if (isBroken) return;
-
         // turn on physics and shoot the cube away base on player position
         rb.isKinematic = false;
         rb.useGravity = true;
@@ -42,7 +35,6 @@ public class ObstacleCube : MonoBehaviour
         forceDirection = (transform.position - passingHandler.PlayerTrans.position).normalized;
         rb.AddForce(forceDirection * breakForce, ForceMode.Impulse);
 
-        isBroken = true;
         StartCoroutine(CR_Deactive());
     }
 
@@ -56,6 +48,5 @@ public class ObstacleCube : MonoBehaviour
     {
         rb.isKinematic = true;
         rb.useGravity = false;
-        isBroken = false;
     }
 }

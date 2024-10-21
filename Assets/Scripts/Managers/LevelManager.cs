@@ -15,6 +15,7 @@ public class LevelManager : MonoSingleton<LevelManager>
         base.Awake();
 
         GetSettingFile();
+        Display();
         pathGenerator.SetPathAmount(currentSetting.PathAmount);
     }
 
@@ -36,10 +37,15 @@ public class LevelManager : MonoSingleton<LevelManager>
     {
         currentLevel++;
         pathGenerator.SetPathAmount(currentSetting.PathAmount);
-        levelText.text = "LEVEL " + currentLevel;
+        Display();
 
         SaveManager.Instance.currentSaveFile.Level = currentLevel;
         GetSettingFile();
+    }
+
+    void Display()
+    {
+        levelText.text = "LEVEL " + currentLevel;
     }
 
     public void Reset()
