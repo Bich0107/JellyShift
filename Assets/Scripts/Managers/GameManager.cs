@@ -10,6 +10,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] DistanceBar distanceBar;
     [SerializeField] Player player;
     [SerializeField] InterstitialAdDisplayer adDisplayer;
+    [SerializeField] LevelSettingReader settingReader;
     bool gameOver = false;
     bool levelFinished = false;
 
@@ -80,7 +81,11 @@ public class GameManager : MonoSingleton<GameManager>
 
         canvasManager.GameWait();
 
-        if (levelFinished) LevelManager.Instance.IncreaseLevel();
+        if (levelFinished)
+        {
+            LevelManager.Instance.IncreaseLevel();
+            settingReader.ReadSettings();
+        }
 
         distanceBar.Reset();
         ObjectPool.Instance.Reset();

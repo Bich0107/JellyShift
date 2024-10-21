@@ -43,6 +43,8 @@ public class FeverSystem : MonoBehaviour
         UpdateUI();
     }
 
+    public void SetSpeed(float _value) => inFeverSpeed = _value;
+
     public void IncreaseFever()
     {
         if (isActive) return;

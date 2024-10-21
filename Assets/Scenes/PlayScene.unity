@@ -4351,6 +4351,7 @@ Transform:
   - {fileID: 1834529025}
   - {fileID: 33485707}
   - {fileID: 6784335252803093840}
+  - {fileID: 898395061}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &841600669
@@ -5118,6 +5119,53 @@ MonoBehaviour:
     type: 3}
   specialPathChance: 10
   spawner: {fileID: 2104950975}
+--- !u!1 &898395060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 898395061}
+  - component: {fileID: 898395062}
+  m_Layer: 0
+  m_Name: LevelSettingReader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &898395061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898395060}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 840987680}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &898395062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898395060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b09a2e2ec692f44bbaa7757b056efd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingObject: {fileID: 3033933883021963927}
+  feverSystem: {fileID: 1407095568}
+  pathGenerator: {fileID: 895759063}
 --- !u!1 &911375620
 GameObject:
   m_ObjectHideFlags: 0
@@ -8047,6 +8095,12 @@ PrefabInstance:
       propertyPath: currentSaveFile
       value: 
       objectReference: {fileID: 11400000, guid: 1bb0a0dbf987c4549b1fd1d49622271e,
+        type: 2}
+    - target: {fileID: 8862752502959626956, guid: 31215d51506a44b4b9e04c8dae358a2f,
+        type: 3}
+      propertyPath: gameSettingFile
+      value: 
+      objectReference: {fileID: 11400000, guid: 7898baf53db48bb439d4dd4625437be0,
         type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11041,6 +11095,11 @@ PrefabInstance:
       propertyPath: pathGenerator
       value: 
       objectReference: {fileID: 895759063}
+    - target: {fileID: 1781284201118099128, guid: fb01ce61f4620834ab88c5777a08c599,
+        type: 3}
+      propertyPath: settingReader
+      value: 
+      objectReference: {fileID: 898395062}
     - target: {fileID: 1781284201118099128, guid: fb01ce61f4620834ab88c5777a08c599,
         type: 3}
       propertyPath: camStateManager

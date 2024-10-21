@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3653321853b754aaf7c38b84ae0eb1, type: 3}
   m_Name: SaveFile
   m_EditorClassIdentifier: 
-  Level: 10
-  Crystal: 1220
-  Score: 11111
-  Life: 0
-  HighScores: 983a0000e02e000010270000401f00004c1d000088130000a00f0000c4090000e2040000f4010000
-  HapticOn: 1
-  SoundOn: 1
+  Level: 5
+  Crystal: 1035
+  Score: 5200
+  Life: 3
