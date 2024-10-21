@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SaveFile
   m_EditorClassIdentifier: 
   Level: 10
-  Crystal: 1155
-  Score: 2710
-  Life: 3
+  Crystal: 1220
+  Score: 11111
+  Life: 0
+  HighScores: 983a0000e02e000010270000401f00004c1d000088130000a00f0000c4090000e2040000f4010000
   HapticOn: 1
   SoundOn: 1

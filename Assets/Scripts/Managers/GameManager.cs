@@ -1,5 +1,5 @@
-using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -16,9 +16,6 @@ public class GameManager : MonoSingleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        DOTween.Init();
-        DOTween.defaultAutoPlay = AutoPlay.None;
-        DOTween.defaultTimeScaleIndependent = true;
     }
 
     public void GameStart()
@@ -47,7 +44,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1f;
-        Replay();
+        SceneManager.LoadScene(0);
     }
 
     // when player finished a level
@@ -62,11 +59,14 @@ public class GameManager : MonoSingleton<GameManager>
         camStateManager.ChangeState(CameraState.Rotate);
     }
 
-    // when player fail to finished a level
+    // when player loose
     public void GameOver()
     {
         if (gameOver) return;
 
+        Time.timeScale = 0f;
+
+        ScoreKeeper.Instance.AddScore(SaveManager.Instance.currentSaveFile.Score);
         adDisplayer.UpdateCounter();
         gameOver = true;
         canvasManager.GameOver();

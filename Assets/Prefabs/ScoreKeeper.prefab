@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8618611913134358706
+--- !u!1 &838478649030360596
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2050932554854789359}
-  - component: {fileID: 8862752502959626956}
-  - component: {fileID: 5293526392723255370}
+  - component: {fileID: 7141894209271639200}
+  - component: {fileID: 4237502854348210102}
   m_Layer: 0
-  m_Name: SaveManager
+  m_Name: ScoreKeeper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2050932554854789359
+--- !u!4 &7141894209271639200
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8618611913134358706}
+  m_GameObject: {fileID: 838478649030360596}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,29 +32,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8862752502959626956
+--- !u!114 &4237502854348210102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8618611913134358706}
+  m_GameObject: {fileID: 838478649030360596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55718a1fed614d14b8b60614ff522b33, type: 3}
+  m_Script: {fileID: 11500000, guid: 7249cfa6ea4432f47a786c17af3ad3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSaveFile: {fileID: 11400000, guid: 1bb0a0dbf987c4549b1fd1d49622271e, type: 2}
-  saveFileName: SaveFile.json
---- !u!114 &5293526392723255370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8618611913134358706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc15c1f9741cbc04a987a9d227858bbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  scoreTexts: []
+  scores: 983a0000e02e000010270000401f00004c1d000088130000a00f0000c4090000e2040000f4010000
