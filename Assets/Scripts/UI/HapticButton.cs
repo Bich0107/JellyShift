@@ -24,7 +24,7 @@ public class HapticButton : MonoBehaviour
             Debug.Log("turn on haptic");
         }
 
-        SaveManager.Instance.currentSaveFile.HapticOn = isOn;
+        SaveManager.Instance.gameSettingFile.HapticOn = isOn;
         VibrateManager.Instance.Toggle();
     }
 }

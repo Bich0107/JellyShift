@@ -10,11 +10,13 @@ public class SaveFileExtractor : MonoBehaviour
     void ExtractSaveFile()
     {
         SaveFile saveFile = SaveManager.Instance.currentSaveFile;
+        GameSettingSO gameSettingSO = SaveManager.Instance.gameSettingFile;
         Bank.Instance.SetCrystalAmount(saveFile.Crystal);
         LevelManager.Instance.SetLevel(saveFile.Level);
-        SoundManager.Instance.SetStatus(saveFile.SoundOn);
-        VibrateManager.Instance.SetStatus(saveFile.HapticOn);
         PlayerScoreHandler.Instance.SetScore(saveFile.Score);
-        ScoreKeeper.Instance.SetScores(saveFile.HighScores);
+
+        ScoreKeeper.Instance.SetScores(gameSettingSO.HighScores);
+        SoundManager.Instance.SetStatus(gameSettingSO.SoundOn);
+        VibrateManager.Instance.SetStatus(gameSettingSO.HapticOn);
     }
 }

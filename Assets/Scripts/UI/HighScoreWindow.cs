@@ -15,7 +15,7 @@ public class HighScoreWindow : MonoBehaviour
 
     void SetScores()
     {
-        int[] scores = SaveManager.Instance.currentSaveFile.HighScores;
+        int[] scores = SaveManager.Instance.gameSettingFile.HighScores;
         for (int i = 0; i < scores.Length; i++)
         {
             indexTexts[i].text = (i + 1).ToString();

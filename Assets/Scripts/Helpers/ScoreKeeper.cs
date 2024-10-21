@@ -39,7 +39,7 @@ public class ScoreKeeper : MonoSingleton<ScoreKeeper>
     {
         for (int i = 0; i < scores.Length; i++)
         {
-            SaveManager.Instance.currentSaveFile.HighScores[i] = scores[i];
+            SaveManager.Instance.gameSettingFile.HighScores[i] = scores[i];
         }
 
     }

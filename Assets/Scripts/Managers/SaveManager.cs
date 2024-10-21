@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 public class SaveManager : MonoSingleton<SaveManager>
 {
     public SaveFile currentSaveFile;
+    public GameSettingSO gameSettingFile;
     [SerializeField] string saveFileName = "SaveFile.json";
 
     protected override void Awake()
@@ -15,12 +14,26 @@ public class SaveManager : MonoSingleton<SaveManager>
 
     public void NewGame()
     {
-        CreateNewSaveFile();
+        if (currentSaveFile != null)
+        {
+            currentSaveFile.Reset();
+        }
+        else
+        {
+            CreateNewSaveFile();
+        }
     }
 
     public void Continue()
     {
-        if (currentSaveFile == null) currentSaveFile = LoadSave();
+        if (currentSaveFile == null)
+        {
+#if UNITY_EDITOR
+            currentSaveFile = LoadSave();
+#else
+        currentSaveFile = LoadSaveFile();
+#endif
+        }
     }
 
     SaveFile LoadSave()
@@ -57,7 +70,7 @@ public class SaveManager : MonoSingleton<SaveManager>
         }
     }
 
-    public void CreateNewSaveFile()
+    void CreateNewSaveFile()
     {
         // create new save file
         SaveFile newSaveFile = SaveFile.CreateInstance<SaveFile>();

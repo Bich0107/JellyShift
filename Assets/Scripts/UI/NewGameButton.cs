@@ -5,18 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class NewGameButton : MonoBehaviour
 {
+    [SerializeField] WindowAnimation confirmWindow;
     SaveFile currentSaveFile => SaveManager.Instance.currentSaveFile;
+
 
     public void OnClick()
     {
         if (currentSaveFile == null)
         {
-            SaveManager.Instance.CreateNewSaveFile();
+            SaveManager.Instance.NewGame();
             SceneManager.LoadScene(1);
         }
         else
         {
-            Debug.Log("A save file is already exist");
+            confirmWindow.Play();
         }
+    }
+
+    public void NewGame()
+    {
+        SaveManager.Instance.NewGame();
+        SceneManager.LoadScene(1);
+    }
+
+    public void Return()
+    {
+        confirmWindow.Rewind();
     }
 }

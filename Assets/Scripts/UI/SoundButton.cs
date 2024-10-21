@@ -24,7 +24,7 @@ public class SoundButton : MonoBehaviour
             Debug.Log("turn on sound");
         }
 
-        SaveManager.Instance.currentSaveFile.SoundOn = isOn;
+        SaveManager.Instance.gameSettingFile.SoundOn = isOn;
         SoundManager.Instance.Toggle();
     }
 }

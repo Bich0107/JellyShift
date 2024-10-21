@@ -8,9 +8,6 @@ public class SaveFile : ScriptableObject
         public int Crystal;
         public int Score;
         public int Life;
-        public int[] HighScores;
-        public bool HapticOn;
-        public bool SoundOn;
 
         public void Reset()
         {
@@ -23,8 +20,5 @@ public class SaveFile : ScriptableObject
         Crystal = 0;
 #endif
                 Score = 0;
-                HighScores = new int[10];
-                HapticOn = true;
-                SoundOn = true;
         }
 }
