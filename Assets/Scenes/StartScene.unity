@@ -306,6 +306,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaveManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8862752502959626956, guid: 31215d51506a44b4b9e04c8dae358a2f,
+        type: 3}
+      propertyPath: currentSaveFile
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1114,7 +1119,7 @@ GameObject:
   - component: {fileID: 873709947}
   - component: {fileID: 873709946}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: MenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

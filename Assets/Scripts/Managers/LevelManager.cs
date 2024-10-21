@@ -4,17 +4,30 @@ using UnityEngine;
 public class LevelManager : MonoSingleton<LevelManager>
 {
     [SerializeField] PathGenerator pathGenerator;
+    [SerializeField] LevelSettingSO[] levelSettings;
     [SerializeField] int currentLevel;
-    [SerializeField] int pathAddPerLevel;
-    [SerializeField] int minPathAmount;
-    [SerializeField] int maxPathAmount;
     [SerializeField] TextMeshProUGUI levelText;
+    LevelSettingSO currentSetting;
+    public LevelSettingSO CurrentSetting => currentSetting;
 
     protected override void Awake()
     {
         base.Awake();
 
-        pathGenerator.SetPathAmount(GetPathAmount());
+        GetSettingFile();
+        pathGenerator.SetPathAmount(currentSetting.PathAmount);
+    }
+
+    void GetSettingFile()
+    {
+        for (int i = 0; i < levelSettings.Length; i++)
+        {
+            if (levelSettings[i].Contains(currentLevel))
+            {
+                currentSetting = levelSettings[i];
+                return;
+            }
+        }
     }
 
     public void SetLevel(int _value) => currentLevel = _value;
@@ -22,15 +35,11 @@ public class LevelManager : MonoSingleton<LevelManager>
     public void IncreaseLevel()
     {
         currentLevel++;
-        pathGenerator.SetPathAmount(GetPathAmount());
+        pathGenerator.SetPathAmount(currentSetting.PathAmount);
         levelText.text = "LEVEL " + currentLevel;
 
         SaveManager.Instance.currentSaveFile.Level = currentLevel;
-    }
-
-    int GetPathAmount()
-    {
-        return Mathf.Min(minPathAmount + pathAddPerLevel * (currentLevel - 1), maxPathAmount);
+        GetSettingFile();
     }
 
     public void Reset()

@@ -26,10 +26,7 @@ public class AdManager : MonoSingleton<AdManager>
     void Start()
     {
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
-        MobileAds.Initialize(initStatus =>
-        {
-            Debug.Log("Ad initialized!");
-        });
+        MobileAds.Initialize(initStatus => { });
     }
 
     #region Reward ad
