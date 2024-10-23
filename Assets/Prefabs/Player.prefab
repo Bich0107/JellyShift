@@ -208,9 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationHandler: {fileID: 744545375377864707}
+  shapeShifter: {fileID: 2066691854394861540}
   predictionBox: {fileID: 4051273176114502241}
   gravity: {fileID: 7208685476007703056}
-  inputHandler: {fileID: 6891075261507772281}
   movingObject: {fileID: 978881553528808867}
   turnHandler: {fileID: 4015574818423692370}
   fever: {fileID: 0}
@@ -267,9 +267,7 @@ MonoBehaviour:
   movingObject: {fileID: 978881553528808867}
   animationHandler: {fileID: 744545375377864707}
   turnHandler: {fileID: 4015574818423692370}
-  inputHandler: {fileID: 6891075261507772281}
   collisionHandler: {fileID: 5262735333069193177}
-  objectScaler: {fileID: 3770759996587308075}
   predictionBox: {fileID: 4051273176114502241}
   skin: {fileID: 11400000, guid: 2dcfafafd4655cd40a9526558e8d459b, type: 2}
 --- !u!114 &2141066841041770780
@@ -624,7 +622,7 @@ GameObject:
   - component: {fileID: 5972135454912713134}
   - component: {fileID: 7244478803054852103}
   m_Layer: 6
-  m_Name: Body_Cube
+  m_Name: Body_Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

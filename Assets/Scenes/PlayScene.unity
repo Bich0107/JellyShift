@@ -97,7 +97,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 1695483633}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 5c366454e25aa5a43b95049a6511d96d,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2558,7 +2559,7 @@ MonoBehaviour:
       type: 3}
     count: 5
     expandable: 0
-  - gameObject: {fileID: 1547534552253833923, guid: 2aefcbc0b5129784e9f03ba06d7fdfdf,
+  - gameObject: {fileID: 2878057528698832590, guid: 7ab9e614e342a584b801c6d35dd1119b,
       type: 3}
     count: 100
     expandable: 1
@@ -2566,7 +2567,11 @@ MonoBehaviour:
       type: 3}
     count: 100
     expandable: 1
-  - gameObject: {fileID: 1547534552253833923, guid: 6729c4489876faa4c9704504d1c68aac,
+  - gameObject: {fileID: 3666291995760703052, guid: 9ac7b0d372b8bb244940f23fb2d44834,
+      type: 3}
+    count: 100
+    expandable: 1
+  - gameObject: {fileID: 2079405753046177704, guid: d6e32173d7ed39f46990c2111706f877,
       type: 3}
     count: 100
     expandable: 1
@@ -3623,7 +3628,7 @@ MonoBehaviour:
   - {fileID: 2125367101}
   - {fileID: 3735868129830671019}
   - {fileID: 3735868129830671018}
-  - {fileID: 0}
+  - {fileID: 2036285413}
   predictionBoxRenderer: {fileID: 363397936}
   predictionImage: {fileID: 1281658035}
 --- !u!4 &633827976
@@ -8390,70 +8395,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684989094}
   m_CullTransparentMesh: 1
---- !u!850595691 &1695483633
-LightingSettings:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 6
-  m_GIWorkflowMode: 1
-  m_EnableBakedLightmaps: 1
-  m_EnableRealtimeLightmaps: 0
-  m_RealtimeEnvironmentLighting: 1
-  m_BounceScale: 1
-  m_AlbedoBoost: 1
-  m_IndirectOutputScale: 1
-  m_UsingShadowmask: 1
-  m_BakeBackend: 1
-  m_LightmapMaxSize: 1024
-  m_BakeResolution: 40
-  m_Padding: 2
-  m_LightmapCompression: 3
-  m_AO: 0
-  m_AOMaxDistance: 1
-  m_CompAOExponent: 1
-  m_CompAOExponentDirect: 0
-  m_ExtractAO: 0
-  m_MixedBakeMode: 2
-  m_LightmapsBakeMode: 1
-  m_FilterMode: 1
-  m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
-  m_ExportTrainingData: 0
-  m_TrainingDataDestination: TrainingData
-  m_RealtimeResolution: 2
-  m_ForceWhiteAlbedo: 0
-  m_ForceUpdates: 0
-  m_FinalGather: 0
-  m_FinalGatherRayCount: 256
-  m_FinalGatherFiltering: 1
-  m_PVRCulling: 1
-  m_PVRSampling: 1
-  m_PVRDirectSampleCount: 32
-  m_PVRSampleCount: 512
-  m_PVREnvironmentSampleCount: 256
-  m_PVREnvironmentReferencePointCount: 2048
-  m_LightProbeSampleCountMultiplier: 4
-  m_PVRBounces: 2
-  m_PVRMinBounces: 2
-  m_PVREnvironmentImportanceSampling: 1
-  m_PVRFilteringMode: 1
-  m_PVRDenoiserTypeDirect: 1
-  m_PVRDenoiserTypeIndirect: 1
-  m_PVRDenoiserTypeAO: 1
-  m_PVRFilterTypeDirect: 0
-  m_PVRFilterTypeIndirect: 0
-  m_PVRFilterTypeAO: 0
-  m_PVRFilteringGaussRadiusDirect: 1
-  m_PVRFilteringGaussRadiusIndirect: 5
-  m_PVRFilteringGaussRadiusAO: 2
-  m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-  m_PVRFilteringAtrousPositionSigmaIndirect: 2
-  m_PVRFilteringAtrousPositionSigmaAO: 1
-  m_PVRTiledBaking: 0
-  m_NumRaysToShootPerTexel: -1
-  m_RespectSceneVisibilityWhenBakingGI: 0
 --- !u!1 &1740510298
 GameObject:
   m_ObjectHideFlags: 0
@@ -11059,6 +11000,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020915708}
   m_CullTransparentMesh: 1
+--- !u!23 &2036285413 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8363411296101556531, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3735868129830671012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2077628474
 GameObject:
   m_ObjectHideFlags: 0
@@ -11259,9 +11206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefabs:
-  - {fileID: 1547534552253833923, guid: 2aefcbc0b5129784e9f03ba06d7fdfdf, type: 3}
-  - {fileID: 6473157078919166993, guid: 172bc4be441c2a54ea68f2765be277e6, type: 3}
-  - {fileID: 1547534552253833923, guid: 6729c4489876faa4c9704504d1c68aac, type: 3}
+  - {fileID: 3666291995760703052, guid: 9ac7b0d372b8bb244940f23fb2d44834, type: 3}
   crystalPrefab: {fileID: 8678558193627059379, guid: 1e5da8cd0a7935e44bfdd565ee498d07,
     type: 3}
   crystalOffsets:
@@ -11269,8 +11214,8 @@ MonoBehaviour:
   - {x: 0, y: 0.65, z: 0}
   - {x: 0, y: 1.2, z: 0}
   maxSpawnRestTime: 2
-  spawnObstacle: 0
-  spawnCrystal: 0
+  spawnObstacle: 1
+  spawnCrystal: 1
   crystalSpawnChance: 20
   randomSpawnRestTime: 1
   randomObstacleAmount: 1
@@ -11953,18 +11898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710efe9afb6b3904d844179f110806c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3033933883021963946 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2066691854394861540, guid: 007e76edf82c3754a9260c1e3ff50a0f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3735868129830671012}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 799bf40e636202d40b21651c079314cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3501350843839794859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12146,6 +12079,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 880999046126314025, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099651260055923577, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2141066841041770780, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: scoreText
@@ -12161,6 +12104,31 @@ PrefabInstance:
       propertyPath: gameOverScoreText
       value: 
       objectReference: {fileID: 424585855}
+    - target: {fileID: 2630422462152237948, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630422462152237948, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630422462152237948, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.672
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690689941223852063, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935237973161593471, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4015574818423692370, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: camRotater
@@ -12171,15 +12139,10 @@ PrefabInstance:
       propertyPath: fever
       value: 
       objectReference: {fileID: 1407095568}
-    - target: {fileID: 5262735333069193177, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+    - target: {fileID: 5793418439533852377, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
-      propertyPath: shapeShifter
-      value: 
-      objectReference: {fileID: 3033933883021963946}
-    - target: {fileID: 6891075261507772281, guid: 007e76edf82c3754a9260c1e3ff50a0f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7208685476007703056, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
