@@ -11953,6 +11953,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710efe9afb6b3904d844179f110806c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3033933883021963946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2066691854394861540, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3735868129830671012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799bf40e636202d40b21651c079314cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3501350843839794859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12159,6 +12171,16 @@ PrefabInstance:
       propertyPath: fever
       value: 
       objectReference: {fileID: 1407095568}
+    - target: {fileID: 5262735333069193177, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: shapeShifter
+      value: 
+      objectReference: {fileID: 3033933883021963946}
+    - target: {fileID: 6891075261507772281, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7208685476007703056, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: camFollower

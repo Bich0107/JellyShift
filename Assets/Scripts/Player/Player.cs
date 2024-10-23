@@ -8,9 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] MovingObject movingObject;
     [SerializeField] AnimationHandler animationHandler;
     [SerializeField] TurnHandler turnHandler;
-    [SerializeField] InputHandler inputHandler;
     [SerializeField] CollisionHandler collisionHandler;
-    [SerializeField] ObjectScaler objectScaler;
     [SerializeField] PredictionBox predictionBox;
     Vector3 basePosition;
     FeverSystem fever;
@@ -30,8 +28,6 @@ public class Player : MonoBehaviour
 
     public void GameStart()
     {
-        inputHandler.GameStart();
-
         animationHandler.Reset();
         movingObject.Move();
         turnHandler.Turn(new Vector3(0f, 180f, 0f));
@@ -44,12 +40,10 @@ public class Player : MonoBehaviour
         gravityEffector.enabled = true;
         gravityEffector.Reset();
 
-        inputHandler.Reset();
         movingObject.Reset();
         animationHandler.Reset();
         turnHandler.Reset();
         collisionHandler.Reset();
-        objectScaler.Reset();
         predictionBox.Reset();
 
         fever.enabled = true;

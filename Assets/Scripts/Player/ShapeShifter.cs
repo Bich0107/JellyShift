@@ -16,6 +16,7 @@ public class ShapeShifter : MonoBehaviour
 
     public void ShapeShift(ShapeType _shapeType)
     {
+        StopAllCoroutines();
         StartCoroutine(CR_ShapeShift(_shapeType));
     }
 

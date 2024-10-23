@@ -10,20 +10,10 @@ public class InputHandler : MonoBehaviour
     [SerializeField] ObjectScaler objectScaler;
     [SerializeField] float getTouchInterval = 0.1f;
     [SerializeField] bool isActive = true;
-    WaitForSeconds getTouchWait;
-    Vector3 touchPosition;
-    float touchHeight;
-    float yDistanceFromTouchHeight;
 
     void Start()
     {
         cam = Camera.main;
-        getTouchWait = new WaitForSeconds(getTouchInterval);
-    }
-
-    public void GameStart()
-    {
-        StartCoroutine(CR_GetTouchPos());
     }
 
     void Update()
@@ -62,13 +52,6 @@ public class InputHandler : MonoBehaviour
                         GameManager.Instance.GameStart();
                     }
 
-                    TouchPosToWorldSpace(touch.position);
-                    touchHeight = cam.ScreenToWorldPoint(touchPosition).y;
-                    break;
-                case TouchPhase.Moved:
-                    TouchPosToWorldSpace(touch.position);
-                    yDistanceFromTouchHeight = cam.ScreenToWorldPoint(touchPosition).y - touchHeight;
-                    objectScaler.Scale(yDistanceFromTouchHeight);
                     break;
             }
         }
@@ -83,31 +66,6 @@ public class InputHandler : MonoBehaviour
         }
 
         return false;
-    }
-
-    IEnumerator CR_GetTouchPos()
-    {
-        Touch touch;
-        do
-        {
-            if (Input.touchCount > 0)
-            {
-                touch = Input.GetTouch(0);
-
-                if (!IsTouchOnUI(touch))
-                {
-                    TouchPosToWorldSpace(touch.position);
-                    touchHeight = cam.ScreenToWorldPoint(touchPosition).y;
-                }
-            }
-            yield return getTouchWait;
-        } while (true);
-    }
-
-    void TouchPosToWorldSpace(Vector2 _touchPos)
-    {
-        touchPosition = _touchPos;
-        touchPosition.z = cam.nearClipPlane;
     }
 
     public void Reset()
