@@ -6,7 +6,7 @@ public class LevelSettingReader : MonoBehaviour
     [SerializeField] FeverSystem feverSystem;
     [SerializeField] PathGenerator pathGenerator;
 
-    void Awake()
+    void Start()
     {
         ReadSettings();
     }

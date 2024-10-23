@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3653321853b754aaf7c38b84ae0eb1, type: 3}
   m_Name: SaveFile
   m_EditorClassIdentifier: 
-  Level: 5
-  Crystal: 1035
-  Score: 5200
+  Level: 1
+  Crystal: 1003
+  Score: 150
   Life: 3
