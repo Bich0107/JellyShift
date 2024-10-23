@@ -7,6 +7,11 @@ public enum PathDirection
     Forward, Left, Right
 }
 
+public enum PathType
+{
+    Normal, Trap
+}
+
 public class PathGenerator : MonoBehaviour
 {
     [Header("Spawn amount and number of turn settings")]
@@ -30,6 +35,8 @@ public class PathGenerator : MonoBehaviour
     [SerializeField] GameObject specialPathPrefab;
     [SerializeField] float specialPathChance = 10f;
     [SerializeField] Spawner spawner;
+    PathType lastPathType;
+    bool spawnSpecialPath;
     float length;
     public float Length => length;
     GameObject firstTurnPath, secondTurnPath;
@@ -56,18 +63,22 @@ public class PathGenerator : MonoBehaviour
 
         // spawn start zone
         SetPath(startPos);
+        lastPathType = PathType.Normal;
 
         // spawn paths forward
         GameObject pathPrefab;
         for (int i = 0; i < pathPerSegment; i++)
         {
+            // path with hole chance
             if (Random.Range(0, 100) < specialPathChance)
             {
                 pathPrefab = specialPathPrefab;
+                lastPathType = PathType.Trap;
             }
             else
             {
                 pathPrefab = pathPrefabs[0];
+                lastPathType = PathType.Normal;
             }
 
             SetPath(pathPrefab);
@@ -97,6 +108,7 @@ public class PathGenerator : MonoBehaviour
                 {
                     SetPath(pathPrefab);
                 }
+                lastPathType = PathType.Normal;
             }
 
             // spawn the second turn and the paths follow
@@ -109,6 +121,7 @@ public class PathGenerator : MonoBehaviour
                 {
                     SetPath(pathPrefab);
                 }
+                lastPathType = PathType.Normal;
             }
         }
 
@@ -150,11 +163,14 @@ public class PathGenerator : MonoBehaviour
         // calculte the total length of the path
         length += pathScript.Length;
 
-        // spawn obstacle and/or crystal on every possible position on the path
-        if (pathScript.SpawnPosOffsets.Length > 0)
+        // spawn obstacle on every possible position on the path if the last path is normal path
+        if (pathScript.SpawnPosOffsets.Length > 0 && lastPathType == PathType.Normal)
         {
-            spawner.Spawn(spawnPos, pathScript.SpawnPosOffsets, pathRotation);
+            spawner.SpawnObstacle(spawnPos, pathScript.SpawnPosOffsets, pathRotation);
         }
+
+        // spawn crystal randomly
+        spawner.SpawnCrystal(spawnPos, pathScript.SpawnPosOffsets, pathRotation);
 
         // set rotation and update spawn pos
         g.transform.localRotation = pathRotation;

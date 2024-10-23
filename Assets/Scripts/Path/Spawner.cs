@@ -33,7 +33,7 @@ public class Spawner : MonoBehaviour
         g.SetActive(true);
     }
 
-    public void Spawn(Vector3 _spawnPos, Vector3[] _offsets, Quaternion _rotation)
+    public void SpawnObstacle(Vector3 _spawnPos, Vector3[] _offsets, Quaternion _rotation)
     {
         int obstacleIndex = GetRandomNum(obstaclePrefabs.Length - 1);
         GameObject obstaclePrefab = obstaclePrefabs[obstacleIndex];
@@ -57,7 +57,11 @@ public class Spawner : MonoBehaviour
             else restCounter = maxSpawnRestTime;
         }
         else restCounter--;
+    }
 
+    public void SpawnCrystal(Vector3 _spawnPos, Vector3[] _offsets, Quaternion _rotation)
+    {
+        int obstacleIndex = GetRandomNum(obstaclePrefabs.Length - 1);
         if (spawnCrystal)
         {
             if (Random.Range(0, 100) > crystalSpawnChance) return;
