@@ -11,7 +11,7 @@ public class ContinueButton : MonoBehaviour
 
     void Start()
     {
-        if (currentSaveFile == null) button.interactable = false;
+        if (currentSaveFile == null || currentSaveFile.Life <= 0) button.interactable = false;
         else button.interactable = true;
     }
 
