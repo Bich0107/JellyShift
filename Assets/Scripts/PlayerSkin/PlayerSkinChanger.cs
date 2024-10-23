@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerSkinChanger : MonoBehaviour
 {
     [SerializeField] Player player;
-    [SerializeField] MeshRenderer skinRenderer;
+    [SerializeField] MeshRenderer[] skinRenderers;
     [SerializeField] MeshRenderer predictionBoxRenderer;
     [SerializeField] Image predictionImage;
 
@@ -16,8 +16,12 @@ public class PlayerSkinChanger : MonoBehaviour
         player.Skin = _skin;
         _skin.IsChoosen = true;
 
-        skinRenderer.material = _skin.SkinMaterial;
-        predictionBoxRenderer.material = _skin.PredictionBoxMaterial;
-        predictionImage.color = _skin.PredictionImageColor;
+        for (int i = 0; i < skinRenderers.Length; i++)
+        {
+            skinRenderers[i].material = _skin.SkinMaterial;
+        }
+
+        // predictionBoxRenderer.material = _skin.PredictionBoxMaterial;
+        // predictionImage.color = _skin.PredictionImageColor;
     }
 }

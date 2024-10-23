@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ShapeShifter : MonoBehaviour
 {
-    [SerializeField] Mesh[] meshes;
-    [SerializeField] Vector3[] scales;
-    [SerializeField] MeshFilter meshFilter;
+    [SerializeField] GameObject[] shapes;
     [SerializeField] Transform targetTrans;
     [SerializeField] float scaleChangeDuration;
+    GameObject currentShape;
+
+    void Start()
+    {
+        currentShape = shapes[0];
+    }
 
     public void ShapeShift(ShapeType _shapeType)
     {
@@ -27,14 +31,15 @@ public class ShapeShifter : MonoBehaviour
             yield return null;
         }
 
-        meshFilter.mesh = meshes[(int)_shapeType];
-        Vector3 endScale = scales[(int)_shapeType];
+        currentShape.SetActive(false);
+        currentShape = shapes[(int)_shapeType];
+        currentShape.SetActive(true);
 
         tick = 0f;
         while (tick < scaleChangeDuration)
         {
             tick += Time.deltaTime;
-            targetTrans.localScale = Vector3.Lerp(Vector3.zero, endScale, tick / scaleChangeDuration);
+            targetTrans.localScale = Vector3.Lerp(Vector3.zero, baseScale, tick / scaleChangeDuration);
             yield return null;
         }
     }
