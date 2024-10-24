@@ -8464,7 +8464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Replay
+  m_text: Next level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11140,6 +11140,7 @@ MonoBehaviour:
   floatDuration: 1
   moveTime: 0.1
   cooldown: 0.5
+  oldHeight: 0
 --- !u!1 &1939691320
 GameObject:
   m_ObjectHideFlags: 0
@@ -11888,9 +11889,9 @@ MonoBehaviour:
   - {x: -0.06, y: 0.7, z: 0}
   - {x: -0.06, y: 0.65, z: 0}
   maxSpawnRestTime: 2
-  spawnObstacle: 0
-  spawnCrystal: 0
-  crystalSpawnChance: 100
+  spawnObstacle: 1
+  spawnCrystal: 1
+  crystalSpawnChance: 20
   randomSpawnRestTime: 1
   randomObstacleAmount: 1
   randomCrystalAmount: 0

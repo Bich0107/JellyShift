@@ -20,7 +20,7 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     Vector3 pos;
     bool inCD;
     bool isFloating;
-    float oldHeight;
+    [SerializeField] float oldHeight;
 
     void Start()
     {
@@ -64,6 +64,7 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         StopAllCoroutines();
         isFloating = true;
 
+        pos = targetTrans.localPosition;
         oldHeight = pos.y;
         StartCoroutine(CR_ChangeHeight(floatHeight));
     }
@@ -92,14 +93,14 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         float tick = 0;
 
-        float startHeight = targetTrans.position.y;
+        float startHeight = targetTrans.localPosition.y;
         while (tick < moveTime)
         {
             tick += Time.deltaTime;
 
-            pos = targetTrans.position;
+            pos = targetTrans.localPosition;
             pos.y = Mathf.Lerp(startHeight, _endValue, tick / moveTime);
-            targetTrans.position = pos;
+            targetTrans.localPosition = pos;
 
             yield return null;
         }
@@ -111,9 +112,9 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         StopAllCoroutines();
 
-        pos = targetTrans.position;
+        pos = targetTrans.localPosition;
         pos.y = oldHeight;
-        targetTrans.position = pos;
+        targetTrans.localPosition = pos;
 
         floatEnegyBar.value = floatDuration;
         isFloating = false;

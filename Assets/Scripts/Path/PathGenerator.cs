@@ -70,7 +70,7 @@ public class PathGenerator : MonoBehaviour
         for (int i = 0; i < pathPerSegment; i++)
         {
             // path with hole chance
-            if (Random.Range(0, 100) < specialPathChance)
+            if (Random.Range(0, 100) < specialPathChance && lastPathType != PathType.Trap)
             {
                 pathPrefab = specialPathPrefab;
                 lastPathType = PathType.Trap;
