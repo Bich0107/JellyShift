@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField] AnimationHandler animationHandler;
     [SerializeField] TurnHandler turnHandler;
     [SerializeField] CollisionHandler collisionHandler;
-    [SerializeField] PredictionBox predictionBox;
     [SerializeField] HeightChecker heightChecker;
     Vector3 basePosition;
     FeverSystem fever;
@@ -45,7 +44,6 @@ public class Player : MonoBehaviour
         animationHandler.Reset();
         turnHandler.Reset();
         collisionHandler.Reset();
-        predictionBox.Reset();
         heightChecker.Reset();
 
         fever.enabled = true;

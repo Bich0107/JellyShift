@@ -5,7 +5,6 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     [Header("Components")]
     [SerializeField] AnimationHandler animationHandler;
     [SerializeField] ShapeShifter shapeShifter;
-    [SerializeField] PredictionBox predictionBox;
     [SerializeField] GravityEffector gravity;
     [SerializeField] MovingObject movingObject;
     [SerializeField] TurnHandler turnHandler;
@@ -37,7 +36,6 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         movingObject.Stop();
         shapeShifter.ShapeShift(ShapeType.Cube);
         gravity.enabled = false;
-        predictionBox.enabled = false;
 
         fever.Reset();
         fever.enabled = false;
@@ -95,6 +93,5 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     public void Reset()
     {
         StopAllCoroutines();
-        predictionBox.enabled = true;
     }
 }

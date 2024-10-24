@@ -5,11 +5,6 @@ using UnityEngine.EventSystems;
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] GravityEffector gravityEffector;
-    [SerializeField] ObjectScaler objectScaler;
-    [SerializeField] float getTouchInterval = 0.1f;
-    [SerializeField] bool isActive = true;
-
     void Update()
     {
 #if UNITY_EDITOR
@@ -56,8 +51,5 @@ public class InputHandler : MonoBehaviour
     public void Reset()
     {
         StopAllCoroutines();
-        isActive = true;
     }
-
-    public void SetActive(bool _value) => isActive = _value;
 }
