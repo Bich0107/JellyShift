@@ -10,10 +10,7 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] Transform targetTrans;
     [SerializeField] GravityEffector gravity;
-    [SerializeField] Slider floatEnegyBar;
-    [SerializeField] float restoreRate;
     [SerializeField] float floatHeight;
-    [SerializeField] float floatDuration;
     [SerializeField] float moveTime;
     [SerializeField] float cooldown;
     WaitForSeconds cooldownWait;
@@ -25,35 +22,6 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     void Start()
     {
         cooldownWait = new WaitForSeconds(cooldown);
-        floatEnegyBar.maxValue = floatDuration;
-        floatEnegyBar.value = floatDuration;
-    }
-
-    void Update()
-    {
-        UpdateEnergyBar();
-    }
-
-    void UpdateEnergyBar()
-    {
-        if (isFloating)
-        {
-            floatEnegyBar.value -= Time.deltaTime;
-            if (floatEnegyBar.value <= 0f)
-            {
-                floatEnegyBar.value = 0f;
-                isFloating = false;
-                StartCoroutine(CR_ChangeHeight(oldHeight, () =>
-                {
-                    gravity.enabled = true;
-                }));
-                StartCoroutine(CR_Cooldown());
-            }
-        }
-        else
-        {
-            floatEnegyBar.value += restoreRate * Time.deltaTime;
-        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -79,6 +47,7 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         StartCoroutine(CR_ChangeHeight(oldHeight, () =>
         {
             gravity.enabled = true;
+            StartCoroutine(CR_Cooldown());
         }));
     }
 
@@ -116,7 +85,6 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         pos.y = oldHeight;
         targetTrans.localPosition = pos;
 
-        floatEnegyBar.value = floatDuration;
         isFloating = false;
     }
 }

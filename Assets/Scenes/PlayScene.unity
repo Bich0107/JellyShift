@@ -1333,7 +1333,7 @@ RectTransform:
   m_Father: {fileID: 1588985769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6425,7 +6425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1278889173
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11110,10 +11110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTrans: {fileID: 1776837617}
   gravity: {fileID: 3033933883021963944}
-  floatEnegyBar: {fileID: 1278889174}
-  restoreRate: 2
   floatHeight: 0.5
-  floatDuration: 1.5
   moveTime: 0.1
   cooldown: 0.5
   oldHeight: 0
@@ -12794,6 +12791,21 @@ PrefabInstance:
       propertyPath: gameOverScoreText
       value: 
       objectReference: {fileID: 424585855}
+    - target: {fileID: 3024226004701566804, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.30290377
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024226004701566804, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024226004701566804, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.004064791
+      objectReference: {fileID: 0}
     - target: {fileID: 4015574818423692370, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: camRotater
