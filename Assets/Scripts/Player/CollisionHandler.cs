@@ -10,6 +10,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     [SerializeField] MovingObject movingObject;
     [SerializeField] TurnHandler turnHandler;
     [SerializeField] FeverSystem fever;
+    [SerializeField] FloatButton floatButton;
     [Header("Push back settings")]
     [SerializeField] float pushBackSpeedRatio;
     [SerializeField] float restoreSpeedTime;
@@ -32,6 +33,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
 
     public void TriggerByGoal()
     {
+        floatButton.Reset();
         movingObject.Stop();
         shapeShifter.ShapeShift(ShapeType.Cube);
         gravity.enabled = false;

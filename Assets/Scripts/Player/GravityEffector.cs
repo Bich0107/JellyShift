@@ -23,7 +23,7 @@ public class GravityEffector : MonoBehaviour
         }
     }
 
-    public void Activate() => isEnabled = true;
+    public void SetActive(bool _status) => isEnabled = _status;
 
     void GroundCheck()
     {

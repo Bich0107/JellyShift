@@ -27,7 +27,7 @@ public class HeightChecker : MonoBehaviour
             isActive = false;
 
             camFollower.Stop();
-            gravity.Activate();
+            gravity.SetActive(true);
             // kill player
             lifeHandler.DecreaseLife(999);
         }
