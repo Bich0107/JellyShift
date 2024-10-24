@@ -75,6 +75,7 @@ public class Spawner : MonoBehaviour
             for (int i = 0; i < spawnTime; i++)
             {
                 temp = ObjectPool.Instance.Spawn(crystalPrefab.tag);
+                // set position base on which obstacle was spawned
                 position = _spawnPos + _rotation * (_offsets[i] + crystalOffsets[obstacleIndex]);
                 SetupGO(position, _rotation, temp);
             }

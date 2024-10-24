@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class GravityEffector : MonoBehaviour
 {
-    [SerializeField] Follower camFollower;
     [SerializeField] Transform targetTrans;
     [SerializeField] Transform groundCheckPos;
     [SerializeField] Transform boxTransform;
@@ -24,6 +23,8 @@ public class GravityEffector : MonoBehaviour
         }
     }
 
+    public void Activate() => isEnabled = true;
+
     void GroundCheck()
     {
         boxHalfScale = boxTransform.localScale / 2f;
@@ -37,28 +38,26 @@ public class GravityEffector : MonoBehaviour
         else
         {
             isEnabled = true;
-            camFollower.Stop();
-            GameManager.Instance.GameOver();
         }
     }
 
     // for debug
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
+    // void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.yellow;
 
-        // Save the current Gizmos matrix
-        Matrix4x4 oldMatrix = Gizmos.matrix;
+    //     // Save the current Gizmos matrix
+    //     Matrix4x4 oldMatrix = Gizmos.matrix;
 
-        // Apply the object's position and rotation to Gizmos matrix
-        Gizmos.matrix = Matrix4x4.TRS(groundCheckPos.position, targetTrans.localRotation, Vector3.one);
+    //     // Apply the object's position and rotation to Gizmos matrix
+    //     Gizmos.matrix = Matrix4x4.TRS(groundCheckPos.position, targetTrans.localRotation, Vector3.one);
 
-        // Draw the wireframe cube with the box extents
-        Gizmos.DrawWireCube(Vector3.zero, boxHalfScale * 2);
+    //     // Draw the wireframe cube with the box extents
+    //     Gizmos.DrawWireCube(Vector3.zero, boxHalfScale * 2);
 
-        // Restore the original Gizmos matrix
-        Gizmos.matrix = oldMatrix;
-    }
+    //     // Restore the original Gizmos matrix
+    //     Gizmos.matrix = oldMatrix;
+    // }
 
     public bool OnGround => onGround;
 

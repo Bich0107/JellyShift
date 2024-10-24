@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class HeightChecker : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Transform targetTrans;
+    [SerializeField] Follower camFollower;
+    [SerializeField] GravityEffector gravity;
+    [SerializeField] LifeHandler lifeHandler;
+    [SerializeField] float deathHeight = -0.03f;
+    bool isActive = true;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        HeightCheck();
+    }
+
+    public void SetActive(bool _status) => isActive = _status;
+
+    void HeightCheck()
+    {
+        if (!isActive) return;
+
+        if (targetTrans.position.y < deathHeight)
+        {
+            isActive = false;
+
+            camFollower.Stop();
+            gravity.Activate();
+            // kill player
+            lifeHandler.DecreaseLife(999);
+        }
+    }
+
+    public void Reset()
+    {
+        isActive = true;
     }
 }

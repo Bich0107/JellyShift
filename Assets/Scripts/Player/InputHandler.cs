@@ -5,16 +5,10 @@ using UnityEngine.EventSystems;
 
 public class InputHandler : MonoBehaviour
 {
-    Camera cam;
     [SerializeField] GravityEffector gravityEffector;
     [SerializeField] ObjectScaler objectScaler;
     [SerializeField] float getTouchInterval = 0.1f;
     [SerializeField] bool isActive = true;
-
-    void Start()
-    {
-        cam = Camera.main;
-    }
 
     void Update()
     {
@@ -25,16 +19,7 @@ public class InputHandler : MonoBehaviour
         }
 #endif
 
-        if (!gravityEffector.OnGround)
-        {
-            isActive = false;
-        }
-        else
-        {
-            isActive = true;
-        }
-
-        if (isActive) HandleTouch();
+        HandleTouch();
     }
 
     void HandleTouch()
