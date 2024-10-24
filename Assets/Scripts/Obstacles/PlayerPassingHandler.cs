@@ -64,6 +64,14 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
         }
     }
 
+    void DisableBody()
+    {
+        for (int i = 0; i < bodyCubes.Length; i++)
+        {
+            bodyCubes[i].Disable();
+        }
+    }
+
     void BodyExplode()
     {
         for (int i = 0; i < bodyCubes.Length; i++)

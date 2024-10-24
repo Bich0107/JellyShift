@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
     Vector3 position;
     int spawnTime;
     int restCounter = 0;
+    int obstacleIndex;
 
     int GetRandomNum(int _max, int _min = 0)
     {
@@ -35,7 +36,8 @@ public class Spawner : MonoBehaviour
 
     public void SpawnObstacle(Vector3 _spawnPos, Vector3[] _offsets, Quaternion _rotation)
     {
-        int obstacleIndex = GetRandomNum(obstaclePrefabs.Length - 1);
+        // store obstacle index to choose the suitable offset for spawing crystal
+        obstacleIndex = GetRandomNum(obstaclePrefabs.Length - 1);
         GameObject obstaclePrefab = obstaclePrefabs[obstacleIndex];
 
         if (restCounter <= 0 && spawnObstacle)
@@ -61,7 +63,6 @@ public class Spawner : MonoBehaviour
 
     public void SpawnCrystal(Vector3 _spawnPos, Vector3[] _offsets, Quaternion _rotation)
     {
-        int obstacleIndex = GetRandomNum(obstaclePrefabs.Length - 1);
         if (spawnCrystal)
         {
             if (Random.Range(0, 100) > crystalSpawnChance) return;

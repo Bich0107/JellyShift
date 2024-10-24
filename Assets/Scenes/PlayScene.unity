@@ -4613,6 +4613,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shape (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2411438345356092086, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411438345356092086, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2441592469361374571, guid: cd6b915d23e093d48bdb12e55afb47ae,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6180,6 +6190,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shape (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2411438345356092086, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bff2d9fe79e010044be579cd07a755bc,
+        type: 3}
     - target: {fileID: 2441592469361374571, guid: cd6b915d23e093d48bdb12e55afb47ae,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6279,6 +6295,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486168859855173256, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486168859855173256, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6019672
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486168859855173256, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486168859855173256, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11215,20 +11251,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefabs:
+  - {fileID: 6473157078919166993, guid: 172bc4be441c2a54ea68f2765be277e6, type: 3}
   - {fileID: 3666291995760703052, guid: 9ac7b0d372b8bb244940f23fb2d44834, type: 3}
   - {fileID: 2079405753046177704, guid: d6e32173d7ed39f46990c2111706f877, type: 3}
   - {fileID: 2878057528698832590, guid: 7ab9e614e342a584b801c6d35dd1119b, type: 3}
-  - {fileID: 6473157078919166993, guid: 172bc4be441c2a54ea68f2765be277e6, type: 3}
   crystalPrefab: {fileID: 8678558193627059379, guid: 1e5da8cd0a7935e44bfdd565ee498d07,
     type: 3}
   crystalOffsets:
-  - {x: 0, y: 0.3, z: -0.15}
-  - {x: 0, y: 0.65, z: 0}
-  - {x: 0, y: 1.2, z: 0}
+  - {x: -0.058, y: 0.3, z: 0}
+  - {x: -0.045, y: 0.57, z: 0}
+  - {x: -0.06, y: 0.7, z: 0}
+  - {x: -0.06, y: 0.65, z: 0}
   maxSpawnRestTime: 2
   spawnObstacle: 1
   spawnCrystal: 1
-  crystalSpawnChance: 20
+  crystalSpawnChance: 100
   randomSpawnRestTime: 1
   randomObstacleAmount: 1
   randomCrystalAmount: 0
@@ -11923,6 +11960,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shape
       objectReference: {fileID: 0}
+    - target: {fileID: 2411438345356092086, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411438345356092086, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2441592469361374571, guid: cd6b915d23e093d48bdb12e55afb47ae,
         type: 3}
       propertyPath: m_Pivot.x
@@ -12023,6 +12070,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7486168859855173256, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486168859855173256, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.40918028
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486168859855173256, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486168859855173256, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486168859855173256, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12105,6 +12177,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2066691854394861540, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: scaleChangeDuration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2141066841041770780, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
