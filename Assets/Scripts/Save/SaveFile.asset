@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SaveFile
   m_EditorClassIdentifier: 
   Level: 1
-  Crystal: 1003
-  Score: 150
+  Crystal: 1000
+  Score: 0
   Life: 3
