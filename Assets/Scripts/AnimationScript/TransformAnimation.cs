@@ -56,6 +56,8 @@ public class TransformAnimation : CustomAnimation
 
     public void Reset()
     {
+        if (rectTrans == null) return;
+
         rectTrans.localScale = baseFrame.scale;
         rectTrans.localPosition = baseFrame.position;
     }

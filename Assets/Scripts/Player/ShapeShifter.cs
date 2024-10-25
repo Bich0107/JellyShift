@@ -8,6 +8,7 @@ public class ShapeShifter : MonoBehaviour
     [SerializeField] Transform targetTrans;
     [SerializeField] float scaleChangeDuration;
     GameObject currentShape;
+    bool isBusy;
 
     void Start()
     {
@@ -16,12 +17,15 @@ public class ShapeShifter : MonoBehaviour
 
     public void ShapeShift(ShapeType _shapeType)
     {
+        if (isBusy) return;
+
         StopAllCoroutines();
         StartCoroutine(CR_ShapeShift(_shapeType));
     }
 
     IEnumerator CR_ShapeShift(ShapeType _shapeType)
     {
+        isBusy = true;
         Vector3 baseScale = targetTrans.localScale;
         float tick = 0f;
 
@@ -43,5 +47,7 @@ public class ShapeShifter : MonoBehaviour
             targetTrans.localScale = Vector3.Lerp(Vector3.zero, baseScale, tick / scaleChangeDuration);
             yield return null;
         }
+
+        isBusy = false;
     }
 }

@@ -20,7 +20,6 @@ public class AnimationSequence : MonoBehaviour
     public void Rewind()
     {
         if (isBusy || !rewindable) return;
-        Debug.Log("rewinded");
         StartCoroutine(CR_RewindSequence());
     }
 
