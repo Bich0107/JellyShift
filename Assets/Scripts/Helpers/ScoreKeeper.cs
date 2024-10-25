@@ -41,7 +41,6 @@ public class ScoreKeeper : MonoSingleton<ScoreKeeper>
         {
             SaveManager.Instance.gameSettingFile.HighScores[i] = scores[i];
         }
-
     }
 
     public bool IsHighScore(int _value)

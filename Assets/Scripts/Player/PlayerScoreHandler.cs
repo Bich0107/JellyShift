@@ -6,7 +6,6 @@ public class PlayerScoreHandler : MonoSingleton<PlayerScoreHandler>
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI gameOverScoreText;
     [SerializeField] GameObject highScorePanel;
-
     int score;
 
     void Start()
@@ -39,6 +38,7 @@ public class PlayerScoreHandler : MonoSingleton<PlayerScoreHandler>
     {
         if (ScoreKeeper.Instance.IsHighScore(score))
         {
+            ScoreKeeper.Instance.AddScore(score);
             highScorePanel.SetActive(true);
         }
         else

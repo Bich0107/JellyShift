@@ -15,11 +15,14 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     Vector3 pos;
     bool isBusy;
     bool isFloating;
+    bool isActivedThisRun;
     float oldHeight;
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (isFloating || isBusy) return;
+
+        isActivedThisRun = true;
 
         gravity.enabled = false;
         StopAllCoroutines();
@@ -68,9 +71,14 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         StopAllCoroutines();
 
-        pos = targetTrans.localPosition;
-        pos.y = oldHeight;
-        targetTrans.localPosition = pos;
+        // only reset height if player has used float button this level, or else it will reset player height to 0
+        if (isActivedThisRun)
+        {
+            pos = targetTrans.localPosition;
+            pos.y = oldHeight;
+            targetTrans.localPosition = pos;
+            isActivedThisRun = false;
+        }
 
         isBusy = false;
         isFloating = false;

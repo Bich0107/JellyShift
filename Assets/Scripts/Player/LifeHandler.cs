@@ -30,6 +30,7 @@ public class LifeHandler : MonoSingleton<LifeHandler>
         {
             currentLife = 0;
             PlayerScoreHandler.Instance.CheckHighScore();
+            GameManager.Instance.GamePause();
             gameOverPanelAnimation.Play();
         }
 

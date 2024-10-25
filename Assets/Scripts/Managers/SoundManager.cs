@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoSingleton<SoundManager>
 {
+    [SerializeField] AudioSource sfxSource;
     [SerializeField] SoundButton soundButton;
     bool isOn;
     public bool IsOn => isOn;
@@ -22,6 +24,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     public void PlaySound(AudioClip _clip)
     {
         if (!isOn) return;
+        sfxSource.PlayOneShot(_clip);
     }
 
 }

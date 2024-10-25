@@ -7,10 +7,9 @@ public class HighScoreWindow : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] scoreTexts;
     [SerializeField] TransformAnimation highscoreWindowAnimation;
 
-    public void Display()
+    void OnEnable()
     {
         SetScores();
-        highscoreWindowAnimation.Play();
     }
 
     void SetScores()
