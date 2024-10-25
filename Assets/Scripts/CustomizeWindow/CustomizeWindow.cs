@@ -6,11 +6,6 @@ public class CustomizeWindow : MonoBehaviour
 {
     [SerializeField] GameObject customizeWindow;
 
-    void Start()
-    {
-        Close();
-    }
-
     public void Open()
     {
         customizeWindow.SetActive(true);

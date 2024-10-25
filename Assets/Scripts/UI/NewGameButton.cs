@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NewGameButton : MonoBehaviour
 {
-    [SerializeField] WindowAnimation confirmWindow;
+    [SerializeField] TransformAnimation confirmWindow;
     SaveFile currentSaveFile => SaveManager.Instance.currentSaveFile;
 
 

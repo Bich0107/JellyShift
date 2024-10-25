@@ -12,21 +12,14 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] GravityEffector gravity;
     [SerializeField] float floatHeight;
     [SerializeField] float moveTime;
-    [SerializeField] float cooldown;
-    WaitForSeconds cooldownWait;
     Vector3 pos;
-    bool inCD;
+    bool isBusy;
     bool isFloating;
-    [SerializeField] float oldHeight;
-
-    void Start()
-    {
-        cooldownWait = new WaitForSeconds(cooldown);
-    }
+    float oldHeight;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (inCD) return;
+        if (isFloating || isBusy) return;
 
         gravity.enabled = false;
         StopAllCoroutines();
@@ -39,27 +32,20 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (!isFloating) return;
+        if (!isFloating || isBusy) return;
 
         StopAllCoroutines();
-        isFloating = false;
 
         StartCoroutine(CR_ChangeHeight(oldHeight, () =>
         {
             gravity.enabled = true;
-            StartCoroutine(CR_Cooldown());
+            isFloating = false;
         }));
-    }
-
-    IEnumerator CR_Cooldown()
-    {
-        inCD = true;
-        yield return cooldownWait;
-        inCD = false;
     }
 
     IEnumerator CR_ChangeHeight(float _endValue, Action _action = null)
     {
+        isBusy = true;
         float tick = 0;
 
         float startHeight = targetTrans.localPosition.y;
@@ -75,6 +61,7 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
 
         _action?.Invoke();
+        isBusy = false;
     }
 
     public void Reset()

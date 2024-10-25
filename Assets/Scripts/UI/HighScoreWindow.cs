@@ -5,7 +5,7 @@ public class HighScoreWindow : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] indexTexts;
     [SerializeField] TextMeshProUGUI[] scoreTexts;
-    [SerializeField] WindowAnimation highscoreWindowAnimation;
+    [SerializeField] TransformAnimation highscoreWindowAnimation;
 
     public void Display()
     {

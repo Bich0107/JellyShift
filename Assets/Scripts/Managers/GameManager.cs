@@ -33,13 +33,11 @@ public class GameManager : MonoSingleton<GameManager>
     public void GamePause()
     {
         Time.timeScale = 0f;
-        canvasManager.GamePause();
     }
 
     public void GameResume()
     {
         Time.timeScale = 1f;
-        canvasManager.GameResume();
     }
 
     public void ReturnToMainMenu()

@@ -14,20 +14,20 @@ public class AnimationFrame
     public float time;
 }
 
-public class WindowAnimation : MonoBehaviour
+public class TransformAnimation : CustomAnimation
 {
     AnimationFrame baseFrame = new AnimationFrame();
     [SerializeField] RectTransform rectTrans;
     [SerializeField] AnimationFrame startFrame;
     [SerializeField] AnimationFrame endFrame;
-    [SerializeField] UnityEvent onPlayAnimationStart;
-    [SerializeField] UnityEvent onRewindAnimationEnd;
     [SerializeField] bool useUnscaleTime = true;
     Sequence playSequence;
     Sequence rewindSequence;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         baseFrame.position = rectTrans.localPosition;
         baseFrame.scale = rectTrans.localScale;
 
@@ -39,19 +39,16 @@ public class WindowAnimation : MonoBehaviour
         rewindSequence = DOTween.Sequence();
         rewindSequence.Join(rectTrans.DOLocalMove(startFrame.position, startFrame.time));
         rewindSequence.Join(rectTrans.DOScale(startFrame.scale, startFrame.time));
-        if (onRewindAnimationEnd != null)
-            rewindSequence.OnComplete(() => onRewindAnimationEnd.Invoke());
         rewindSequence.SetAutoKill(false).SetUpdate(useUnscaleTime);
     }
 
-    public void Play()
+    public override void Play()
     {
-        onPlayAnimationStart.Invoke();
         playSequence.Restart();
         playSequence.Play();
     }
 
-    public void Rewind()
+    public override void Rewind()
     {
         rewindSequence.Restart();
         rewindSequence.Play();

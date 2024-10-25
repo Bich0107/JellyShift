@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HelpWindow : MonoBehaviour
 {
-    [SerializeField] WindowAnimation helpWindowAnimation;
+    [SerializeField] TransformAnimation helpWindowAnimation;
 
     public void OnClick()
     {
