@@ -11,6 +11,9 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
     [Header("Player passing settings")]
     [SerializeField] GameObject feverPassingVFX;
     [SerializeField] GameObject scoreDisplayerGO;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip explodeSFX;
+    [SerializeField] AudioClip passingSFX;
     [SerializeField] float expandTime;
     [SerializeField] Vector3 endScale;
     PassingScoreDisplayer scoreDisplayer;
@@ -53,22 +56,16 @@ public class PlayerPassingHandler : MonoBehaviour, ITriggerByPlayer
         feverSystem.IncreaseFever();
         if (feverSystem.IsActive)
         {
+            audioSource.PlayOneShot(explodeSFX);
             BodyExplode();
             SpawnVFX();
         }
         else
         {
+            audioSource.PlayOneShot(passingSFX);
             coverImage.color = player.Skin.PassingObstacleCoverColor;
             obstacleCoverTrans.gameObject.SetActive(true);
             StartCoroutine(CR_ExpandCover());
-        }
-    }
-
-    void DisableBody()
-    {
-        for (int i = 0; i < bodyCubes.Length; i++)
-        {
-            bodyCubes[i].Disable();
         }
     }
 

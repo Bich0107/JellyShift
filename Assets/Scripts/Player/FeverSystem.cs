@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class FeverSystem : MonoBehaviour
 {
     [Header("Components")]
+    [SerializeField] SoundHandler soundHandler;
     [SerializeField] CameraHelper cameraHelper;
     [SerializeField] MovingObject movingObject;
     [SerializeField] GameObject fever;
@@ -64,6 +65,7 @@ public class FeverSystem : MonoBehaviour
     {
         if (isActive) return;
 
+        soundHandler.ActiveFever();
         isActive = true;
 
         // increase player speed, update ui and change camera fov

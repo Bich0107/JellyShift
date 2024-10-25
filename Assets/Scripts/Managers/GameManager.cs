@@ -21,6 +21,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void GameStart()
     {
+        if (gameStarted) return;
+
         levelFinished = false;
         gameStarted = true;
 

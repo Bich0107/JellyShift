@@ -10,6 +10,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     [SerializeField] TurnHandler turnHandler;
     [SerializeField] FeverSystem fever;
     [SerializeField] FloatButton floatButton;
+    [SerializeField] SoundHandler soundHandler;
     [Header("Push back settings")]
     [SerializeField] float pushBackSpeedRatio;
     [SerializeField] float restoreSpeedTime;
@@ -32,6 +33,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
 
     public void TriggerByGoal()
     {
+        soundHandler.ReachGoal();
         floatButton.Reset();
         movingObject.Stop();
         shapeShifter.ShapeShift(ShapeType.Cube);
@@ -60,6 +62,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     {
         if (beingPushback) return;
 
+        soundHandler.CollideWIthObstacle();
         fever.ReduceFever();
 
         PlayerScoreHandler.Instance.ReduceScore(LevelManager.Instance.CurrentSetting.DamagePerObstacle);

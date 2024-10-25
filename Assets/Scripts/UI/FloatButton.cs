@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    [SerializeField] SoundHandler soundHandler;
     [SerializeField] Transform targetTrans;
     [SerializeField] GravityEffector gravity;
     [SerializeField] float floatHeight;
@@ -22,6 +23,7 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (isFloating || isBusy) return;
 
+        soundHandler.Float();
         isActivedThisRun = true;
 
         gravity.enabled = false;
@@ -38,7 +40,7 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (!isFloating || isBusy) return;
 
         StopAllCoroutines();
-
+        soundHandler.Descend();
         StartCoroutine(CR_ChangeHeight(oldHeight, () =>
         {
             gravity.enabled = true;

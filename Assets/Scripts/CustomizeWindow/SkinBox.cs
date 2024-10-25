@@ -1,11 +1,13 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SkinBox : MonoBehaviour
 {
-    PlayerSkinChanger skinChanger;
-    SkinDisplayer skinDisplayer;
-    Transform skinDisplayerParent;
+    [Header("Audio settings")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip selectSound;
+    [Header("UI settings")]
     [SerializeField] GameObject skinReviewPrefab;
     [SerializeField] PlayerSkinSO skinSO;
     [SerializeField] GameObject borderDefault;
@@ -14,6 +16,9 @@ public class SkinBox : MonoBehaviour
     [SerializeField] GameObject skinDefaultImage;
     [SerializeField] GameObject skinGachaImage;
     [SerializeField] RawImage activeImage;
+    PlayerSkinChanger skinChanger;
+    SkinDisplayer skinDisplayer;
+    Transform skinDisplayerParent;
     static SkinBox s_choosenSkin;
     public PlayerSkinSO SkinSO => skinSO;
 
@@ -81,6 +86,8 @@ public class SkinBox : MonoBehaviour
 
         if (!skinSO.IsChoosen)
         {
+            audioSource.PlayOneShot(selectSound);
+
             skinChanger.ChangeSkin(skinSO);
 
             // update ui of previous choosen skin
