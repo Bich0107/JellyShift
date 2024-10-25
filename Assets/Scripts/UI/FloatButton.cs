@@ -72,6 +72,7 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         pos.y = oldHeight;
         targetTrans.localPosition = pos;
 
+        isBusy = false;
         isFloating = false;
     }
 }

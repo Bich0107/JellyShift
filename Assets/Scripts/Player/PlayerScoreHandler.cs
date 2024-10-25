@@ -23,14 +23,6 @@ public class PlayerScoreHandler : MonoSingleton<PlayerScoreHandler>
         scoreText.text = score.ToString();
         gameOverScoreText.text = score.ToString();
 
-        if (ScoreKeeper.Instance.IsHighScore(score))
-        {
-            highScorePanel.SetActive(true);
-        }
-        else
-        {
-            highScorePanel.SetActive(false);
-        }
         SaveManager.Instance.currentSaveFile.Score = score;
     }
 
@@ -41,5 +33,17 @@ public class PlayerScoreHandler : MonoSingleton<PlayerScoreHandler>
         scoreText.text = score.ToString();
         gameOverScoreText.text = score.ToString();
         SaveManager.Instance.currentSaveFile.Score = score;
+    }
+
+    public void CheckHighScore()
+    {
+        if (ScoreKeeper.Instance.IsHighScore(score))
+        {
+            highScorePanel.SetActive(true);
+        }
+        else
+        {
+            highScorePanel.SetActive(false);
+        }
     }
 }

@@ -32,7 +32,6 @@ public class AnimationSequence : MonoBehaviour
         for (int i = 0; i < animations.Length; i++)
         {
             animations[i].Play();
-            Debug.Log($"Play {i}");
             yield return animations[i].playWait;
         }
 

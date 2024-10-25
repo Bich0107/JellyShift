@@ -5,6 +5,7 @@ using UnityEngine;
 public class LifeHandler : MonoSingleton<LifeHandler>
 {
     [SerializeField] GameObject[] lifes;
+    [SerializeField] AnimationSequence gameOverPanelAnimation;
     int currentLife;
 
     void Start()
@@ -28,7 +29,8 @@ public class LifeHandler : MonoSingleton<LifeHandler>
         if (currentLife <= 0)
         {
             currentLife = 0;
-            GameManager.Instance.GameOver();
+            PlayerScoreHandler.Instance.CheckHighScore();
+            gameOverPanelAnimation.Play();
         }
 
         Display();

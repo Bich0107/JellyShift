@@ -18,12 +18,18 @@ public class AnimationHandler : MonoBehaviour
     [SerializeField] float idleScaleDuration;
     [SerializeField] float goalReachScaleDuration;
     [SerializeField] string animationState_GoalReach = "Player_Goal";
+    [Space]
+    [SerializeField] AnimationSequence gameEndPanelAnimationSequence;
+    [SerializeField] float endGamePanelShowDelay = 1f;
+    WaitForSecondsRealtime endGamePanelShowWait;
     Vector3 baseScale;
     Quaternion baseRotation;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+
+        endGamePanelShowWait = new WaitForSecondsRealtime(endGamePanelShowDelay);
 
         animator.enabled = false;
         baseScale = targetTrans.localScale;
@@ -68,7 +74,15 @@ public class AnimationHandler : MonoBehaviour
         {
             yield return StartCoroutine(CR_MoveAnimation(goalReachKeys[i]));
         }
+
         StartCoroutine(CR_IdleSequence());
+        StartCoroutine(CR_ShowEndGamePanel());
+    }
+
+    IEnumerator CR_ShowEndGamePanel()
+    {
+        yield return endGamePanelShowDelay;
+        gameEndPanelAnimationSequence.Play();
     }
 
     IEnumerator CR_MoveAnimation(AnimationKey _animationKey)
