@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class InputHandler : MonoBehaviour
 {
+#if UNITY_EDITOR
     void Update()
     {
-#if UNITY_EDITOR
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SaveManager.Instance.Reset();
@@ -17,8 +15,6 @@ public class InputHandler : MonoBehaviour
         {
             SaveManager.Instance.currentSaveFile.Life = 3;
         }
-#endif
-
-        //  HandleTouch();
     }
+#endif
 }

@@ -13,16 +13,7 @@ public class SoundButton : MonoBehaviour
 
     public void OnClick()
     {
-        if (isOn)
-        {
-            isOn = false;
-            Debug.Log("turn off sound");
-        }
-        else
-        {
-            isOn = true;
-            Debug.Log("turn on sound");
-        }
+        isOn = !isOn;
 
         SaveManager.Instance.gameSettingFile.SoundOn = isOn;
         SoundManager.Instance.Toggle();

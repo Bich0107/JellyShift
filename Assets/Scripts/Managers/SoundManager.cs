@@ -1,12 +1,14 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoSingleton<SoundManager>
 {
-    [SerializeField] AudioSource sfxSource;
     [SerializeField] SoundButton soundButton;
+    [SerializeField] AudioMixer audioMixer;
+    [SerializeField] float normalVolume;
+    [SerializeField] float muteVolume;
     bool isOn;
-    public bool IsOn => isOn;
 
     protected override void Awake()
     {
@@ -16,15 +18,37 @@ public class SoundManager : MonoSingleton<SoundManager>
     public void SetStatus(bool _status)
     {
         isOn = _status;
+        if (_status)
+        {
+            audioMixer.SetFloat("Volume", normalVolume);
+        }
+        else
+        {
+            audioMixer.SetFloat("Volume", muteVolume);
+        }
+
+        float temp;
+        audioMixer.GetFloat("Volume", out temp);
+        Debug.Log("Turn " + (isOn ? "on" : "off") + "-Volume: " + temp);
+
         soundButton.SetStatus(isOn);
     }
 
-    public void Toggle() => isOn = !isOn;
-
-    public void PlaySound(AudioClip _clip)
+    public void Toggle()
     {
-        if (!isOn) return;
-        sfxSource.PlayOneShot(_clip);
-    }
+        isOn = !isOn;
 
+        if (isOn)
+        {
+            audioMixer.SetFloat("Volume", normalVolume);
+        }
+        else
+        {
+            audioMixer.SetFloat("Volume", muteVolume);
+        }
+
+        float temp;
+        audioMixer.GetFloat("Volume", out temp);
+        Debug.Log("Turn " + (isOn ? "on" : "off") + "-Volume: " + temp);
+    }
 }

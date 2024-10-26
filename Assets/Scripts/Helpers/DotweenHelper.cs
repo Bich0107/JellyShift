@@ -8,6 +8,7 @@ public class DotweenHelper : MonoSingleton<DotweenHelper>
         base.Awake();
         DOTween.Init();
         DOTween.defaultAutoPlay = AutoPlay.None;
+        DOTween.defaultAutoKill = false;
         DOTween.defaultTimeScaleIndependent = true;
     }
 }
