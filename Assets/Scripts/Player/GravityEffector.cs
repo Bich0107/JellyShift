@@ -4,7 +4,7 @@ public class GravityEffector : MonoBehaviour
 {
     [SerializeField] Transform targetTrans;
     [SerializeField] Transform groundCheckPos;
-    [SerializeField] Transform boxTransform;
+    [SerializeField] Vector3 checkBoxScale;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] float groundCheckBoxHeight = 0.2f;
     [SerializeField] float gravity;
@@ -27,7 +27,7 @@ public class GravityEffector : MonoBehaviour
 
     void GroundCheck()
     {
-        boxHalfScale = boxTransform.localScale / 2f;
+        boxHalfScale = checkBoxScale / 2f;
         boxHalfScale.y = groundCheckBoxHeight;
 
         onGround = Physics.CheckBox(groundCheckPos.position, boxHalfScale, targetTrans.localRotation, groundLayer, QueryTriggerInteraction.Collide);
@@ -42,22 +42,22 @@ public class GravityEffector : MonoBehaviour
     }
 
     // for debug
-    // void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.yellow;
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
 
-    //     // Save the current Gizmos matrix
-    //     Matrix4x4 oldMatrix = Gizmos.matrix;
+        // Save the current Gizmos matrix
+        Matrix4x4 oldMatrix = Gizmos.matrix;
 
-    //     // Apply the object's position and rotation to Gizmos matrix
-    //     Gizmos.matrix = Matrix4x4.TRS(groundCheckPos.position, targetTrans.localRotation, Vector3.one);
+        // Apply the object's position and rotation to Gizmos matrix
+        Gizmos.matrix = Matrix4x4.TRS(groundCheckPos.position, targetTrans.localRotation, Vector3.one);
 
-    //     // Draw the wireframe cube with the box extents
-    //     Gizmos.DrawWireCube(Vector3.zero, boxHalfScale * 2);
+        // Draw the wireframe cube with the box extents
+        Gizmos.DrawWireCube(Vector3.zero, boxHalfScale * 2);
 
-    //     // Restore the original Gizmos matrix
-    //     Gizmos.matrix = oldMatrix;
-    // }
+        // Restore the original Gizmos matrix
+        Gizmos.matrix = oldMatrix;
+    }
 
     public bool OnGround => onGround;
 

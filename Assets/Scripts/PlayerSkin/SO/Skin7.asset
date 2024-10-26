@@ -17,7 +17,7 @@ MonoBehaviour:
   predictionBoxMaterial: {fileID: 2100000, guid: 973d62bac3331e64496a5e095b7abb85,
     type: 2}
   predictionImageColor: {r: 1, g: 0.31515107, b: 0, a: 0.8}
-  passingObstacleCoverColor: {r: 0.645283, g: 0.14488423, b: 0.14488423, a: 1}
+  passingObstacleCoverColor: {r: 0.645283, g: 0.14488423, b: 0.14488423, a: 0.2509804}
   reviewRenderTexture: {fileID: 8400000, guid: cfd831e7667ce9846ae0e50a706777c4, type: 2}
   activated: 0
   choosen: 0

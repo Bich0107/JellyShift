@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour, ITriggerByPlayer
 {
+    [SerializeField] GameObject body;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip crystalCollectSFX;
+    [SerializeField] GameObject idleVFX;
+    [SerializeField] GameObject collideVFX;
     [SerializeField] float deactiveDelay;
     WaitForSeconds deactiveWait;
     bool isDeactivating;
@@ -18,6 +21,9 @@ public class Crystal : MonoBehaviour, ITriggerByPlayer
     {
         if (isDeactivating) return;
 
+        body.SetActive(false);
+        idleVFX.SetActive(false);
+        collideVFX.SetActive(true);
         audioSource.PlayOneShot(crystalCollectSFX);
         Bank.Instance.AddCrystal();
         StartCoroutine(CR_Deactive());
@@ -32,6 +38,9 @@ public class Crystal : MonoBehaviour, ITriggerByPlayer
 
     void OnDisable()
     {
+        body.SetActive(true);
+        idleVFX.SetActive(true);
+        collideVFX.SetActive(false);
         isDeactivating = false;
     }
 }

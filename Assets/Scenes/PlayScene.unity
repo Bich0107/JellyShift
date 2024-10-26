@@ -2567,7 +2567,6 @@ MonoBehaviour:
   audioSource: {fileID: 474708301}
   buttons:
   - {fileID: 1837155302}
-  - {fileID: 1934610819}
   - {fileID: 78725658}
   - {fileID: 1400255569}
   - {fileID: 1289481351}
@@ -5120,6 +5119,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8934086520481381209, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.22352943
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6133,6 +6137,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8934086520481381209, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.22352943
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6803,6 +6812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934086520481381209, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.22352943
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9321,7 +9335,7 @@ PrefabInstance:
     - target: {fileID: 8618611913134358706, guid: 31215d51506a44b4b9e04c8dae358a2f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8862752502959626956, guid: 31215d51506a44b4b9e04c8dae358a2f,
         type: 3}
@@ -11466,6 +11480,7 @@ MonoBehaviour:
   soundHandler: {fileID: 3033933883021963956}
   targetTrans: {fileID: 1776837617}
   gravity: {fileID: 3033933883021963944}
+  floatVFX: {fileID: 1957779710}
   floatHeight: 0.5
   moveTime: 0.1
 --- !u!1 &1938895322
@@ -11485,7 +11500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1938895323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11700,6 +11715,12 @@ MonoBehaviour:
   targetImage: {fileID: 1939691323}
   buttonOffSprite: {fileID: 21300000, guid: c0a2064b56e91d94a91fd763287f68b1, type: 3}
   buttonOnSprite: {fileID: 21300000, guid: 57f2db6a5cce6ca4c9d3385a968434ee, type: 3}
+--- !u!1 &1957779710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7077745487273522628, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3735868129830671012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1974706273
 GameObject:
   m_ObjectHideFlags: 0
@@ -12276,8 +12297,8 @@ MonoBehaviour:
   - {x: -0.06, y: 0.7, z: 0}
   - {x: -0.06, y: 0.65, z: 0}
   maxSpawnRestTime: 2
-  spawnObstacle: 1
-  spawnCrystal: 1
+  spawnObstacle: 0
+  spawnCrystal: 0
   crystalSpawnChance: 20
   randomSpawnRestTime: 1
   randomObstacleAmount: 1
@@ -13116,6 +13137,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8934086520481381209, guid: cd6b915d23e093d48bdb12e55afb47ae,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.22352943
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13209,31 +13235,6 @@ PrefabInstance:
       propertyPath: camRotater
       value: 
       objectReference: {fileID: 1833845442}
-    - target: {fileID: 5067940311654905853, guid: 007e76edf82c3754a9260c1e3ff50a0f,
-        type: 3}
-      propertyPath: floatSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: f52d22d1ee8fc644d87109c0808f0c18, type: 3}
-    - target: {fileID: 5067940311654905853, guid: 007e76edf82c3754a9260c1e3ff50a0f,
-        type: 3}
-      propertyPath: descendSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: c36bc240d1d7315499458960a87003a2, type: 3}
-    - target: {fileID: 5067940311654905853, guid: 007e76edf82c3754a9260c1e3ff50a0f,
-        type: 3}
-      propertyPath: reachGoalSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 2d4b48d5d33852746a6340e7f61e8f25, type: 3}
-    - target: {fileID: 5067940311654905853, guid: 007e76edf82c3754a9260c1e3ff50a0f,
-        type: 3}
-      propertyPath: activeFeverSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 03865308d37787a48be77660275f3e51, type: 3}
-    - target: {fileID: 5067940311654905853, guid: 007e76edf82c3754a9260c1e3ff50a0f,
-        type: 3}
-      propertyPath: collideWithObstacleSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 2b8a49d6999d05b4790cbf069c9c7dfd, type: 3}
     - target: {fileID: 5262735333069193177, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: fever

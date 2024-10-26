@@ -20,8 +20,5 @@ public class PlayerSkinChanger : MonoBehaviour
         {
             skinRenderers[i].material = _skin.SkinMaterial;
         }
-
-        // predictionBoxRenderer.material = _skin.PredictionBoxMaterial;
-        // predictionImage.color = _skin.PredictionImageColor;
     }
 }

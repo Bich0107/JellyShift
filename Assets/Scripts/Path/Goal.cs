@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour, ITriggerByPlayer
 {
+    [SerializeField] GameObject goalReachVFX;
     bool isTriggered;
 
     public void TriggerByPlayer()
@@ -9,7 +10,7 @@ public class Goal : MonoBehaviour, ITriggerByPlayer
         if (isTriggered) return;
         isTriggered = true;
 
-        // add some vfx here
+        goalReachVFX.SetActive(true);
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,6 +26,7 @@ public class Goal : MonoBehaviour, ITriggerByPlayer
 
     void OnDisable()
     {
+        goalReachVFX.SetActive(false);
         isTriggered = false;
     }
 }

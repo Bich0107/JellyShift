@@ -11,6 +11,7 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [SerializeField] SoundHandler soundHandler;
     [SerializeField] Transform targetTrans;
     [SerializeField] GravityEffector gravity;
+    [SerializeField] GameObject floatVFX;
     [SerializeField] float floatHeight;
     [SerializeField] float moveTime;
     Vector3 pos;
@@ -24,14 +25,16 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (isFloating || isBusy) return;
 
         soundHandler.Float();
+        floatVFX.SetActive(true);
         isActivedThisRun = true;
 
         gravity.enabled = false;
-        StopAllCoroutines();
         isFloating = true;
 
         pos = targetTrans.localPosition;
         oldHeight = pos.y;
+
+        StopAllCoroutines();
         StartCoroutine(CR_ChangeHeight(floatHeight));
     }
 
@@ -39,8 +42,10 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (!isFloating || isBusy) return;
 
-        StopAllCoroutines();
         soundHandler.Descend();
+        floatVFX.SetActive(false);
+
+        StopAllCoroutines();
         StartCoroutine(CR_ChangeHeight(oldHeight, () =>
         {
             gravity.enabled = true;
