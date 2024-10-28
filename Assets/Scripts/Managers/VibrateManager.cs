@@ -25,6 +25,8 @@ public class VibrateManager : MonoSingleton<VibrateManager>
     public void Vibrate()
     {
         if (!isOn) return;
+#if UNITY_ANDROID
         Handheld.Vibrate();
+#endif
     }
 }

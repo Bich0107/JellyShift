@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighScores: 983a0000e02e000010270000401f00004c1d00006419000088130000a00f0000ac0d0000b80b0000
   HapticOn: 1
-  SoundOn: 0
+  SoundOn: 1

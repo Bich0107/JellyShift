@@ -18,16 +18,21 @@ public class AdManager : MonoSingleton<AdManager>
 #elif UNITY_ANDROID
     string rewardId = "ca-app-pub-2136479507730706/6183718326";
     string interstitialId = "ca-app-pub-2136479507730706/2458728759";
+#else
+    string rewardId = "";
+    string interstitialId = "";
 #endif
 
     RewardedAd rewardedAd;
     InterstitialAd interstitialAd;
 
+#if UNITY_EDITOR || UNITY_ANDROID
     void Start()
     {
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
         MobileAds.Initialize(initStatus => { });
     }
+#endif
 
     #region Reward ad
     public void LoadRewardAd()

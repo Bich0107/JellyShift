@@ -9,7 +9,7 @@ public class InterstitialAdDisplayer : MonoBehaviour
     int counter;
 
     public void UpdateCounter() => counter++;
-
+#if UNITY_ANDROID || UNITY_EDITOR
     public void ShowInterstitialAd()
     {
         if (counter >= levelPerAd)
@@ -26,4 +26,9 @@ public class InterstitialAdDisplayer : MonoBehaviour
             }
         }
     }
+#else
+    public void ShowInterstitialAd(){
+
+    }
+#endif
 }
