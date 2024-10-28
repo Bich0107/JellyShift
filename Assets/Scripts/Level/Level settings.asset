@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLevel: 1
   endLevel: 5
-  baseSpeed: 3
+  baseSpeed: 2
   feverSpeed: 6
   scorePerObstacle: 100
   damagePerObstacle: 150
-  pathAmount: 30
+  pathAmount: 15

@@ -9,7 +9,7 @@ public enum PathDirection
 
 public enum PathType
 {
-    Normal, Trap
+    StartZone, Normal, Trap
 }
 
 public class PathGenerator : MonoBehaviour
@@ -35,8 +35,8 @@ public class PathGenerator : MonoBehaviour
     [SerializeField] GameObject specialPathPrefab;
     [SerializeField] float specialPathChance = 10f;
     [SerializeField] Spawner spawner;
-    PathType lastPathType;
-    bool spawnSpecialPath;
+    PathType lastPathType = PathType.Normal;
+    PathType currentPathType = PathType.Normal;
     float length;
     public float Length => length;
     GameObject firstTurnPath, secondTurnPath;
@@ -63,7 +63,7 @@ public class PathGenerator : MonoBehaviour
 
         // spawn start zone
         SetPath(startPos);
-        lastPathType = PathType.Normal;
+        currentPathType = PathType.StartZone;
 
         // spawn paths forward
         GameObject pathPrefab;
@@ -73,12 +73,14 @@ public class PathGenerator : MonoBehaviour
             if (Random.Range(0, 100) < specialPathChance && lastPathType != PathType.Trap)
             {
                 pathPrefab = specialPathPrefab;
-                lastPathType = PathType.Trap;
+                lastPathType = currentPathType;
+                currentPathType = PathType.Trap;
             }
             else
             {
                 pathPrefab = pathPrefabs[0];
-                lastPathType = PathType.Normal;
+                lastPathType = currentPathType;
+                currentPathType = PathType.Normal;
             }
 
             SetPath(pathPrefab);
@@ -164,6 +166,7 @@ public class PathGenerator : MonoBehaviour
         length += pathScript.Length;
 
         // spawn obstacle on every possible position on the path if the last path is normal path
+        // and this path have pos to put obstacles
         if (pathScript.SpawnPosOffsets.Length > 0 && lastPathType == PathType.Normal)
         {
             spawner.SpawnObstacle(spawnPos, pathScript.SpawnPosOffsets, pathRotation);

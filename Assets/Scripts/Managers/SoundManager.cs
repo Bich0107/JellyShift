@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoSingleton<SoundManager>
 {
-    [SerializeField] SoundButton soundButton;
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] float normalVolume;
     [SerializeField] float muteVolume;
+    string volumeString = "Volume";
     bool isOn;
 
     protected override void Awake()
@@ -20,18 +20,12 @@ public class SoundManager : MonoSingleton<SoundManager>
         isOn = _status;
         if (_status)
         {
-            audioMixer.SetFloat("Volume", normalVolume);
+            audioMixer.SetFloat(volumeString, normalVolume);
         }
         else
         {
-            audioMixer.SetFloat("Volume", muteVolume);
+            audioMixer.SetFloat(volumeString, muteVolume);
         }
-
-        float temp;
-        audioMixer.GetFloat("Volume", out temp);
-        Debug.Log("Turn " + (isOn ? "on" : "off") + "-Volume: " + temp);
-
-        soundButton.SetStatus(isOn);
     }
 
     public void Toggle()
@@ -40,15 +34,11 @@ public class SoundManager : MonoSingleton<SoundManager>
 
         if (isOn)
         {
-            audioMixer.SetFloat("Volume", normalVolume);
+            audioMixer.SetFloat(volumeString, normalVolume);
         }
         else
         {
-            audioMixer.SetFloat("Volume", muteVolume);
+            audioMixer.SetFloat(volumeString, muteVolume);
         }
-
-        float temp;
-        audioMixer.GetFloat("Volume", out temp);
-        Debug.Log("Turn " + (isOn ? "on" : "off") + "-Volume: " + temp);
     }
 }
