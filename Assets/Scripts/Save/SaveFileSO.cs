@@ -14,11 +14,7 @@ public class SaveFile : ScriptableObject
                 Level = 1;
                 Life = s_MaxLife;
 
-#if UNITY_EDITOR
                 Crystal = 1000; // for testing
-#else
-        Crystal = 0;
-#endif
                 Score = 0;
         }
 }

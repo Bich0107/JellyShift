@@ -5,6 +5,7 @@ public class BuyRandomSkinButton : MonoBehaviour
 {
     SkinBox[] skinBoxes;
     [SerializeField] Bank bank;
+    [SerializeField] AnimationSequence notEnoughCrystalPanel;
     [SerializeField] int pricePerSkin;
     [SerializeField] float loopInterval;
     [SerializeField] int minLoopTime = 12;
@@ -43,7 +44,13 @@ public class BuyRandomSkinButton : MonoBehaviour
 
     public void BuySkin()
     {
-        if (isSelecting || !bank.CheckAmount(pricePerSkin) || CountInactiveSkin() == 0) return;
+        if (!bank.CheckAmount(pricePerSkin))
+        {
+            notEnoughCrystalPanel.Play();
+            return;
+        }
+
+        if (isSelecting || CountInactiveSkin() == 0) return;
 
         // if therer is only 1 inactive skin, find and active it
         if (CountInactiveSkin() == 1)

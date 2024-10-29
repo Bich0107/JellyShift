@@ -126,7 +126,7 @@ public class AdManager : MonoSingleton<AdManager>
                 interstitialAd = ad;
             });
 
-        //RegisterEventHandlers(interstitialAd);
+        RegisterEventHandlers(interstitialAd);
     }
 
     public void ShowInterstitialAd()

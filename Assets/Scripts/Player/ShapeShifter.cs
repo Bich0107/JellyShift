@@ -8,16 +8,18 @@ public class ShapeShifter : MonoBehaviour
     [SerializeField] Transform targetTrans;
     [SerializeField] float scaleChangeDuration;
     GameObject currentShape;
+    ShapeType currentShapeType;
     bool isBusy;
 
     void Start()
     {
         currentShape = shapes[0];
+        currentShapeType = ShapeType.Cube;
     }
 
     public void ShapeShift(ShapeType _shapeType)
     {
-        if (isBusy) return;
+        if (isBusy || currentShapeType == _shapeType) return;
 
         StopAllCoroutines();
         StartCoroutine(CR_ShapeShift(_shapeType));
@@ -39,6 +41,7 @@ public class ShapeShifter : MonoBehaviour
         currentShape.SetActive(false);
         currentShape = shapes[(int)_shapeType];
         currentShape.SetActive(true);
+        currentShapeType = _shapeType;
 
         tick = 0f;
         while (tick < scaleChangeDuration)

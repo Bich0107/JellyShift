@@ -6,9 +6,11 @@ public class ButtonSfxSetter : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] Button[] buttons;
     [SerializeField] AudioClip touchSfx;
+    [SerializeField] GameSettingSO gameSetting;
 
     void Awake()
     {
+        gameSetting = SaveManager.Instance.gameSettingFile;
         SetSound();
     }
 
@@ -18,6 +20,8 @@ public class ButtonSfxSetter : MonoBehaviour
         {
             buttons[i].onClick.AddListener(() =>
             {
+                if (!gameSetting.SoundOn) return;
+
                 audioSource.PlayOneShot(touchSfx);
             });
         }

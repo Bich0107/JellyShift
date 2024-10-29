@@ -1,35 +1,46 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class FloatButton : MonoBehaviour
 {
     [SerializeField] SoundHandler soundHandler;
     [SerializeField] Transform targetTrans;
     [SerializeField] GravityEffector gravity;
     [SerializeField] GameObject floatVFX;
+    [SerializeField] SpriteToggleScript spriteToggleScript;
+    [Space]
     [SerializeField] float floatHeight;
     [SerializeField] float moveTime;
     Vector3 pos;
     bool isBusy;
-    bool isFloating;
     bool isActivedThisRun;
     float oldHeight;
+    bool onGround = true;
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void Toggle()
     {
-        if (isFloating || isBusy) return;
+        if (isBusy) return;
 
+        if (onGround)
+        {
+            MoveUp();
+            onGround = false;
+        }
+        else
+        {
+            MoveDown();
+            onGround = true;
+        }
+    }
+
+    public void MoveUp()
+    {
         soundHandler.Float();
         floatVFX.SetActive(true);
         isActivedThisRun = true;
 
         gravity.enabled = false;
-        isFloating = true;
 
         pos = targetTrans.localPosition;
         oldHeight = pos.y;
@@ -38,10 +49,8 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         StartCoroutine(CR_ChangeHeight(floatHeight));
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void MoveDown()
     {
-        if (!isFloating || isBusy) return;
-
         soundHandler.Descend();
         floatVFX.SetActive(false);
 
@@ -49,9 +58,41 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         StartCoroutine(CR_ChangeHeight(oldHeight, () =>
         {
             gravity.enabled = true;
-            isFloating = false;
         }));
     }
+
+    // public void OnPointerDown(PointerEventData eventData)
+    // {
+    //     if (isFloating || isBusy) return;
+
+    //     soundHandler.Float();
+    //     floatVFX.SetActive(true);
+    //     isActivedThisRun = true;
+
+    //     gravity.enabled = false;
+    //     isFloating = true;
+
+    //     pos = targetTrans.localPosition;
+    //     oldHeight = pos.y;
+
+    //     StopAllCoroutines();
+    //     StartCoroutine(CR_ChangeHeight(floatHeight));
+    // }
+
+    // public void OnPointerUp(PointerEventData eventData)
+    // {
+    //     if (!isFloating || isBusy) return;
+
+    //     soundHandler.Descend();
+    //     floatVFX.SetActive(false);
+
+    //     StopAllCoroutines();
+    //     StartCoroutine(CR_ChangeHeight(oldHeight, () =>
+    //     {
+    //         gravity.enabled = true;
+    //         isFloating = false;
+    //     }));
+    // }
 
     IEnumerator CR_ChangeHeight(float _endValue, Action _action = null)
     {
@@ -87,7 +128,8 @@ public class FloatButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             isActivedThisRun = false;
         }
 
+        spriteToggleScript.Reset();
+
         isBusy = false;
-        isFloating = false;
     }
 }

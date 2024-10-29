@@ -1080,7 +1080,8 @@ PrefabInstance:
         type: 3}
       propertyPath: currentSaveFile
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 1bb0a0dbf987c4549b1fd1d49622271e,
+        type: 2}
     - target: {fileID: 8862752502959626956, guid: 31215d51506a44b4b9e04c8dae358a2f,
         type: 3}
       propertyPath: gameSettingFile

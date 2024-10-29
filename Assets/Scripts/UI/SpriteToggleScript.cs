@@ -27,4 +27,9 @@ public class SpriteToggleScript : MonoBehaviour
             targetImage.sprite = buttonOnSprite;
         }
     }
+
+    public void Reset()
+    {
+        targetImage.sprite = buttonOnSprite;
+    }
 }
