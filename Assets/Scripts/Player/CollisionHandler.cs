@@ -11,6 +11,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     [SerializeField] FeverSystem fever;
     [SerializeField] FloatButton floatButton;
     [SerializeField] SoundHandler soundHandler;
+    [SerializeField] ButtonGroup buttonGroup;
     [Header("Push back settings")]
     [SerializeField] float pushBackSpeedRatio;
     [SerializeField] float restoreSpeedTime;
@@ -38,6 +39,9 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         movingObject.Stop();
         shapeShifter.ShapeShift(ShapeType.Cube);
         gravity.enabled = false;
+
+        // turn off buttons
+        buttonGroup.SetStatus(false);
 
         fever.Reset();
         fever.enabled = false;

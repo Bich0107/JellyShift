@@ -19,16 +19,7 @@ public class HapticButton : MonoBehaviour
 
     public void OnClick()
     {
-        if (isOn)
-        {
-            isOn = false;
-            Debug.Log("turn off haptic");
-        }
-        else
-        {
-            isOn = true;
-            Debug.Log("turn on haptic");
-        }
+        isOn = !isOn;
 
         SaveManager.Instance.gameSettingFile.HapticOn = isOn;
         VibrateManager.Instance.Toggle();

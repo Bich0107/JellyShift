@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LifeHandler : MonoSingleton<LifeHandler>
 {
-    [SerializeField] GameObject[] lifes;
     [SerializeField] AnimationSequence gameOverPanelAnimation;
     [SerializeField] SoundHandler soundHandler;
+    [SerializeField] LifeDisplayer lifeDisplayer;
     int currentLife;
 
     void Start()
     {
         currentLife = SaveManager.Instance.currentSaveFile.Life;
-        Display();
     }
 
     public void IncreaseLife(int _value = 1)
@@ -20,7 +17,7 @@ public class LifeHandler : MonoSingleton<LifeHandler>
         currentLife += _value;
         if (currentLife > SaveFile.s_MaxLife) currentLife = SaveFile.s_MaxLife;
 
-        Display();
+        lifeDisplayer.Display(currentLife);
         SaveManager.Instance.currentSaveFile.Life = currentLife;
     }
 
@@ -36,15 +33,7 @@ public class LifeHandler : MonoSingleton<LifeHandler>
             gameOverPanelAnimation.Play();
         }
 
-        Display();
+        lifeDisplayer.Display(currentLife);
         SaveManager.Instance.currentSaveFile.Life = currentLife;
-    }
-
-    void Display()
-    {
-        for (int i = 0; i < lifes.Length; i++)
-        {
-            lifes[i].SetActive(i < currentLife);
-        }
     }
 }

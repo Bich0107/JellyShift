@@ -22,10 +22,8 @@ public class CanvasManager : MonoBehaviour
         startCanvas.SetActive(false);
         playCanvas.SetActive(true);
         endGamePanelAnimation.Rewind();
-        // endGameCanvas.SetActive(false);
         gameOverPanelAnimation.Rewind();
         pauseCanvasAnimation.Rewind();
-        //gameOverCanvas.SetActive(false);
     }
 
     public void GameEnd()
@@ -34,17 +32,14 @@ public class CanvasManager : MonoBehaviour
         playCanvas.SetActive(false);
         pauseCanvasAnimation.Rewind();
         gameOverPanelAnimation.Rewind();
-        // endGameCanvas.SetActive(true);
     }
 
     public void GameOver()
     {
         startCanvas.SetActive(false);
         playCanvas.SetActive(false);
-        // endGameCanvas.SetActive(false);
         endGamePanelAnimation.Rewind();
         pauseCanvasAnimation.Rewind();
-        // gameOverCanvas.SetActive(true);
     }
 
     public void GameWait()
@@ -52,9 +47,7 @@ public class CanvasManager : MonoBehaviour
         startCanvas.SetActive(true);
         playCanvas.SetActive(false);
         endGamePanelAnimation.Rewind();
-        // endGameCanvas.SetActive(false);
         gameOverPanelAnimation.Rewind();
         pauseCanvasAnimation.Rewind();
-        //gameOverCanvas.SetActive(false);
     }
 }

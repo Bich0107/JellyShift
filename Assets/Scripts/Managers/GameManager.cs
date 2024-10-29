@@ -11,6 +11,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] Player player;
     [SerializeField] InterstitialAdDisplayer adDisplayer;
     [SerializeField] LevelSettingReader settingReader;
+    [SerializeField] ButtonGroup buttonGroup;
     bool gameOver = false;
     bool levelFinished = false;
 
@@ -27,6 +28,10 @@ public class GameManager : MonoSingleton<GameManager>
         gameStarted = true;
 
         canvasManager.GameStart();
+
+        // turn on button
+        buttonGroup.SetStatus(true);
+
         player.GameStart();
 
         camStateManager.ChangeState(CameraState.Follow);
