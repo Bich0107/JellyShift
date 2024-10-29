@@ -5346,7 +5346,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hold this button to float over trap hole
+  m_text: Click this button to float over trap hole, click again to descend
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d11653ba67cbcf2469b0dac80ad4d46c, type: 2}
   m_sharedMaterial: {fileID: 8497570417084548407, guid: d11653ba67cbcf2469b0dac80ad4d46c,

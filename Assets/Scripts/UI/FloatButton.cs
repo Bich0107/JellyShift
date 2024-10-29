@@ -13,10 +13,15 @@ public class FloatButton : MonoBehaviour
     [SerializeField] float floatHeight;
     [SerializeField] float moveTime;
     Vector3 pos;
+    float baseHeight;
     bool isBusy;
     bool isActivedThisRun;
-    float oldHeight;
     bool onGround = true;
+
+    void Start()
+    {
+        baseHeight = targetTrans.localPosition.y;
+    }
 
     public void Toggle()
     {
@@ -42,9 +47,6 @@ public class FloatButton : MonoBehaviour
 
         gravity.enabled = false;
 
-        pos = targetTrans.localPosition;
-        oldHeight = pos.y;
-
         StopAllCoroutines();
         StartCoroutine(CR_ChangeHeight(floatHeight));
     }
@@ -55,44 +57,11 @@ public class FloatButton : MonoBehaviour
         floatVFX.SetActive(false);
 
         StopAllCoroutines();
-        StartCoroutine(CR_ChangeHeight(oldHeight, () =>
+        StartCoroutine(CR_ChangeHeight(baseHeight, () =>
         {
             gravity.enabled = true;
         }));
     }
-
-    // public void OnPointerDown(PointerEventData eventData)
-    // {
-    //     if (isFloating || isBusy) return;
-
-    //     soundHandler.Float();
-    //     floatVFX.SetActive(true);
-    //     isActivedThisRun = true;
-
-    //     gravity.enabled = false;
-    //     isFloating = true;
-
-    //     pos = targetTrans.localPosition;
-    //     oldHeight = pos.y;
-
-    //     StopAllCoroutines();
-    //     StartCoroutine(CR_ChangeHeight(floatHeight));
-    // }
-
-    // public void OnPointerUp(PointerEventData eventData)
-    // {
-    //     if (!isFloating || isBusy) return;
-
-    //     soundHandler.Descend();
-    //     floatVFX.SetActive(false);
-
-    //     StopAllCoroutines();
-    //     StartCoroutine(CR_ChangeHeight(oldHeight, () =>
-    //     {
-    //         gravity.enabled = true;
-    //         isFloating = false;
-    //     }));
-    // }
 
     IEnumerator CR_ChangeHeight(float _endValue, Action _action = null)
     {
@@ -123,7 +92,7 @@ public class FloatButton : MonoBehaviour
         if (isActivedThisRun)
         {
             pos = targetTrans.localPosition;
-            pos.y = oldHeight;
+            pos.y = baseHeight;
             targetTrans.localPosition = pos;
             isActivedThisRun = false;
         }
