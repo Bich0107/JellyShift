@@ -8,7 +8,6 @@ public class NewGameButton : MonoBehaviour
     [SerializeField] AnimationSequence confirmWindow;
     SaveFile currentSaveFile => SaveManager.Instance.currentSaveFile;
 
-
     public void OnClick()
     {
         if (currentSaveFile == null || currentSaveFile.Life <= 0)

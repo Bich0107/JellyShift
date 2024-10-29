@@ -11,14 +11,17 @@ public class LevelSettingSO : ScriptableObject
     [Space]
     [SerializeField] float baseSpeed;
     [SerializeField] float feverSpeed;
-    [SerializeField] int scorePerObstacle;
+    [Space]
     [SerializeField] int damagePerObstacle;
+    [SerializeField] int scoreEarnPerObstacle;
+    [SerializeField] int scoreDecreasePerObstacle;
     [SerializeField] int pathAmount;
 
     public float BaseSpeed => baseSpeed;
     public float FeverSpeed => baseSpeed;
-    public int ScorePerObstacle => scorePerObstacle;
+    public int ScorePerObstacle => scoreEarnPerObstacle;
     public int DamagePerObstacle => damagePerObstacle;
+    public int ScoreDecreasePerObstacle => scoreDecreasePerObstacle;
     public int PathAmount => pathAmount;
 
     public bool Contains(int _value)

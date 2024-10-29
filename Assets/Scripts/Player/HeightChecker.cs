@@ -7,7 +7,6 @@ public class HeightChecker : MonoBehaviour
     [SerializeField] Transform targetTrans;
     [SerializeField] Follower camFollower;
     [SerializeField] GravityEffector gravity;
-    [SerializeField] LifeHandler lifeHandler;
     [SerializeField] float deathHeight = -0.03f;
     bool isActive = true;
 
@@ -29,7 +28,7 @@ public class HeightChecker : MonoBehaviour
             camFollower.Stop();
             gravity.SetActive(true);
             // kill player
-            lifeHandler.DecreaseLife(999);
+            LifeHandler.Instance.DecreaseLife(999);
         }
     }
 

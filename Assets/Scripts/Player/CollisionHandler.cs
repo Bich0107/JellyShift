@@ -51,28 +51,22 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
 
     public void TriggerByObstacle()
     {
-        if (!fever.IsActive)
-        {
-            OnObstacleHit();
-        }
-    }
+        if (fever.IsActive) return;
 
-    public void TriggerByTurnPath(PathDirection _direction, Rotater _rotater, Transform _pivot)
-    {
-        turnHandler.Turn(_direction, _rotater, _pivot);
-    }
-
-    void OnObstacleHit()
-    {
         if (beingPushback) return;
 
         soundHandler.CollideWIthObstacle();
         fever.ReduceFever();
 
-        PlayerScoreHandler.Instance.ReduceScore(LevelManager.Instance.CurrentSetting.DamagePerObstacle);
-        LifeHandler.Instance.DecreaseLife();
+        PlayerScoreHandler.Instance.ReduceScore(LevelManager.Instance.CurrentSetting.ScoreDecreasePerObstacle);
+        LifeHandler.Instance.DecreaseLife(LevelManager.Instance.CurrentSetting.DamagePerObstacle);
         StartCoroutine(CR_ResetPushbackStatus());
         PushBack();
+    }
+
+    public void TriggerByTurnPath(PathDirection _direction, Rotater _rotater, Transform _pivot)
+    {
+        turnHandler.Turn(_direction, _rotater, _pivot);
     }
 
     IEnumerator CR_ResetPushbackStatus()

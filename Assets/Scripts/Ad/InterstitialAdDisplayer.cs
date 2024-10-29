@@ -5,14 +5,8 @@ using UnityEngine;
 public class InterstitialAdDisplayer : MonoBehaviour
 {
     [Tooltip("Show an ad after player finish this number of level")]
-    [SerializeField] LifeHandler lifeHandler;
     [SerializeField] int levelPerAd;
     int counter;
-
-    void Start()
-    {
-        lifeHandler = FindObjectOfType<LifeHandler>();
-    }
 
     public void UpdateCounter() => counter++;
 #if UNITY_ANDROID || UNITY_EDITOR
@@ -27,7 +21,7 @@ public class InterstitialAdDisplayer : MonoBehaviour
                 counter = 0;
 
                 // increase life after ad
-                lifeHandler.IncreaseLife(1);
+                LifeHandler.Instance.IncreaseLife(1);
             }
             else
             {

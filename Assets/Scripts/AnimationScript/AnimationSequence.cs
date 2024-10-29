@@ -14,12 +14,15 @@ public class AnimationSequence : MonoBehaviour
     public void Play()
     {
         if (isBusy) return;
+        isBusy = true;
         StartCoroutine(CR_PlaySequence());
     }
 
     public void Rewind()
     {
         if (isBusy || !rewindable) return;
+
+        isBusy = true;
         StartCoroutine(CR_RewindSequence());
     }
 
@@ -27,7 +30,6 @@ public class AnimationSequence : MonoBehaviour
     {
         playStartAction?.Invoke();
 
-        isBusy = true;
         for (int i = 0; i < animations.Length; i++)
         {
             animations[i].Play();
@@ -40,8 +42,6 @@ public class AnimationSequence : MonoBehaviour
 
     IEnumerator CR_RewindSequence()
     {
-        isBusy = true;
-
         for (int i = animations.Length - 1; i >= 0; i--)
         {
             animations[i].Rewind();

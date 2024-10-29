@@ -16,6 +16,7 @@ MonoBehaviour:
   endLevel: 15
   baseSpeed: 2.5
   feverSpeed: 7
-  scorePerObstacle: 120
-  damagePerObstacle: 180
+  damagePerObstacle: 2
+  scoreEarnPerObstacle: 200
+  scoreDecreasePerObjstacle: 100
   pathAmount: 21

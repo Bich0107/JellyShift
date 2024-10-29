@@ -6750,6 +6750,7 @@ MonoBehaviour:
   - {fileID: 1064752934}
   - {fileID: 1733780030}
   touchSfx: {fileID: 8300000, guid: 832dbc8eadb1e2f44a1fea0d637f4570, type: 3}
+  gameSetting: {fileID: 0}
 --- !u!4 &1081259226
 Transform:
   m_ObjectHideFlags: 0
@@ -10061,8 +10062,8 @@ SceneRoots:
   - {fileID: 1275119875}
   - {fileID: 873709945}
   - {fileID: 615079602}
-  - {fileID: 122205437}
-  - {fileID: 1458544820}
   - {fileID: 605482538}
   - {fileID: 1081259226}
   - {fileID: 1551562114}
+  - {fileID: 122205437}
+  - {fileID: 1458544820}

@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SaveFile", menuName = "Save file")]
 public class SaveFile : ScriptableObject
 {
-        public static readonly int s_MaxLife = 3;
+        public static readonly int s_MaxLife = 10;
         public int Level;
         public int Crystal;
         public int Score;

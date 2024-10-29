@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour, ITriggerByPlayer
 {
+    static int s_crytalPerLife = 5;
+
     [SerializeField] GameObject body;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip crystalCollectSFX;
     [SerializeField] GameObject idleVFX;
     [SerializeField] GameObject collideVFX;
-    LifeHandler lifeHandler;
     [Space]
     [SerializeField] float deactiveDelay;
-    [SerializeField] int crytalPerLife = 10;
     int counter = 0;
     WaitForSeconds deactiveWait;
     bool isDeactivating;
@@ -19,7 +19,6 @@ public class Crystal : MonoBehaviour, ITriggerByPlayer
     void Awake()
     {
         deactiveWait = new WaitForSeconds(deactiveDelay);
-        lifeHandler = FindObjectOfType<LifeHandler>();
     }
 
     public void TriggerByPlayer()
@@ -27,10 +26,10 @@ public class Crystal : MonoBehaviour, ITriggerByPlayer
         if (isDeactivating) return;
 
         counter++;
-        if (counter >= crytalPerLife)
+        if (counter >= s_crytalPerLife)
         {
             counter = 0;
-            lifeHandler.IncreaseLife(1);
+            LifeHandler.Instance.IncreaseLife(1);
         }
 
         body.SetActive(false);

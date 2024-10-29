@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LifeDisplayer : MonoBehaviour
 {
-    [SerializeField] GameObject[] lifes;
+    [SerializeField] Image lifeBar;
 
     public void Display(int _value)
     {
-        for (int i = 0; i < lifes.Length; i++)
-        {
-            lifes[i].SetActive(i < _value);
-        }
+        lifeBar.fillAmount = (float)_value / SaveFile.s_MaxLife;
     }
 }
