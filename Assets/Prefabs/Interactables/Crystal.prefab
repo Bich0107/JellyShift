@@ -885,7 +885,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5635197939270431350}
   serializedVersion: 8
-  lengthInSec: 0.6
+  lengthInSec: 0.2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 2
@@ -960,7 +960,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.6
+      scalar: 0.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -11370,7 +11370,7 @@ MonoBehaviour:
   crystalCollectSFX: {fileID: 8300000, guid: 95cad72c5332d834faaf97c336491558, type: 3}
   idleVFX: {fileID: 7966689910570095441}
   collideVFX: {fileID: 5635197939270431350}
-  deactiveDelay: 1
+  deactiveDelay: 0.6
 --- !u!54 &7557970037826681709
 Rigidbody:
   m_ObjectHideFlags: 0
