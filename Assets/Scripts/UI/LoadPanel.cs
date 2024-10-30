@@ -7,12 +7,6 @@ public class LoadPanel : MonoBehaviour
     [SerializeField] GameObject adLoadFailedPanel;
     [SerializeField] Transform targetTrans;
     [SerializeField] float autoCloseDelay = 10f;
-    WaitForSecondsRealtime autoCloseWait;
-
-    void Awake()
-    {
-        autoCloseWait = new WaitForSecondsRealtime(autoCloseDelay);
-    }
 
     public void Open()
     {
@@ -32,7 +26,7 @@ public class LoadPanel : MonoBehaviour
 
     IEnumerator CR_AutoClose()
     {
-        yield return autoCloseWait;
+        yield return new WaitForSecondsRealtime(autoCloseDelay);
         Close();
         adLoadFailedPanel.SetActive(true);
     }

@@ -152,10 +152,8 @@ public class AdManager : MonoSingleton<AdManager>
                 Debug.Log("Interstitial ad loaded with response : "
                           + ad.GetResponseInfo());
 
-                interstitialAd = ad;
-
                 _action?.Invoke();
-
+                interstitialAd = ad;
                 ShowInterstitialAd();
             });
 

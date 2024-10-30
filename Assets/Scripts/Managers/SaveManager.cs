@@ -6,10 +6,13 @@ public class SaveManager : MonoSingleton<SaveManager>
     public SaveFile currentSaveFile;
     public GameSettingSO gameSettingFile;
     [SerializeField] string saveFileName = "SaveFile.json";
+    [SerializeField] string settingFileName = "GameSetting.json";
 
     protected override void Awake()
     {
         base.Awake();
+        LoadSettings();
+        LoadSave();
     }
 
     public void NewGame()
@@ -22,51 +25,44 @@ public class SaveManager : MonoSingleton<SaveManager>
         {
             CreateNewSaveFile();
         }
+
+        SaveProgress();
     }
 
-    public void Continue()
+    void LoadSettings()
     {
-        if (currentSaveFile == null)
+        string jsonData = PlayerPrefs.GetString("Setting");
+        if (!string.IsNullOrEmpty(jsonData))
         {
-#if UNITY_EDITOR
-            currentSaveFile = LoadSave();
-#else
-        currentSaveFile = LoadSaveFile();
-#endif
+            if (gameSettingFile != null)
+            {
+                JsonUtility.FromJsonOverwrite(jsonData, gameSettingFile);
+            }
+            else
+            {
+                GameSettingSO scriptableObject = ScriptableObject.CreateInstance<GameSettingSO>();
+                JsonUtility.FromJsonOverwrite(jsonData, scriptableObject);
+                gameSettingFile = scriptableObject;
+            }
         }
     }
 
-    SaveFile LoadSave()
+    void LoadSave()
     {
         string jsonData = PlayerPrefs.GetString("Save");
 
         if (!string.IsNullOrEmpty(jsonData))
         {
-            SaveFile scriptableObject = ScriptableObject.CreateInstance<SaveFile>();
-            JsonUtility.FromJsonOverwrite(jsonData, scriptableObject);
-            return scriptableObject;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    SaveFile LoadSaveFile()
-    {
-        string filePath = Application.persistentDataPath + "/" + saveFileName;
-        if (File.Exists(filePath))
-        {
-            string json = File.ReadAllText(filePath);
-            SaveFile scriptableObject = ScriptableObject.CreateInstance<SaveFile>();
-            JsonUtility.FromJsonOverwrite(json, scriptableObject);
-            Debug.Log("ScriptableObject loaded from " + filePath);
-            return scriptableObject;
-        }
-        else
-        {
-            Debug.LogError("File not found at " + filePath);
-            return null;
+            if (currentSaveFile != null)
+            {
+                JsonUtility.FromJsonOverwrite(jsonData, currentSaveFile);
+            }
+            else
+            {
+                SaveFile scriptableObject = ScriptableObject.CreateInstance<SaveFile>();
+                JsonUtility.FromJsonOverwrite(jsonData, scriptableObject);
+                currentSaveFile = scriptableObject;
+            }
         }
     }
 
@@ -80,11 +76,25 @@ public class SaveManager : MonoSingleton<SaveManager>
         string json = JsonUtility.ToJson(newSaveFile);
 
         // Save the JSON string to a file
-        string path = Application.persistentDataPath + "/" + saveFileName;
-        File.WriteAllText(path, json);
+        // string path = Application.persistentDataPath + "/" + saveFileName;
+        // File.WriteAllText(path, json);
+
+        PlayerPrefs.SetString("Save", json);
 
         // set current save file
         currentSaveFile = newSaveFile;
+    }
+
+    public void SaveSetting()
+    {
+        string json = JsonUtility.ToJson(gameSettingFile);
+        PlayerPrefs.SetString("Setting", json);
+    }
+
+    public void SaveProgress()
+    {
+        string json = JsonUtility.ToJson(currentSaveFile);
+        PlayerPrefs.SetString("Save", json);
     }
 
     public void Reset()

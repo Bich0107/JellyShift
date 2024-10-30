@@ -4886,7 +4886,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 0.53333336}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -12894,6 +12894,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744545375377864707, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
+      propertyPath: endGamePanelShowDelay
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 744545375377864707, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
       propertyPath: gameEndPanelAnimationSequence
       value: 
       objectReference: {fileID: 1796200771}
@@ -12901,6 +12906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 978881553528808867, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2130675890998176360, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}

@@ -11,11 +11,6 @@ public class InterstitialAdDisplayer : MonoBehaviour
 
     public void UpdateCounter() => counter++;
 
-    void RegisterAdEvents()
-    {
-        AdManager.Instance.AddInterstitialAdEvent(AdEvent.AdClosed, () => loadPanel.Close());
-    }
-
 #if UNITY_STANDALONE
     public void ShowInterstitialAd()
     {
@@ -30,7 +25,6 @@ public class InterstitialAdDisplayer : MonoBehaviour
             {
                 loadPanel.Open();
                 AdManager.Instance.LoadInterstitialAd(() => loadPanel.Close());
-                RegisterAdEvents();
                 counter = 0;
             }
             else

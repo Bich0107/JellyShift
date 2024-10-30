@@ -61,31 +61,35 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (gameOver) return;
 
+        gameOver = true;
         Crystal.ResetCounter();
         adDisplayer.UpdateCounter();
         levelFinished = true;
-        gameOver = true;
         canvasManager.GameEnd();
         camStateManager.ChangeState(CameraState.Rotate);
     }
 
-    // when player loose
+    // when player lost
     public void GameOver()
     {
         if (gameOver) return;
 
+        gameOver = true;
+
         Crystal.ResetCounter();
         Time.timeScale = 0f;
 
+        SaveManager.Instance.currentSaveFile.GameOver = true;
         ScoreKeeper.Instance.AddScore(SaveManager.Instance.currentSaveFile.Score);
         adDisplayer.UpdateCounter();
-        gameOver = true;
         canvasManager.GameOver();
         camStateManager.ChangeState(CameraState.Idle);
     }
 
     public void Replay()
     {
+        if (!gameOver) return;
+
         gameStarted = false;
         gameOver = false;
 
@@ -105,6 +109,8 @@ public class GameManager : MonoSingleton<GameManager>
         camStateManager.Reset();
 
         player.Reset();
+
+        SaveManager.Instance.SaveProgress();
 
         adDisplayer.ShowInterstitialAd();
     }

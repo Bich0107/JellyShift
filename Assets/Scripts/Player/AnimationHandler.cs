@@ -21,7 +21,7 @@ public class AnimationHandler : MonoBehaviour
     [Space]
     [SerializeField] AnimationSequence gameEndPanelAnimationSequence;
     [SerializeField] float endGamePanelShowDelay = 1f;
-    WaitForSecondsRealtime endGamePanelShowWait;
+    WaitForSeconds endGamePanelShowWait;
     Vector3 baseScale;
     Quaternion baseRotation;
 
@@ -29,7 +29,7 @@ public class AnimationHandler : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
-        endGamePanelShowWait = new WaitForSecondsRealtime(endGamePanelShowDelay);
+        endGamePanelShowWait = new WaitForSeconds(endGamePanelShowDelay);
 
         animator.enabled = false;
         baseScale = targetTrans.localScale;
@@ -50,11 +50,6 @@ public class AnimationHandler : MonoBehaviour
     {
         animator.enabled = true;
         animator.Play(animationState_GoalReach, 0, 0f);
-        GoalReachAnimation();
-    }
-
-    void GoalReachAnimation()
-    {
         StartCoroutine(CR_GoalReachSequence());
     }
 
@@ -69,7 +64,7 @@ public class AnimationHandler : MonoBehaviour
 
     IEnumerator CR_GoalReachSequence()
     {
-        StartCoroutine(CR_ScaleAnimation(targetTrans.localScale, baseScale, goalReachScaleDuration));
+        //StartCoroutine(CR_ScaleAnimation(targetTrans.localScale, baseScale, goalReachScaleDuration));
         for (int i = 0; i < goalReachKeys.Length; i++)
         {
             yield return StartCoroutine(CR_MoveAnimation(goalReachKeys[i]));
@@ -81,7 +76,7 @@ public class AnimationHandler : MonoBehaviour
 
     IEnumerator CR_ShowEndGamePanel()
     {
-        yield return endGamePanelShowDelay;
+        yield return endGamePanelShowWait;
         gameEndPanelAnimationSequence.Play();
     }
 

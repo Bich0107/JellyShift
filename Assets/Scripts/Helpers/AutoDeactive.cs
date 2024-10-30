@@ -4,12 +4,6 @@ using UnityEngine;
 public class AutoDeactive : MonoBehaviour
 {
     [SerializeField] float delay;
-    WaitForSecondsRealtime delayWait;
-
-    void Awake()
-    {
-        delayWait = new WaitForSecondsRealtime(delay);
-    }
 
     void OnEnable()
     {
@@ -19,7 +13,7 @@ public class AutoDeactive : MonoBehaviour
 
     IEnumerator CR_AutoDeactive()
     {
-        yield return delayWait;
+        yield return new WaitForSecondsRealtime(delay);
         gameObject.SetActive(false);
     }
 }
