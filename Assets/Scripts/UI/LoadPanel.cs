@@ -17,12 +17,16 @@ public class LoadPanel : MonoBehaviour
     public void Open()
     {
         StopAllCoroutines();
+
+        adLoadFailedPanel.SetActive(false);
         StartCoroutine(CR_AutoClose());
         targetTrans.localScale = Vector3.one;
     }
     public void Close()
     {
         StopAllCoroutines();
+        adLoadFailedPanel.SetActive(false);
+
         targetTrans.localScale = Vector3.zero;
     }
 
