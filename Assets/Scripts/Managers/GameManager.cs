@@ -61,6 +61,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (gameOver) return;
 
+        Crystal.ResetCounter();
         adDisplayer.UpdateCounter();
         levelFinished = true;
         gameOver = true;
@@ -73,6 +74,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (gameOver) return;
 
+        Crystal.ResetCounter();
         Time.timeScale = 0f;
 
         ScoreKeeper.Instance.AddScore(SaveManager.Instance.currentSaveFile.Score);

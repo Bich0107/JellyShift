@@ -5209,9 +5209,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You will lose a live when collide with obstacles. The game end when you
-    are out of live or fall into a trap hole. Earn a life after watching an ad every
-    three turn.
+  m_text: You will lose health when collide with obstacles. The game end when you
+    are health reach zero or fall into a trap hole. Restore health by collecting
+    crystal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d11653ba67cbcf2469b0dac80ad4d46c, type: 2}
   m_sharedMaterial: {fileID: 8497570417084548407, guid: d11653ba67cbcf2469b0dac80ad4d46c,
@@ -5453,7 +5453,7 @@ RectTransform:
   m_GameObject: {fileID: 847929387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 985444270}
@@ -8802,7 +8802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0efd644fe9a21fd49a0d6c152d002d3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f84d76455917f004fac2c040d4927e87, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

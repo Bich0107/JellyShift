@@ -11368,6 +11368,7 @@ MonoBehaviour:
   body: {fileID: 5501164412127993110}
   audioSource: {fileID: 5190227408846202213}
   crystalCollectSFX: {fileID: 8300000, guid: 95cad72c5332d834faaf97c336491558, type: 3}
+  increaseLifeSFX: {fileID: 8300000, guid: e930dec8b217ad44898baf8f093b3ebc, type: 3}
   idleVFX: {fileID: 7966689910570095441}
   collideVFX: {fileID: 5635197939270431350}
   deactiveDelay: 0.6

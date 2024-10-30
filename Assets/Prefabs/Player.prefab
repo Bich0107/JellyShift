@@ -45,6 +45,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5309281223333983847}
   - {fileID: 6469604720327371372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTrans: {fileID: 521140776105546551}
   groundCheckPos: {fileID: 5309281223333983847}
-  checkBoxScale: {x: 1.03, y: 1, z: 0.3}
+  checkBoxScale: {x: 0.5, y: 1, z: 0.5}
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -193,6 +194,7 @@ MonoBehaviour:
   fever: {fileID: 0}
   floatButton: {fileID: 0}
   soundHandler: {fileID: 5067940311654905853}
+  buttonGroup: {fileID: 0}
   pushBackSpeedRatio: -1
   restoreSpeedTime: 1
   pushBackCD: 0.1
@@ -300,7 +302,6 @@ MonoBehaviour:
   targetTrans: {fileID: 521140776105546551}
   camFollower: {fileID: 0}
   gravity: {fileID: 7208685476007703056}
-  lifeHandler: {fileID: 0}
   deathHeight: -0.03
 --- !u!114 &5067940311654905853
 MonoBehaviour:
@@ -690,7 +691,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5309281223333983847}
-  - component: {fileID: 3024226004701566804}
   m_Layer: 12
   m_Name: GroundChecker
   m_TagString: Untagged
@@ -706,34 +706,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6046907831461566195}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.105, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.121, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6469604720327371372}
+  m_Father: {fileID: 521140776105546551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3024226004701566804
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6046907831461566195}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.16652253, z: 0.30290377}
-  m_Center: {x: 0, y: 0, z: 0.004064791}
 --- !u!1 &7077745487273522628
 GameObject:
   m_ObjectHideFlags: 0
@@ -5633,7 +5612,6 @@ Transform:
   - {fileID: 6118157301983604060}
   - {fileID: 4499617053427582174}
   - {fileID: 8145573890471560966}
-  - {fileID: 5309281223333983847}
   - {fileID: 9061461348949440778}
   m_Father: {fileID: 521140776105546551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

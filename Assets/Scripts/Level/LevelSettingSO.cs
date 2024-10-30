@@ -11,6 +11,7 @@ public class LevelSettingSO : ScriptableObject
     [Space]
     [SerializeField] float baseSpeed;
     [SerializeField] float feverSpeed;
+    [SerializeField] float trapHoleChance;
     [Space]
     [SerializeField] int damagePerObstacle;
     [SerializeField] int scoreEarnPerObstacle;
@@ -19,6 +20,7 @@ public class LevelSettingSO : ScriptableObject
 
     public float BaseSpeed => baseSpeed;
     public float FeverSpeed => baseSpeed;
+    public float TrapHoleChance => trapHoleChance;
     public int ScorePerObstacle => scoreEarnPerObstacle;
     public int DamagePerObstacle => damagePerObstacle;
     public int ScoreDecreasePerObstacle => scoreDecreasePerObstacle;

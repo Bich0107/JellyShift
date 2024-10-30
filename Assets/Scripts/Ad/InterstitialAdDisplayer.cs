@@ -9,7 +9,12 @@ public class InterstitialAdDisplayer : MonoBehaviour
     int counter;
 
     public void UpdateCounter() => counter++;
-#if UNITY_ANDROID || UNITY_EDITOR
+#if UNITY_STANDALONE
+    public void ShowInterstitialAd()
+    {
+
+    }
+#else
     public void ShowInterstitialAd()
     {
         if (counter >= levelPerAd)
@@ -19,19 +24,12 @@ public class InterstitialAdDisplayer : MonoBehaviour
                 AdManager.Instance.LoadInterstitialAd();
                 AdManager.Instance.ShowInterstitialAd();
                 counter = 0;
-
-                // increase life after ad
-                LifeHandler.Instance.IncreaseLife(1);
             }
             else
             {
                 Debug.LogWarning("Error: can't connect to the internet (interstital ad)");
             }
         }
-    }
-#else
-    public void ShowInterstitialAd(){
-
     }
 #endif
 }

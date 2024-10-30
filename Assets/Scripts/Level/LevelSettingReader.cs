@@ -17,5 +17,6 @@ public class LevelSettingReader : MonoBehaviour
         movingObject.Speed = setting.BaseSpeed;
         feverSystem.SetSpeed(setting.FeverSpeed);
         pathGenerator.SetPathAmount(setting.PathAmount);
+        pathGenerator.SetSpecialPathChance(setting.TrapHoleChance);
     }
 }

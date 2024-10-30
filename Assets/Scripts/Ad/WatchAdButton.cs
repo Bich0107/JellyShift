@@ -8,7 +8,11 @@ public class WatchAdButton : MonoBehaviour
     [SerializeField] int crysterPerWatch;
     bool adOpened;
 
-#if UNITY_ANDROID || UNITY_EDITOR
+#if UNITY_STANDALONE
+    public void OnClick()
+    {
+    }
+#else
     void RegisterAdEvents()
     {
         AdManager.Instance.AddRewardAdEvent(AdEvent.AdOpened, () => OnRewardAdOpened());
@@ -40,11 +44,6 @@ public class WatchAdButton : MonoBehaviour
 
         adOpened = false;
         Bank.Instance.AddCrystal(crysterPerWatch);
-    }
-#else
-    public void OnClick()
-    {
-
     }
 #endif
 }

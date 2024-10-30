@@ -15,7 +15,6 @@ public class FloatButton : MonoBehaviour
     Vector3 pos;
     float baseHeight;
     bool isBusy;
-    bool isActivedThisRun;
     bool onGround = true;
 
     void Start()
@@ -43,7 +42,6 @@ public class FloatButton : MonoBehaviour
     {
         soundHandler.Float();
         floatVFX.SetActive(true);
-        isActivedThisRun = true;
 
         gravity.enabled = false;
 
@@ -88,17 +86,13 @@ public class FloatButton : MonoBehaviour
     {
         StopAllCoroutines();
 
-        // only reset height if player has used float button this level, or else it will reset player height to 0
-        if (isActivedThisRun)
-        {
-            pos = targetTrans.localPosition;
-            pos.y = baseHeight;
-            targetTrans.localPosition = pos;
-            isActivedThisRun = false;
-        }
+        pos = targetTrans.localPosition;
+        pos.y = baseHeight;
+        targetTrans.localPosition = pos;
 
         spriteToggleScript.Reset();
 
         isBusy = false;
+        onGround = true;
     }
 }

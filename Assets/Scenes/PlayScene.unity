@@ -2364,7 +2364,8 @@ MonoBehaviour:
   m_text: SCORE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d11653ba67cbcf2469b0dac80ad4d46c, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 8497570417084548407, guid: d11653ba67cbcf2469b0dac80ad4d46c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3483,7 +3484,7 @@ MonoBehaviour:
   m_text: 00000000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5299b1a61600d1b4ca08851c0ffc88fc, type: 2}
-  m_sharedMaterial: {fileID: 8497570417084548407, guid: d11653ba67cbcf2469b0dac80ad4d46c,
+  m_sharedMaterial: {fileID: 3809359412787796750, guid: 5299b1a61600d1b4ca08851c0ffc88fc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4903,8 +4904,8 @@ RectTransform:
   m_GameObject: {fileID: 769974228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 99535744}
   - {fileID: 981026146}
@@ -8937,7 +8938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0.15170372, y: 0.6941929}
-  m_AnchoredPosition: {x: -0.5, y: -9.710907}
+  m_AnchoredPosition: {x: 22, y: -9.710907}
   m_SizeDelta: {x: -1, y: 19.422}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1783977954
@@ -12237,6 +12238,16 @@ PrefabInstance:
       propertyPath: targetTrans
       value: 
       objectReference: {fileID: 1776837617}
+    - target: {fileID: 7208685476007703056, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: checkBoxScale.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208685476007703056, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
+      propertyPath: checkBoxScale.z
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 7979484212531039373, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: camFollower

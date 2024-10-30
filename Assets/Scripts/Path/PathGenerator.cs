@@ -52,6 +52,8 @@ public class PathGenerator : MonoBehaviour
 
     void GetRandomTurnTime() => turnTime = Random.Range(0, maxTurnTime + 1);
 
+    public void SetSpecialPathChance(float _value) => specialPathChance = _value;
+
     public void SetPathAmount(int _value) => pathAmount = _value;
 
     public void GeneratePaths()
@@ -70,7 +72,7 @@ public class PathGenerator : MonoBehaviour
         for (int i = 0; i < pathPerSegment; i++)
         {
             // path with hole chance
-            if (Random.Range(0, 100) < specialPathChance && lastPathType != PathType.Trap)
+            if (Random.Range(0, 100) < specialPathChance && currentPathType != PathType.Trap)
             {
                 pathPrefab = specialPathPrefab;
                 lastPathType = currentPathType;
@@ -105,25 +107,55 @@ public class PathGenerator : MonoBehaviour
             if (turnTime >= 1)
             {
                 SetPath(firstTurnPath);
-                pathPrefab = pathPrefabs[0];
+                lastPathType = currentPathType;
+                currentPathType = PathType.Normal;
+
                 for (int i = 0; i < pathPerSegment; i++)
                 {
+                    // path with hole chance
+                    if (Random.Range(0, 100) < specialPathChance && currentPathType != PathType.Trap)
+                    {
+                        pathPrefab = specialPathPrefab;
+                        lastPathType = currentPathType;
+                        currentPathType = PathType.Trap;
+                    }
+                    else
+                    {
+                        pathPrefab = pathPrefabs[0];
+                        lastPathType = currentPathType;
+                        currentPathType = PathType.Normal;
+                    }
+
                     SetPath(pathPrefab);
                 }
-                lastPathType = PathType.Normal;
             }
 
             // spawn the second turn and the paths follow
             if (turnTime >= 2)
             {
                 SetPath(secondTurnPath);
-                // select & spawn path forward
-                pathPrefab = pathPrefabs[0];
+                lastPathType = currentPathType;
+                currentPathType = PathType.Normal;
+
+                // spawn path forward
                 for (int i = 0; i < pathPerSegment; i++)
                 {
+                    // path with hole chance
+                    if (Random.Range(0, 100) < specialPathChance && currentPathType != PathType.Trap)
+                    {
+                        pathPrefab = specialPathPrefab;
+                        lastPathType = currentPathType;
+                        currentPathType = PathType.Trap;
+                    }
+                    else
+                    {
+                        pathPrefab = pathPrefabs[0];
+                        lastPathType = currentPathType;
+                        currentPathType = PathType.Normal;
+                    }
+
                     SetPath(pathPrefab);
                 }
-                lastPathType = PathType.Normal;
             }
         }
 
