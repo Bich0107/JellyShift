@@ -31,6 +31,7 @@ public class SkinBox : MonoBehaviour
     public void SetSkin(PlayerSkinSO _skin)
     {
         skinSO = _skin;
+        skinSO.LoadStatus();
 
         // find the current choosen skin and store it as a static variable, make sure there can only be one
         if (skinSO.IsChoosen)
@@ -38,6 +39,7 @@ public class SkinBox : MonoBehaviour
             if (s_choosenSkin == null)
             {
                 s_choosenSkin = this;
+                skinChanger.ChangeSkin(skinSO);
             }
             else if (s_choosenSkin != this)
             {
@@ -68,20 +70,6 @@ public class SkinBox : MonoBehaviour
 
     public void OnSelect()
     {
-        SelectSkin();
-    }
-
-    public void ActiveSkin()
-    {
-        if (!skinSO.IsActive)
-        {
-            skinSO.IsActive = true;
-            SetSkinboxUI(true, false);
-        }
-    }
-
-    void SelectSkin()
-    {
         if (!skinSO.IsActive) return;
 
         if (!skinSO.IsChoosen)
@@ -97,6 +85,19 @@ public class SkinBox : MonoBehaviour
             s_choosenSkin = this;
 
             skinDisplayer.SelectSkin();
+        }
+
+        skinSO.SaveStatus();
+    }
+
+    public void ActiveSkin()
+    {
+        if (!skinSO.IsActive)
+        {
+            skinSO.IsActive = true;
+            SetSkinboxUI(true, false);
+
+            skinSO.SaveStatus();
         }
     }
 

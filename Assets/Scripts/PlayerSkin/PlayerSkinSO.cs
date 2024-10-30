@@ -30,4 +30,20 @@ public class PlayerSkinSO : ScriptableObject
         get { return choosen; }
         set { choosen = value; }
     }
+
+    public void SaveStatus()
+    {
+        string json = JsonUtility.ToJson(this);
+        PlayerPrefs.SetString("Skin_" + Index, json);
+    }
+
+    public void LoadStatus()
+    {
+        string jsonData = PlayerPrefs.GetString("Skin_" + Index);
+
+        if (!string.IsNullOrEmpty(jsonData))
+        {
+            JsonUtility.FromJsonOverwrite(jsonData, this);
+        }
+    }
 }

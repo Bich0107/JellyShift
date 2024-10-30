@@ -7,14 +7,18 @@ public class PlayerSkinChanger : MonoBehaviour
 {
     [SerializeField] Player player;
     [SerializeField] MeshRenderer[] skinRenderers;
-    [SerializeField] MeshRenderer predictionBoxRenderer;
-    [SerializeField] Image predictionImage;
 
     public void ChangeSkin(PlayerSkinSO _skin)
     {
-        player.Skin.IsChoosen = false;
+        if (player.Skin != null)
+        {
+            player.Skin.IsChoosen = false;
+            player.Skin.SaveStatus();
+        }
+
         player.Skin = _skin;
         _skin.IsChoosen = true;
+        _skin.SaveStatus();
 
         for (int i = 0; i < skinRenderers.Length; i++)
         {

@@ -85,6 +85,7 @@ public class BuyRandomSkinButton : MonoBehaviour
                 {
                     counter++;
 
+                    // activate the skin and break out of the loop
                     if (counter >= loopTime)
                     {
                         skinBoxes[i].ActiveSkin();
