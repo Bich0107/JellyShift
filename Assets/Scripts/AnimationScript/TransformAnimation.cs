@@ -54,7 +54,7 @@ public class TransformAnimation : CustomAnimation
         rewindSequence.Play();
     }
 
-    public void Reset()
+    public override void Reset()
     {
         if (rectTrans == null) return;
 

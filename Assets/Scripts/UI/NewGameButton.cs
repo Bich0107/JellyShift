@@ -10,7 +10,7 @@ public class NewGameButton : MonoBehaviour
 
     public void OnClick()
     {
-        if (currentSaveFile == null || currentSaveFile.Life <= 0)
+        if (currentSaveFile == null || currentSaveFile.GameOver)
         {
             SaveManager.Instance.NewGame();
             SceneManager.LoadScene(1);

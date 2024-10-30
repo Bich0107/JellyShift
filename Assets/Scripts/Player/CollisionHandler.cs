@@ -51,6 +51,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
         fever.enabled = false;
 
         animationHandler.GoalReach();
+        GameManager.Instance.GameEnd();
     }
 
     public void TriggerByObstacle()

@@ -16,4 +16,5 @@ public class CustomAnimation : MonoBehaviour
 
     public virtual void Play() { }
     public virtual void Rewind() { }
+    public virtual void Reset() { }
 }

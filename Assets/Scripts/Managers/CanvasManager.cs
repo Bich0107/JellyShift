@@ -9,8 +9,6 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] AnimationSequence pauseCanvasAnimation;
     [SerializeField] AnimationSequence endGamePanelAnimation;
     [SerializeField] AnimationSequence gameOverPanelAnimation;
-    [SerializeField] GameObject endGameCanvas;
-    [SerializeField] GameObject gameOverCanvas;
 
     public void Start()
     {
@@ -21,25 +19,26 @@ public class CanvasManager : MonoBehaviour
     {
         startCanvas.SetActive(false);
         playCanvas.SetActive(true);
-        endGamePanelAnimation.Rewind();
-        gameOverPanelAnimation.Rewind();
-        pauseCanvasAnimation.Rewind();
+        endGamePanelAnimation.Reset();
+        gameOverPanelAnimation.Reset();
+        pauseCanvasAnimation.Reset();
     }
 
     public void GameEnd()
     {
         startCanvas.SetActive(false);
         playCanvas.SetActive(false);
-        pauseCanvasAnimation.Rewind();
-        gameOverPanelAnimation.Rewind();
+        pauseCanvasAnimation.Reset();
+        gameOverPanelAnimation.Reset();
+        endGamePanelAnimation.Play();
     }
 
     public void GameOver()
     {
         startCanvas.SetActive(false);
         playCanvas.SetActive(false);
-        endGamePanelAnimation.Rewind();
-        pauseCanvasAnimation.Rewind();
+        endGamePanelAnimation.Reset();
+        pauseCanvasAnimation.Reset();
         gameOverPanelAnimation.Play();
     }
 
@@ -47,8 +46,8 @@ public class CanvasManager : MonoBehaviour
     {
         startCanvas.SetActive(true);
         playCanvas.SetActive(false);
-        endGamePanelAnimation.Rewind();
-        gameOverPanelAnimation.Rewind();
-        pauseCanvasAnimation.Rewind();
+        endGamePanelAnimation.Reset();
+        gameOverPanelAnimation.Reset();
+        pauseCanvasAnimation.Reset();
     }
 }

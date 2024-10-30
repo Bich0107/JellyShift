@@ -53,16 +53,17 @@ public class GameManager : MonoSingleton<GameManager>
     // when player finished a level
     public void GameEnd()
     {
+        Debug.Log("game end (need this value to be false) " + gameOver);
+
         if (gameOver) return;
 
         gameOver = true;
         Crystal.ResetCounter();
         adDisplayer.UpdateCounter();
         levelFinished = true;
-        canvasManager.GameEnd();
         camStateManager.ChangeState(CameraState.Rotate);
-
         LevelManager.Instance.IncreaseLevel();
+        canvasManager.GameEnd();
     }
 
     // when player lost

@@ -48,9 +48,18 @@ public class AnimationSequence : MonoBehaviour
             yield return animations[i].rewindWait;
         }
 
-        rewindEndAction?.Invoke();
         isBusy = false;
-
         rewindable = false;
+
+        rewindEndAction?.Invoke();
+    }
+
+    public void Reset()
+    {
+        isBusy = false;
+        for (int i = 0; i < animations.Length; i++)
+        {
+            animations[i].Reset();
+        }
     }
 }

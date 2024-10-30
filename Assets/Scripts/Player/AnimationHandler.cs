@@ -64,6 +64,7 @@ public class AnimationHandler : MonoBehaviour
 
     IEnumerator CR_GoalReachSequence()
     {
+        // StartCoroutine(CR_ShowEndGamePanel());
         StartCoroutine(CR_ScaleAnimation(targetTrans.localScale, baseScale, goalReachScaleDuration));
         for (int i = 0; i < goalReachKeys.Length; i++)
         {
@@ -71,7 +72,6 @@ public class AnimationHandler : MonoBehaviour
         }
 
         StartCoroutine(CR_IdleSequence());
-        StartCoroutine(CR_ShowEndGamePanel());
     }
 
     IEnumerator CR_ShowEndGamePanel()

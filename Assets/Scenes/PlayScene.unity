@@ -802,8 +802,6 @@ MonoBehaviour:
   pauseCanvasAnimation: {fileID: 1849665681}
   endGamePanelAnimation: {fileID: 1796200771}
   gameOverPanelAnimation: {fileID: 1464669502}
-  endGameCanvas: {fileID: 1064415016}
-  gameOverCanvas: {fileID: 1756724200}
 --- !u!1 &78725656
 GameObject:
   m_ObjectHideFlags: 0
@@ -5737,7 +5735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4288258d72e7a9348b015ee12c427cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playDelay: 0.3
+  playDelay: 0
   rewindDelay: 0.3
   rectTrans: {fileID: 858693704}
   startFrame:
@@ -9923,19 +9921,7 @@ MonoBehaviour:
   - {fileID: 2077628479}
   playStartAction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 765210002}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameEnd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   rewindEndAction:
     m_PersistentCalls:
       m_Calls:
@@ -13052,7 +13038,7 @@ PrefabInstance:
     - target: {fileID: 744545375377864707, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: endGamePanelShowDelay
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 744545375377864707, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
