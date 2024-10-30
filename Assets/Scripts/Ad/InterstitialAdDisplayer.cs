@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class InterstitialAdDisplayer : MonoBehaviour
 {
+    [SerializeField] LoadPanel loadPanel;
     [Tooltip("Show an ad after player finish this number of level")]
     [SerializeField] int levelPerAd;
     int counter;
 
     public void UpdateCounter() => counter++;
+
+    void RegisterAdEvents()
+    {
+        AdManager.Instance.AddInterstitialAdEvent(AdEvent.AdClosed, () => loadPanel.Close());
+    }
+
 #if UNITY_STANDALONE
     public void ShowInterstitialAd()
     {
@@ -21,8 +28,9 @@ public class InterstitialAdDisplayer : MonoBehaviour
         {
             if (InternetHelper.s_InternetAvailable)
             {
-                AdManager.Instance.LoadInterstitialAd();
-                AdManager.Instance.ShowInterstitialAd();
+                loadPanel.Open();
+                AdManager.Instance.LoadInterstitialAd(() => loadPanel.Close());
+                RegisterAdEvents();
                 counter = 0;
             }
             else

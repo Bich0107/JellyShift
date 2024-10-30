@@ -4,28 +4,21 @@ using UnityEngine.UI;
 
 public class WatchAdButton : MonoBehaviour
 {
+    [SerializeField] LoadPanel loadPanel;
     [SerializeField] Button button;
     [SerializeField] int crysterPerWatch;
-    bool adOpened;
 
 #if UNITY_STANDALONE
     public void OnClick()
     {
     }
 #else
-    void RegisterAdEvents()
-    {
-        AdManager.Instance.AddRewardAdEvent(AdEvent.AdOpened, () => OnRewardAdOpened());
-        AdManager.Instance.AddRewardAdEvent(AdEvent.AdClosed, () => OnRewardAdClosed());
-    }
-
     public void OnClick()
     {
         if (InternetHelper.s_InternetAvailable)
         {
-            AdManager.Instance.LoadRewardAd();
-            RegisterAdEvents();
-            AdManager.Instance.ShowRewardAd();
+            loadPanel.Open();
+            AdManager.Instance.LoadRewardAd(() => OnRewardAdClosed());
         }
         else
         {
@@ -33,16 +26,9 @@ public class WatchAdButton : MonoBehaviour
         }
     }
 
-    void OnRewardAdOpened()
-    {
-        adOpened = true;
-    }
-
     void OnRewardAdClosed()
     {
-        if (!adOpened) return;
-
-        adOpened = false;
+        loadPanel.Close();
         Bank.Instance.AddCrystal(crysterPerWatch);
     }
 #endif
