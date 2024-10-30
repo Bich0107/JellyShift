@@ -17,6 +17,7 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     [SerializeField] float restoreSpeedTime;
     [SerializeField] float pushBackCD = 0.1f;
     bool beingPushback;
+    bool triggeredByGoal = false;
 
     void OnTriggerEnter(Collider other)
     {
@@ -34,6 +35,9 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
 
     public void TriggerByGoal()
     {
+        if (triggeredByGoal) return;
+
+        triggeredByGoal = true;
         soundHandler.ReachGoal();
         floatButton.Reset();
         movingObject.Stop();
@@ -92,5 +96,6 @@ public class CollisionHandler : MonoBehaviour, ITriggerByGoal, ITriggerByObstacl
     public void Reset()
     {
         StopAllCoroutines();
+        triggeredByGoal = false;
     }
 }

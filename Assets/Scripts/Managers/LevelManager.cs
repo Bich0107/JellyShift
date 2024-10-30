@@ -40,6 +40,7 @@ public class LevelManager : MonoSingleton<LevelManager>
         Display();
 
         SaveManager.Instance.currentSaveFile.Level = currentLevel;
+        SaveManager.Instance.SaveProgress();
         GetSettingFile();
     }
 

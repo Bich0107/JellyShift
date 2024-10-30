@@ -15,4 +15,5 @@ MonoBehaviour:
   Level: 1
   Crystal: 0
   Score: 0
-  Life: 0
+  Life: 10
+  GameOver: 0

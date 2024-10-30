@@ -33,8 +33,6 @@ public class LifeHandler : MonoSingleton<LifeHandler>
     {
         currentLife = 0;
         soundHandler.GameOver();
-        PlayerScoreHandler.Instance.CheckHighScore();
-        GameManager.Instance.GamePause();
-        gameOverPanelAnimation.Play();
+        GameManager.Instance.GameOver();
     }
 }

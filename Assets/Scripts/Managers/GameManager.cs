@@ -40,15 +40,9 @@ public class GameManager : MonoSingleton<GameManager>
         camStateManager.ChangeState(CameraState.Follow);
     }
 
-    public void GamePause()
-    {
-        Time.timeScale = 0f;
-    }
+    public void GamePause() => Time.timeScale = 0f;
 
-    public void GameResume()
-    {
-        Time.timeScale = 1f;
-    }
+    public void GameResume() => Time.timeScale = 1f;
 
     public void ReturnToMainMenu()
     {
@@ -67,6 +61,8 @@ public class GameManager : MonoSingleton<GameManager>
         levelFinished = true;
         canvasManager.GameEnd();
         camStateManager.ChangeState(CameraState.Rotate);
+
+        LevelManager.Instance.IncreaseLevel();
     }
 
     // when player lost
@@ -75,15 +71,16 @@ public class GameManager : MonoSingleton<GameManager>
         if (gameOver) return;
 
         gameOver = true;
+        SaveManager.Instance.currentSaveFile.GameOver = true;
+        SaveManager.Instance.SaveProgress();
 
         Crystal.ResetCounter();
         Time.timeScale = 0f;
 
-        SaveManager.Instance.currentSaveFile.GameOver = true;
         ScoreKeeper.Instance.AddScore(SaveManager.Instance.currentSaveFile.Score);
         adDisplayer.UpdateCounter();
+
         canvasManager.GameOver();
-        camStateManager.ChangeState(CameraState.Idle);
     }
 
     public void Replay()
@@ -97,7 +94,6 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (levelFinished)
         {
-            LevelManager.Instance.IncreaseLevel();
             settingReader.ReadSettings();
         }
 

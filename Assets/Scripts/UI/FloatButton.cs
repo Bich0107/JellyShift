@@ -90,6 +90,7 @@ public class FloatButton : MonoBehaviour
         pos.y = baseHeight;
         targetTrans.localPosition = pos;
 
+        floatVFX.SetActive(false);
         spriteToggleScript.Reset();
 
         isBusy = false;

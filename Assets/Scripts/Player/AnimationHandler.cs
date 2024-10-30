@@ -64,7 +64,7 @@ public class AnimationHandler : MonoBehaviour
 
     IEnumerator CR_GoalReachSequence()
     {
-        //StartCoroutine(CR_ScaleAnimation(targetTrans.localScale, baseScale, goalReachScaleDuration));
+        StartCoroutine(CR_ScaleAnimation(targetTrans.localScale, baseScale, goalReachScaleDuration));
         for (int i = 0; i < goalReachKeys.Length; i++)
         {
             yield return StartCoroutine(CR_MoveAnimation(goalReachKeys[i]));

@@ -7,6 +7,8 @@ public class SaveManager : MonoSingleton<SaveManager>
     public GameSettingSO gameSettingFile;
     [SerializeField] string saveFileName = "SaveFile.json";
     [SerializeField] string settingFileName = "GameSetting.json";
+    string progressString = "Save";
+    string settingString = "Setting";
 
     protected override void Awake()
     {
@@ -20,6 +22,7 @@ public class SaveManager : MonoSingleton<SaveManager>
         if (currentSaveFile != null)
         {
             currentSaveFile.Reset();
+            PlayerPrefs.DeleteKey(progressString);
         }
         else
         {
@@ -31,7 +34,7 @@ public class SaveManager : MonoSingleton<SaveManager>
 
     void LoadSettings()
     {
-        string jsonData = PlayerPrefs.GetString("Setting");
+        string jsonData = PlayerPrefs.GetString(settingString);
         if (!string.IsNullOrEmpty(jsonData))
         {
             if (gameSettingFile != null)
@@ -49,7 +52,7 @@ public class SaveManager : MonoSingleton<SaveManager>
 
     void LoadSave()
     {
-        string jsonData = PlayerPrefs.GetString("Save");
+        string jsonData = PlayerPrefs.GetString(progressString);
 
         if (!string.IsNullOrEmpty(jsonData))
         {
@@ -79,7 +82,7 @@ public class SaveManager : MonoSingleton<SaveManager>
         // string path = Application.persistentDataPath + "/" + saveFileName;
         // File.WriteAllText(path, json);
 
-        PlayerPrefs.SetString("Save", json);
+        PlayerPrefs.SetString(progressString, json);
 
         // set current save file
         currentSaveFile = newSaveFile;
@@ -88,13 +91,13 @@ public class SaveManager : MonoSingleton<SaveManager>
     public void SaveSetting()
     {
         string json = JsonUtility.ToJson(gameSettingFile);
-        PlayerPrefs.SetString("Setting", json);
+        PlayerPrefs.SetString(settingString, json);
     }
 
     public void SaveProgress()
     {
         string json = JsonUtility.ToJson(currentSaveFile);
-        PlayerPrefs.SetString("Save", json);
+        PlayerPrefs.SetString(progressString, json);
     }
 
     public void Reset()

@@ -15,8 +15,6 @@ public class Goal : MonoBehaviour, ITriggerByPlayer
 
     void OnTriggerEnter(Collider other)
     {
-        if (isTriggered) return;
-
         ITriggerByGoal hit = other.GetComponentInParent<ITriggerByGoal>();
         if (hit != null)
         {

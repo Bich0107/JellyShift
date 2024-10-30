@@ -40,6 +40,7 @@ public class CanvasManager : MonoBehaviour
         playCanvas.SetActive(false);
         endGamePanelAnimation.Rewind();
         pauseCanvasAnimation.Rewind();
+        gameOverPanelAnimation.Play();
     }
 
     public void GameWait()

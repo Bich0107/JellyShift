@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470713d4adf7ca44b9b6fa344a329ce7, type: 3}
   m_Name: GameSetting
   m_EditorClassIdentifier: 
-  HighScores: 983a0000e02e000010270000401f00004c1d00006419000088130000a00f0000ac0d0000b80b0000
+  HighScores: 983a0000e02e000010270000401f00004c1d00006419000088130000a00f0000ac0d0000ceffffff
   HapticOn: 1
   SoundOn: 1
