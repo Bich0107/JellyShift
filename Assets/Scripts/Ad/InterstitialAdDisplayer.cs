@@ -23,9 +23,9 @@ public class InterstitialAdDisplayer : MonoBehaviour
         {
             if (InternetHelper.s_InternetAvailable)
             {
+                counter = 0;
                 loadPanel.Open();
                 AdManager.Instance.LoadInterstitialAd(() => loadPanel.Close());
-                counter = 0;
             }
             else
             {

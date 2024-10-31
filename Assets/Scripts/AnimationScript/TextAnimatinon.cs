@@ -28,9 +28,9 @@ public class TextAnimation : MonoBehaviour
         int i = 1;
         do
         {
-            i %= texts.Length;
-            text.text = texts[i];
             yield return delayWait;
+            i = i >= texts.Length ? 0 : i;
+            text.text = texts[i];
             i++;
         } while (true);
     }

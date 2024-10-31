@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPanel: {fileID: 2014308977}
-  levelPerAd: 1
+  levelPerAd: 2
 --- !u!1 &45512467
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &45512468
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4887,7 +4887,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 0.53333336}
+  m_Color: {r: 0.7056604, g: 0.68172705, b: 0.61645424, a: 0.43529412}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -8234,7 +8234,7 @@ PrefabInstance:
     - target: {fileID: 3758398862176881273, guid: 9c14975d47cc5a7499b6097f605243b5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9412,7 +9412,7 @@ PrefabInstance:
     - target: {fileID: 8618611913134358706, guid: 31215d51506a44b4b9e04c8dae358a2f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8862752502959626956, guid: 31215d51506a44b4b9e04c8dae358a2f,
         type: 3}
@@ -10012,7 +10012,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.30588236, g: 0.8980392, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.28930575, g: 0.61874664, b: 0.6754716, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -11494,7 +11494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1938895323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13047,8 +13047,13 @@ PrefabInstance:
       objectReference: {fileID: 1796200771}
     - target: {fileID: 744545375377864707, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
+      propertyPath: goalReachKeys.Array.data[1].offset.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 744545375377864707, guid: 007e76edf82c3754a9260c1e3ff50a0f,
+        type: 3}
       propertyPath: goalReachKeys.Array.data[2].offset.y
-      value: -2
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 880999046126314025, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
@@ -13090,11 +13095,6 @@ PrefabInstance:
       propertyPath: camRotater
       value: 
       objectReference: {fileID: 1833845442}
-    - target: {fileID: 5067940311654905853, guid: 007e76edf82c3754a9260c1e3ff50a0f,
-        type: 3}
-      propertyPath: gameOverSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 88bb91928d13ad04d86b4ebe0bfe7e2c, type: 3}
     - target: {fileID: 5262735333069193177, guid: 007e76edf82c3754a9260c1e3ff50a0f,
         type: 3}
       propertyPath: fever

@@ -21,3 +21,5 @@ MonoBehaviour:
   scoreEarnPerObstacle: 100
   scoreDecreasePerObstacle: 50
   pathAmount: 15
+  crystalPerLife: 30
+  scoreIncreaseByCrystalCombo: 150

@@ -24,6 +24,8 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (gameStarted) return;
 
+        Crystal.ResetCounter();
+
         levelFinished = false;
         gameStarted = true;
 
@@ -53,12 +55,9 @@ public class GameManager : MonoSingleton<GameManager>
     // when player finished a level
     public void GameEnd()
     {
-        Debug.Log("game end (need this value to be false) " + gameOver);
-
         if (gameOver) return;
 
         gameOver = true;
-        Crystal.ResetCounter();
         adDisplayer.UpdateCounter();
         levelFinished = true;
         camStateManager.ChangeState(CameraState.Rotate);
@@ -75,7 +74,6 @@ public class GameManager : MonoSingleton<GameManager>
         SaveManager.Instance.currentSaveFile.GameOver = true;
         SaveManager.Instance.SaveProgress();
 
-        Crystal.ResetCounter();
         Time.timeScale = 0f;
 
         ScoreKeeper.Instance.AddScore(SaveManager.Instance.currentSaveFile.Score);
@@ -87,6 +85,8 @@ public class GameManager : MonoSingleton<GameManager>
     public void Replay()
     {
         if (!gameOver) return;
+
+        Crystal.ResetCounter();
 
         gameStarted = false;
         gameOver = false;

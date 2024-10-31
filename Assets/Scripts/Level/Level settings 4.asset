@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level settings 4
   m_EditorClassIdentifier: 
   startLevel: 46
-  endLevel: 50
+  endLevel: 999
   baseSpeed: 5
   feverSpeed: 10
   trapHoleChance: 25
@@ -21,3 +21,5 @@ MonoBehaviour:
   scoreEarnPerObstacle: 500
   scoreDecreasePerObstacle: 250
   pathAmount: 42
+  crystalPerLife: 12
+  scoreIncreaseByCrystalCombo: 750

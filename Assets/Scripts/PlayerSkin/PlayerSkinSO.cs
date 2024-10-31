@@ -7,8 +7,6 @@ public class PlayerSkinSO : ScriptableObject
 {
     [SerializeField] int index;
     [SerializeField] Material skinMaterial;
-    [SerializeField] Material predictionBoxMaterial;
-    [SerializeField] Color predictionImageColor;
     [SerializeField] Color passingObstacleCoverColor;
     [SerializeField] RenderTexture reviewRenderTexture;
     [SerializeField] bool activated;
@@ -16,8 +14,6 @@ public class PlayerSkinSO : ScriptableObject
 
     public int Index => index;
     public Material SkinMaterial => skinMaterial;
-    public Material PredictionBoxMaterial => predictionBoxMaterial;
-    public Color PredictionImageColor => predictionImageColor;
     public Color PassingObstacleCoverColor => passingObstacleCoverColor;
     public RenderTexture ReviewRenderTexture => reviewRenderTexture;
     public bool IsActive

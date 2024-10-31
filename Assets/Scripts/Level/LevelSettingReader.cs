@@ -18,5 +18,8 @@ public class LevelSettingReader : MonoBehaviour
         feverSystem.SetSpeed(setting.FeverSpeed);
         pathGenerator.SetPathAmount(setting.PathAmount);
         pathGenerator.SetSpecialPathChance(setting.TrapHoleChance);
+
+        Crystal.s_crytalPerLife = setting.CrystalPerLife;
+        Crystal.s_scoreIncrease = setting.ScoreIncreaseByCrystalCombo;
     }
 }

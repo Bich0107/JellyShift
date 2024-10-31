@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour, ITriggerByPlayer
 {
-    static int s_crytalPerLife = 40;
     static int s_counter = 0;
+    public static int s_crytalPerLife;
+    public static int s_scoreIncrease;
 
     [SerializeField] GameObject body;
     [SerializeField] AudioSource audioSource;
@@ -32,6 +33,7 @@ public class Crystal : MonoBehaviour, ITriggerByPlayer
             s_counter = 0;
             LifeHandler.Instance.IncreaseLife(1);
             audioSource.PlayOneShot(increaseLifeSFX);
+            PlayerScoreHandler.Instance.IncreaseScore(s_scoreIncrease);
         }
 
         body.SetActive(false);

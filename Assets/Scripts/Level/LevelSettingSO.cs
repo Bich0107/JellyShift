@@ -17,6 +17,8 @@ public class LevelSettingSO : ScriptableObject
     [SerializeField] int scoreEarnPerObstacle;
     [SerializeField] int scoreDecreasePerObstacle;
     [SerializeField] int pathAmount;
+    [SerializeField] int crystalPerLife;
+    [SerializeField] int scoreIncreaseByCrystalCombo;
 
     public float BaseSpeed => baseSpeed;
     public float FeverSpeed => baseSpeed;
@@ -25,6 +27,8 @@ public class LevelSettingSO : ScriptableObject
     public int DamagePerObstacle => damagePerObstacle;
     public int ScoreDecreasePerObstacle => scoreDecreasePerObstacle;
     public int PathAmount => pathAmount;
+    public int CrystalPerLife => crystalPerLife;
+    public int ScoreIncreaseByCrystalCombo => scoreIncreaseByCrystalCombo;
 
     public bool Contains(int _value)
     {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SaveFile
   m_EditorClassIdentifier: 
   Level: 1
-  Crystal: 0
+  Crystal: 4
   Score: 0
-  Life: 10
-  GameOver: 0
+  Life: 1
+  GameOver: 1

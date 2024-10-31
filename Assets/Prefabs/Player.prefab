@@ -322,7 +322,7 @@ MonoBehaviour:
   reachGoalSFX: {fileID: 8300000, guid: 2d4b48d5d33852746a6340e7f61e8f25, type: 3}
   floatSFX: {fileID: 8300000, guid: f52d22d1ee8fc644d87109c0808f0c18, type: 3}
   descendSFX: {fileID: 8300000, guid: c36bc240d1d7315499458960a87003a2, type: 3}
-  gameOverSFX: {fileID: 0}
+  gameOverSFX: {fileID: 8300000, guid: 88bb91928d13ad04d86b4ebe0bfe7e2c, type: 3}
 --- !u!82 &1161676159937164757
 AudioSource:
   m_ObjectHideFlags: 0

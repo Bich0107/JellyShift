@@ -29,6 +29,12 @@ public class LevelManager : MonoSingleton<LevelManager>
                 return;
             }
         }
+
+        // incase someone finish the last level (999)
+        currentLevel = 1;
+        SaveManager.Instance.currentSaveFile.Level = currentLevel;
+        SaveManager.Instance.SaveProgress();
+        currentSetting = levelSettings[0];
     }
 
     public void SetLevel(int _value) => currentLevel = _value;

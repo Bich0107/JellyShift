@@ -12,13 +12,17 @@ public class AdManager : MonoSingleton<AdManager>
 {
     public string app_id = "ca-app-pub-2136479507730706~2612843247";
 
-#if UNITY_EDITOR // for testing in editor
+    // #if UNITY_EDITOR // for testing in editor
+    //     string rewardId = "ca-app-pub-3940256099942544/5224354917";
+    //     string interstitialId = "ca-app-pub-3940256099942544/1033173712";
+    // #elif UNITY_ANDROID
+    //     string rewardId = "ca-app-pub-2136479507730706/6183718326";
+    //     string interstitialId = "ca-app-pub-2136479507730706/2458728759";
+    // #endif
+
+    // for testing
     string rewardId = "ca-app-pub-3940256099942544/5224354917";
     string interstitialId = "ca-app-pub-3940256099942544/1033173712";
-#elif UNITY_ANDROID
-    string rewardId = "ca-app-pub-2136479507730706/6183718326";
-    string interstitialId = "ca-app-pub-2136479507730706/2458728759";
-#endif
 
     RewardedAd rewardedAd;
     InterstitialAd interstitialAd;
