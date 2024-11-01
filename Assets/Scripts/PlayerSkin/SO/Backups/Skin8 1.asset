@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6493b6e5148d7e74fbfd12ab7abce770, type: 3}
-  m_Name: Skin6
+  m_Name: Skin8 1
   m_EditorClassIdentifier: 
-  index: 6
-  skinMaterial: {fileID: 2100000, guid: f787b1b6b94cd924083596cec3729246, type: 2}
-  passingObstacleCoverColor: {r: 1, g: 0.9176617, b: 0.39999998, a: 0.2509804}
-  reviewRenderTexture: {fileID: 8400000, guid: 724fdcde34a533b4984f90a697ae1268, type: 2}
+  index: 8
+  skinMaterial: {fileID: 2100000, guid: e4c20deb24b9b2941a1757f122edbf3d, type: 2}
+  passingObstacleCoverColor: {r: 1, g: 0.39999998, b: 0.8640525, a: 0.2509804}
+  reviewRenderTexture: {fileID: 8400000, guid: 29827d68659a09e46947995e7f3dbdf2, type: 2}
   activated: 0
   choosen: 0

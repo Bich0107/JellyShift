@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLevel: 46
   endLevel: 999
-  baseSpeed: 5
-  feverSpeed: 10
-  trapHoleChance: 25
+  baseSpeed: 7
+  feverSpeed: 14
+  trapHoleChance: 10
   damagePerObstacle: 5
   scoreEarnPerObstacle: 500
   scoreDecreasePerObstacle: 250

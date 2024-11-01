@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skin8
   m_EditorClassIdentifier: 
   index: 8
-  skinMaterial: {fileID: 2100000, guid: 944e2786b388ae64bb652b63f50a6023, type: 2}
+  skinMaterial: {fileID: 2100000, guid: e4c20deb24b9b2941a1757f122edbf3d, type: 2}
   passingObstacleCoverColor: {r: 1, g: 0.39999998, b: 0.8640525, a: 0.2509804}
   reviewRenderTexture: {fileID: 8400000, guid: 29827d68659a09e46947995e7f3dbdf2, type: 2}
   activated: 0
