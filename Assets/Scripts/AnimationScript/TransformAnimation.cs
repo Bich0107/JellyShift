@@ -28,6 +28,9 @@ public class TransformAnimation : CustomAnimation
     {
         base.Start();
 
+        rectTrans.localPosition = startFrame.position;
+        rectTrans.localScale = startFrame.scale;
+
         baseFrame.position = rectTrans.localPosition;
         baseFrame.scale = rectTrans.localScale;
 
