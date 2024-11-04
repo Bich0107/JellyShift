@@ -31,6 +31,7 @@ public class PlayerScoreHandler : MonoSingleton<PlayerScoreHandler>
         if (score < 0) score = 0;
         scoreText.text = score.ToString();
         gameOverScoreText.text = score.ToString();
+
         SaveManager.Instance.currentSaveFile.Score = score;
     }
 
@@ -38,7 +39,6 @@ public class PlayerScoreHandler : MonoSingleton<PlayerScoreHandler>
     {
         if (ScoreKeeper.Instance.IsHighScore(score))
         {
-            ScoreKeeper.Instance.AddScore(score);
             highScorePanel.SetActive(true);
         }
         else

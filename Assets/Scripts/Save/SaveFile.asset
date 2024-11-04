@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3653321853b754aaf7c38b84ae0eb1, type: 3}
   m_Name: SaveFile
   m_EditorClassIdentifier: 
-  Level: 4
-  Crystal: 139
-  Score: 7050
-  Life: 8
+  Level: 1
+  Crystal: 5
+  Score: 3302
+  Life: 1
   GameOver: 1

@@ -23,6 +23,6 @@ public class SoundButton : MonoBehaviour
 
         SaveManager.Instance.gameSettingFile.SoundOn = isOn;
         SoundManager.Instance.Toggle();
-        SaveManager.Instance.SaveSetting();
+        SaveManager.Instance.SaveSettings();
     }
 }

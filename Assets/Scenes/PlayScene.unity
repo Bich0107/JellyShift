@@ -11581,18 +11581,18 @@ MonoBehaviour:
   buyRandomSkinButton: {fileID: 221576306}
   positionSorter: {fileID: 208536987}
   skins:
-  - {fileID: 11400000, guid: 2dcfafafd4655cd40a9526558e8d459b, type: 2}
-  - {fileID: 11400000, guid: f127225c26585044ab116d802251328e, type: 2}
-  - {fileID: 11400000, guid: e0e6b084d6e29a24c9a616faae80da7d, type: 2}
-  - {fileID: 11400000, guid: 0481a611db2ab23409ca1a428dd4b3f8, type: 2}
-  - {fileID: 11400000, guid: 60da7abd60d356443ae7eff7bb12a85d, type: 2}
-  - {fileID: 11400000, guid: 74c0825ef46634e4991cfc6c77f53032, type: 2}
-  - {fileID: 11400000, guid: a7cbc36dea1850949a13fa417c6c95c7, type: 2}
-  - {fileID: 11400000, guid: 50485a4ab53ee7f45837e577f4d65fe3, type: 2}
-  - {fileID: 11400000, guid: 29c39c8a73673f14dbf176194dc4f791, type: 2}
-  - {fileID: 11400000, guid: 1b82922658471354da0cd214e382ea5b, type: 2}
-  - {fileID: 11400000, guid: 3b87386a184ea8947b5f11f714d33acc, type: 2}
-  - {fileID: 11400000, guid: 7ef1008c4f3fe3e4c82a3710350dfb9b, type: 2}
+  - {fileID: 11400000, guid: 822992ec194103c439a3d8fa9d127e2e, type: 2}
+  - {fileID: 11400000, guid: acb21c6d5209b054bab17141777d9835, type: 2}
+  - {fileID: 11400000, guid: 9d50ab8fa31bb214e80168feeb681380, type: 2}
+  - {fileID: 11400000, guid: 290c6dc1d0f09374099314d6b039c02f, type: 2}
+  - {fileID: 11400000, guid: 1c4fe4a10b1cee34f959109c8d8ba922, type: 2}
+  - {fileID: 11400000, guid: 3460abec39090ca42a77fccc4cc7b895, type: 2}
+  - {fileID: 11400000, guid: 163b41194c1f7684a9141d7ce6971d14, type: 2}
+  - {fileID: 11400000, guid: f86b015111fbfd84d9ebc8f79d224e0b, type: 2}
+  - {fileID: 11400000, guid: 1ac757faa77d8ba4784e44eda2866857, type: 2}
+  - {fileID: 11400000, guid: 8bd8e26695f325946b6dac9c36f01685, type: 2}
+  - {fileID: 11400000, guid: b8b87006ee2f61446853a7596dbabc61, type: 2}
+  - {fileID: 11400000, guid: 09c6b5ae8a1db244782ece177bdca932, type: 2}
   skinButton: {fileID: 5792327142266025576, guid: 22bec403b14a81e4c9cdc9ddb8c7daf0,
     type: 3}
   pageGrid: {fileID: 2953681475287988061, guid: ca03804517b3287458c2a4a03a358abb,

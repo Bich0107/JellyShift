@@ -76,7 +76,9 @@ public class GameManager : MonoSingleton<GameManager>
 
         Time.timeScale = 0f;
 
+        PlayerScoreHandler.Instance.CheckHighScore();
         ScoreKeeper.Instance.AddScore(SaveManager.Instance.currentSaveFile.Score);
+
         adDisplayer.UpdateCounter();
 
         canvasManager.GameOver();

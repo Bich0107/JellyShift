@@ -5,8 +5,6 @@ public class SaveManager : MonoSingleton<SaveManager>
 {
     public SaveFile currentSaveFile;
     public GameSettingSO gameSettingFile;
-    [SerializeField] string saveFileName = "SaveFile.json";
-    [SerializeField] string settingFileName = "GameSetting.json";
     string progressString = "Save";
     string settingString = "Setting";
 
@@ -78,17 +76,13 @@ public class SaveManager : MonoSingleton<SaveManager>
         // Serialize the ScriptableObject to a JSON string
         string json = JsonUtility.ToJson(newSaveFile);
 
-        // Save the JSON string to a file
-        // string path = Application.persistentDataPath + "/" + saveFileName;
-        // File.WriteAllText(path, json);
-
         PlayerPrefs.SetString(progressString, json);
 
         // set current save file
         currentSaveFile = newSaveFile;
     }
 
-    public void SaveSetting()
+    public void SaveSettings()
     {
         string json = JsonUtility.ToJson(gameSettingFile);
         PlayerPrefs.SetString(settingString, json);
