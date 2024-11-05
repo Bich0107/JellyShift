@@ -14,7 +14,7 @@ public class SkinPagesSetter : MonoBehaviour
     GameObject skinGO;
     GameObject pageGO;
 
-    void Awake()
+    void Start()
     {
         Setup();
     }
