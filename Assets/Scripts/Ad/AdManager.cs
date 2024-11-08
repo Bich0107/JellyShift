@@ -63,45 +63,6 @@ public class AdManager : MonoSingleton<AdManager>
                 rewardedAd = ad;
                 ShowRewardAd();
             });
-
-        RegisterEventHandlers(rewardedAd);
-    }
-
-    void RegisterEventHandlers(RewardedAd rewardedAd)
-    {
-        // Raised when the ad is estimated to have earned money.
-        rewardedAd.OnAdPaid += (AdValue adValue) =>
-        {
-            Debug.Log(String.Format("Rewarded ad paid {0} {1}.",
-                adValue.Value,
-                adValue.CurrencyCode));
-        };
-        // Raised when an impression is recorded for an ad.
-        rewardedAd.OnAdImpressionRecorded += () =>
-        {
-            Debug.Log("Rewarded ad recorded an impression.");
-        };
-        // Raised when a click is recorded for an ad.
-        rewardedAd.OnAdClicked += () =>
-        {
-            Debug.Log("Rewarded ad was clicked.");
-        };
-        // Raised when an ad opened full screen content.
-        rewardedAd.OnAdFullScreenContentOpened += () =>
-        {
-            Debug.Log("Rewarded ad full screen content opend.");
-        };
-        // Raised when the ad closed full screen content.
-        rewardedAd.OnAdFullScreenContentClosed += () =>
-        {
-            Debug.Log("Rewarded ad full screen content closed.");
-        };
-        // Raised when the ad failed to open full screen content.
-        rewardedAd.OnAdFullScreenContentFailed += (AdError error) =>
-        {
-            Debug.LogError("Rewarded ad failed to open full screen content " +
-                          "with error : " + error);
-        };
     }
 
     public void AddRewardAdEvent(AdEvent _eventType, Action _action)
@@ -160,21 +121,6 @@ public class AdManager : MonoSingleton<AdManager>
                 interstitialAd = ad;
                 ShowInterstitialAd();
             });
-
-        RegisterEventHandlers(interstitialAd);
-    }
-
-    public void AddInterstitialAdEvent(AdEvent _eventType, Action _action)
-    {
-        switch (_eventType)
-        {
-            case AdEvent.AdOpened:
-                interstitialAd.OnAdFullScreenContentOpened += _action;
-                break;
-            case AdEvent.AdClosed:
-                interstitialAd.OnAdFullScreenContentClosed += _action;
-                break;
-        }
     }
 
     public void ShowInterstitialAd()
@@ -189,63 +135,5 @@ public class AdManager : MonoSingleton<AdManager>
             Debug.LogError("Interstitial ad is not ready yet.");
         }
     }
-
-    void RegisterEventHandlers(InterstitialAd interstitialAd)
-    {
-        // Raised when the ad is estimated to have earned money.
-        interstitialAd.OnAdPaid += (AdValue adValue) =>
-        {
-            Debug.Log(String.Format("Interstitial ad paid {0} {1}.",
-                adValue.Value,
-                adValue.CurrencyCode));
-        };
-        // Raised when an impression is recorded for an ad.
-        interstitialAd.OnAdImpressionRecorded += () =>
-        {
-            Debug.Log("Interstitial ad recorded an impression.");
-        };
-        // Raised when a click is recorded for an ad.
-        interstitialAd.OnAdClicked += () =>
-        {
-            Debug.Log("Interstitial ad was clicked.");
-        };
-        // Raised when an ad opened full screen content.
-        interstitialAd.OnAdFullScreenContentOpened += () =>
-        {
-        };
-        // Raised when the ad closed full screen content.
-        interstitialAd.OnAdFullScreenContentClosed += () =>
-        {
-            Debug.Log("Interstitial ad full screen content closed.");
-        };
-        // Raised when the ad failed to open full screen content.
-        interstitialAd.OnAdFullScreenContentFailed += (AdError error) =>
-        {
-            Debug.LogError("Interstitial ad failed to open full screen content " +
-                          "with error : " + error);
-        };
-    }
-
-    // void RegisterReloadHandler(InterstitialAd interstitialAd)
-    // {
-    //     // Raised when the ad closed full screen content.
-    //     interstitialAd.OnAdFullScreenContentClosed += () =>
-    //     {
-    //         Debug.Log("Interstitial Ad full screen content closed.");
-
-    //         // Reload the ad so that we can show another as soon as possible.
-    //         LoadInterstitialAd();
-    //     };
-    //     // Raised when the ad failed to open full screen content.
-    //     interstitialAd.OnAdFullScreenContentFailed += (AdError error) =>
-    //     {
-    //         Debug.LogError("Interstitial ad failed to open full screen content " +
-    //                        "with error : " + error);
-
-    //         // Reload the ad so that we can show another as soon as possible.
-    //         LoadInterstitialAd();
-    //     };
-    // }
-
     #endregion
 }

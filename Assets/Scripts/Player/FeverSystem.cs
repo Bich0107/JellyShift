@@ -107,7 +107,7 @@ public class FeverSystem : MonoBehaviour
 
     void UpdateUI()
     {
-        if (feverValue < Mathf.Epsilon)
+        if (feverValue <= Mathf.Epsilon)
         {
             fever.SetActive(false);
         }

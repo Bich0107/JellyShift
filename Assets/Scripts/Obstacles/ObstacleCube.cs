@@ -29,8 +29,6 @@ public class ObstacleCube : MonoBehaviour
         }
     }
 
-    public void Disable() => isDisable = true;
-
     public void Break()
     {
         isDisable = true;

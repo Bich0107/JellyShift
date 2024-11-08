@@ -2,7 +2,7 @@
 
 public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
-    private static T m_Instance = null;
+    static T m_Instance = null;
     static bool shuttingDown = false;
 
     public static T Instance

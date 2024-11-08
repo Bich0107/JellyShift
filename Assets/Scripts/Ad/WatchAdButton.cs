@@ -6,7 +6,7 @@ public class WatchAdButton : MonoBehaviour
 {
     [SerializeField] LoadPanel loadPanel;
     [SerializeField] Button button;
-    [SerializeField] int crysterPerWatch;
+    [SerializeField] int crystalPerWatch = 150;
 
 #if UNITY_STANDALONE
     public void OnClick()
@@ -18,7 +18,7 @@ public class WatchAdButton : MonoBehaviour
         if (InternetHelper.s_InternetAvailable)
         {
             loadPanel.Open();
-            AdManager.Instance.LoadRewardAd(() => OnRewardAdClosed());
+            AdManager.Instance.LoadRewardAd(() => OnRewardAdShowed());
         }
         else
         {
@@ -26,10 +26,10 @@ public class WatchAdButton : MonoBehaviour
         }
     }
 
-    void OnRewardAdClosed()
+    void OnRewardAdShowed()
     {
         loadPanel.Close();
-        Bank.Instance.AddCrystal(crysterPerWatch);
+        Bank.Instance.AddCrystal(crystalPerWatch);
     }
 #endif
 }

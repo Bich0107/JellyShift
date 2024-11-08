@@ -199,7 +199,7 @@ public class PathGenerator : MonoBehaviour
 
         // spawn obstacle on every possible position on the path if the last path is normal path
         // and this path have pos to put obstacles
-        if (pathScript.SpawnPosOffsets.Length > 0 && lastPathType == PathType.Normal)
+        if (pathScript.SpawnPosOffsets.Length > 0 && lastPathType == PathType.Normal && currentPathType != PathType.Trap)
         {
             spawner.SpawnObstacle(spawnPos, pathScript.SpawnPosOffsets, pathRotation);
         }

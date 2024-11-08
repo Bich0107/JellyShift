@@ -785,6 +785,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPosOffset: {x: 0, y: 0, z: 3}
-  spawnPosOffsets: []
+  spawnPosOffsets:
+  - {x: 0, y: 0.65, z: 0}
+  - {x: 0, y: 0.65, z: 0.65}
+  - {x: 0, y: 0.65, z: -0.65}
   pathDirection: 0
   length: 1.5
