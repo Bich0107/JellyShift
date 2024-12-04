@@ -29,9 +29,6 @@ public class GameManager : MonoSingleton<GameManager>
         levelFinished = false;
         gameStarted = true;
 
-        // // restore player to full health at the start of each level
-        // LifeHandler.Instance.IncreaseLife(999);
-
         canvasManager.GameStart();
 
         // turn on button

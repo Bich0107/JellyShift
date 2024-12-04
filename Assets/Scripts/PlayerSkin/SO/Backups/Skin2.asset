@@ -16,5 +16,5 @@ MonoBehaviour:
   skinMaterial: {fileID: 2100000, guid: 416d15cd169c5a0468b8346abad16527, type: 2}
   passingObstacleCoverColor: {r: 0.39999998, g: 0.914355, b: 1, a: 0.2509804}
   reviewRenderTexture: {fileID: 8400000, guid: 1ab235a6d8902f54ea948ab45e933fd3, type: 2}
-  activated: 1
+  activated: 0
   choosen: 0

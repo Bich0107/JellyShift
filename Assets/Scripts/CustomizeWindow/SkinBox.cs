@@ -31,7 +31,9 @@ public class SkinBox : MonoBehaviour
     public void SetSkin(PlayerSkinSO _skin)
     {
         skinSO = _skin;
-        // skinSO.SaveStatus();
+
+        // use in case unity's player pref got mess up
+        //skinSO.SaveStatus();
         skinSO.LoadStatus();
 
         // find the current choosen skin and store it as a static variable, make sure there can only be one

@@ -7,6 +7,12 @@ public class LifeHandler : MonoSingleton<LifeHandler>
     [SerializeField] LifeDisplayer lifeDisplayer;
     int currentLife;
 
+    void Start()
+    {
+        currentLife = SaveManager.Instance.currentSaveFile.Life;
+        lifeDisplayer.Display(currentLife);
+    }
+
     public void IncreaseLife(int _value = 1)
     {
         currentLife += _value;

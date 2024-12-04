@@ -42,6 +42,7 @@ public class PathGenerator : MonoBehaviour
     GameObject firstTurnPath, secondTurnPath;
     Quaternion pathRotation;
     PathDirection lastDirection = PathDirection.Forward;
+    bool lastPathHasObstacle = false;
 
     void Start()
     {
@@ -141,7 +142,7 @@ public class PathGenerator : MonoBehaviour
                 for (int i = 0; i < pathPerSegment; i++)
                 {
                     // path with hole chance
-                    if (Random.Range(0, 100) < specialPathChance && currentPathType != PathType.Trap)
+                    if (Random.Range(0, 100) < specialPathChance && currentPathType != PathType.Trap && !lastPathHasObstacle)
                     {
                         pathPrefab = specialPathPrefab;
                         lastPathType = currentPathType;
@@ -202,7 +203,9 @@ public class PathGenerator : MonoBehaviour
         if (pathScript.SpawnPosOffsets.Length > 0 && lastPathType == PathType.Normal && currentPathType != PathType.Trap)
         {
             spawner.SpawnObstacle(spawnPos, pathScript.SpawnPosOffsets, pathRotation);
+            lastPathHasObstacle = true;
         }
+        else lastPathHasObstacle = false;
 
         // spawn crystal randomly
         spawner.SpawnCrystal(spawnPos, pathScript.SpawnPosOffsets, pathRotation);
