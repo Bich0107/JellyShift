@@ -9,10 +9,18 @@ public class WatchAdButton : MonoBehaviour
     [SerializeField] int crystalPerWatch = 150;
 
 #if UNITY_STANDALONE
-    public void OnClick()
+    void Start()
     {
+        button.interactable = false;
     }
+
+    public void OnClick() {}
 #else
+    void Start()
+    {
+        button.interactable = true;
+    }
+
     public void OnClick()
     {
         if (InternetHelper.s_InternetAvailable)
